@@ -31,11 +31,11 @@ const services = (await getCollection('services'))
           <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <li>
-                <article class="card-cert" style="grid-template-columns: 1fr; padding: 28px; border-top-width: 4px;">
+                <article class="card-cert card-cert--single">
                   <p class="section-label">{service.data.eyebrow}</p>
                   <h3 class="card-cert-title">{service.data.title}</h3>
                   <p style="margin-top: 8px; color: var(--muted);">{service.data.description}</p>
-                  <footer style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
+                  <footer>
                     <a href={`/services/${service.data.slug}/`} class="btn btn-outline-navy" style="min-height: 44px; padding: 0 24px;">{ui.services.readMore}</a>
                   </footer>
                 </article>
