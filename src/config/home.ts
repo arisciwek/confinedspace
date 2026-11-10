@@ -18,7 +18,7 @@ export const home = {
     silabusLabel: 'Lihat Silabus',
     daftarLabel: 'Daftar Sekarang',
     image: {
-      src: '/images/hero-teknisi-k3-ruang-terbatas.webp',
+      src: '/images/hero-teknisi-k3-ruang-terbatas-optimized.webp',
       alt: 'Peserta pelatihan Teknisi K3 Ruang Terbatas PT Betracom Gemilang Nusa, angkatan 6–10 April 2026',
       width: 960,
       height: 1280,
@@ -48,7 +48,7 @@ export const home = {
       'Pelatihan Sesuai Regulasi',
     ],
     image: {
-      src: '/images/skp-pjk3-ruang-terbatas.webp',
+      src: '/images/skp-pjk3-ruang-terbatas-optimized.webp',
       alt: 'Surat Keterangan Penunjukan (SKP) PJK3 bidang Ruang Terbatas dari Kemnaker RI atas nama PT Betracom Gemilang Nusa',
       caption: 'SKP PJK3 Ruang Terbatas — Kemnaker RI',
       width: 1000,
@@ -66,7 +66,7 @@ export const home = {
     linkHref: '/articles/apa-itu-confined-space/',
     linkLabel: 'Baca panduan: Apa itu confined space?',
     image: {
-      src: '/images/tentang-pelatihan-teknisi-k3.webp',
+      src: '/images/tentang-pelatihan-teknisi-k3-optimized.webp',
       alt: 'Kegiatan pelatihan Teknisi K3 Ruang Terbatas Betracom, angkatan 20–24 Oktober 2025',
       width: 1199,
       height: 984,

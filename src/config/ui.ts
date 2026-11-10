@@ -64,8 +64,8 @@ export const ui = {
   meta: {
     defaultTitle: 'Sertifikasi Confined Space Kemnaker RI | Teknisi K3 Ruang Terbatas',
     defaultDescription: site.description,
-    defaultImage: '/images/og-default.webp',
-    articleImage: '/images/og-default.webp',
+    defaultImage: '/images/og-default-optimized.webp',
+    articleImage: '/images/og-default-optimized.webp',
     socialImageAlt: 'Peserta pelatihan Teknisi K3 Ruang Terbatas PT Betracom Gemilang Nusa',
     siteName: site.name,
   },

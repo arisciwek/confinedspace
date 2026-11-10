@@ -9,7 +9,7 @@ export const site = {
   phone: '6281298053891',
   phoneDisplay: '+62 812-9805-3891',
   email: 'betracomtraining@gmail.com',
-  logo: '/images/logo-betracom.png',
+  logo: '/images/logo-betracom-optimized.webp',
   venue: 'Betracom Arena Training Center',
   address: {
     street: 'Jl. Raya Cifor, Cilubang Tonggoh, RT 01 RW 10 (sebelah Perum BMG Cifor)',
