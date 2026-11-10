@@ -423,9 +423,9 @@ const homeJsonLd = JSON.stringify({
   <SiteFooter serviceTitle="Teknisi K3 Ruang Terbatas" />
 </BaseLayout>
 
-<script src="../scripts/schedule-status.ts"></script>
+<script defer src="../scripts/schedule-status.ts"></script>
 
-<script>
+<script is:inline>
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
