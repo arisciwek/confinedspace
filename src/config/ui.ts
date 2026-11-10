@@ -56,8 +56,7 @@ export const ui = {
     },
   },
   footer: {
-    tagline:
-      'Lembaga pelatihan dan sertifikasi K3 terakreditasi Kemnaker RI & BNSP, melayani perusahaan dan individu di seluruh Indonesia.',
+    tagline: 'Lembaga pelatihan dan sertifikasi K3 terakreditasi Kemnaker RI & BNSP, melayani perusahaan dan individu di seluruh Indonesia.',
     navTitle: 'Navigasi',
     contactTitle: 'Lokasi & Kontak',
     socialLabel: 'Media sosial',

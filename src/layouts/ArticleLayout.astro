@@ -199,5 +199,5 @@ const articleJsonLd = JSON.stringify({
         </div>
     </div>
   </section>
-    <SiteFooter serviceTitle={footerServiceTitle} group={footerServiceTitle ? undefined : (article.data.category === 'SLF' || article.data.category?.includes('SLF') ? 'slf' : article.data.category === 'PBG' ? 'pbg' : undefined)} />
+    <SiteFooter serviceTitle={footerServiceTitle ?? "Teknisi K3 Ruang Terbatas"} />
 </BaseLayout>
