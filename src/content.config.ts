@@ -318,6 +318,7 @@ const articles = defineCollection({
     }).optional(),
     blocks: z.array(contentBlocks).default([]),
   }),
+  render: true,
 });
 
 const pages = defineCollection({

@@ -1,9 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/shared/SiteHeader.astro';
 import SiteFooter from '../../components/shared/SiteFooter.astro';
 import BlockRenderer from '../../components/blocks/BlockRenderer.astro';
+import { ui } from '../../config/ui.ts';
+import { site } from '../../config/site.ts';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -13,6 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
+const { Content } = await render(article);
 ---
 <BaseLayout
   title={article.data.seoTitle ?? article.data.title}
@@ -57,9 +60,27 @@ const { article } = Astro.props;
 
     <div class="wrap section">
       <div class="prose" style="max-width: 760px; margin: 0 auto;">
+        <Content />
         {article.data.blocks.map((block) => <BlockRenderer block={block} />)}
       </div>
     </div>
+
+    <section class="cta-section section" aria-labelledby="article-cta-title">
+      <div class="container cta-box">
+        <p class="section-label">{ui.ctaBlock.eyebrow}</p>
+        <h2 id="article-cta-title">{ui.ctaBlock.heading}</h2>
+        <p>{ui.ctaBlock.text}</p>
+        <div class="cta-button">
+          <a href={`https://wa.me/${site.whatsapp}`} class="btn btn-gold" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg>
+            {ui.ctaBlock.defaultButton} <span class="sr-only">{ui.a11y.newTabSuffix}</span>
+          </a>
+          <a href="/services/pelatihan-teknisi-k3-ruang-terbatas/" class="btn btn-outline-navy">
+            Pelajari layanan <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
-  <SiteFooter />
+  <SiteFooter serviceTitle="Teknisi K3 Ruang Terbatas" />
 </BaseLayout>
