@@ -48,9 +48,10 @@ export const home = {
       'Pelatihan Sesuai Regulasi',
     ],
     image: {
-      src: '/images/skp-pjk3-ruang-terbatas-optimized.webp',
+      src: '/images/skp-pjk3-ruang-terbatas-bentracomp.webp',
+      originalSrc: '/images/skp-pjk3-ruang-terbatas-optimized.webp',
       alt: 'Surat Keterangan Penunjukan (SKP) PJK3 bidang Ruang Terbatas dari Kemnaker RI atas nama PT Betracom Gemilang Nusa',
-      caption: 'SKP PJK3 Ruang Terbatas — Kemnaker RI',
+      caption: 'SKP PJK3 Ruang Terbatas — Kemnaker RI (klik untuk ukuran asli)',
       width: 1000,
       height: 1647,
     },

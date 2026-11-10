@@ -192,13 +192,25 @@ const homeJsonLd = JSON.stringify({
           </div>
 
           <figure class="certificate-card legal-image">
-            <img
-              src={home.legal.image.src}
-              alt={home.legal.image.alt}
-              width={home.legal.image.width}
-              height={home.legal.image.height}
-              loading="lazy" decoding="async"
-            />
+            {home.legal.image.originalSrc && (
+              <a href={home.legal.image.originalSrc} target="_blank" rel="noopener noreferrer" aria-label="Buka ukuran asli">
+                <img
+                  src={home.legal.image.src}
+                  alt={home.legal.image.alt}
+                  width={home.legal.image.width}
+                  height={home.legal.image.height}
+                  loading="lazy" decoding="async"
+                />
+              </a>
+            )}{!home.legal.image.originalSrc && (
+              <img
+                src={home.legal.image.src}
+                alt={home.legal.image.alt}
+                width={home.legal.image.width}
+                height={home.legal.image.height}
+                loading="lazy" decoding="async"
+              />
+            )}
             <figcaption>{home.legal.image.caption}</figcaption>
           </figure>
         </div>
