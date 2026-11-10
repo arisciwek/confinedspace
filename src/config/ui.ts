@@ -26,7 +26,7 @@ export const ui = {
     items: {
       primary: [
         { label: 'Beranda', href: '/' },
-        { label: 'Pelatihan', href: '/services/pelatihan-teknisi-k3-ruang-terbatas/' },
+        { label: 'Pelatihan', href: '/services/' },
         { label: 'Artikel', href: '/articles/' },
         { label: 'Kontak', href: '/kontak/' },
       ],
@@ -42,7 +42,7 @@ export const ui = {
       ],
       footer: [
         { label: 'Sertifikasi Ruang Terbatas', href: '/' },
-        { label: 'Pelatihan Teknisi K3 Ruang Terbatas', href: '/services/pelatihan-teknisi-k3-ruang-terbatas/' },
+        { label: 'Pelatihan Teknisi K3 Ruang Terbatas', href: '/services/' },
         { label: 'Artikel: Apa Itu Confined Space?', href: '/articles/apa-itu-confined-space/' },
         { label: 'Betracom', href: 'https://betracom.co.id/' },
         { label: 'Ahli K3 Umum', href: 'https://k3umum.co.id/' },

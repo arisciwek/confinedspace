@@ -1,7 +1,7 @@
 import { site } from './site.ts';
 
-/** Path halaman layanan tunggal: Pelatihan Teknisi K3 Ruang Terbatas. */
-export const trainingServiceHref = '/services/pelatihan-teknisi-k3-ruang-terbatas/';
+/** Path halaman daftar layanan (3 layanan K3 Ruang Terbatas). */
+export const trainingServiceHref = '/services/';
 
 /** Ikon stroke 24x24 (dipakai lewat set:html pada kartu materi). */
 const strokeIcon = (paths: string) =>
