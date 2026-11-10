@@ -359,4 +359,27 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { articles, pages, services };
+const schedule = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/schedule' }),
+  schema: z.object({
+    ...sharedIdentity,
+    type: z.literal('schedule'),
+    slug: z.string().min(1),
+    batchNo: z.string().min(1),
+    dateLabel: z.string().min(1),
+    startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'startDate harus YYYY-MM-DD'),
+    endDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'endDate harus YYYY-MM-DD'),
+    mode: z.string().min(1).default('Blended Training'),
+    attendanceMode: z.enum(['offline', 'online', 'mixed']).default('offline'),
+    venue: z.string().min(1).optional(),
+    virtualUrl: z.url().optional(),
+    pubDate: utcDate,
+    updatedDate: utcDate,
+    seoTitle: z.string().optional(),
+    keywords: z.array(z.string()).default([]),
+    canonical: z.string().optional(),
+    noindex: z.boolean().default(false),
+  }),
+});
+
+export const collections = { articles, pages, services, schedule };

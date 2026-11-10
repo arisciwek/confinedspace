@@ -1,17 +1,28 @@
 import { getCollection } from 'astro:content';
 
 export async function validateContentRelations(): Promise<void> {
-  const [articles, pages, services] = await Promise.all([
+  const [articles, pages, services, schedules] = await Promise.all([
     getCollection('articles'),
     getCollection('pages'),
     getCollection('services'),
+    getCollection('schedule'),
   ]);
 
   assertUnique(articles, 'article');
   assertUnique(pages, 'page');
   assertUnique(services, 'service');
+  assertUnique(schedules, 'schedule');
 
-  assertUniqueUlids([...articles, ...pages, ...services]);
+  assertUniqueUlids([...articles, ...pages, ...services, ...schedules]);
+
+  for (const batch of schedules) {
+    if (batch.data.startDate > batch.data.endDate) {
+      throw new Error(`Schedule "${batch.data.slug}" has startDate after endDate.`);
+    }
+    if (batch.data.attendanceMode !== 'offline' && !batch.data.virtualUrl) {
+      throw new Error(`Schedule "${batch.data.slug}" with attendanceMode "${batch.data.attendanceMode}" requires virtualUrl.`);
+    }
+  }
 
   const targets = { article: articles, page: pages, service: services };
 

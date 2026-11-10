@@ -1,0 +1,247 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/shared/SiteHeader.astro';
+import SiteFooter from '../../components/shared/SiteFooter.astro';
+import { ui } from '../../config/ui.ts';
+import { site } from '../../config/site.ts';
+import { home, trainingServiceHref } from '../../config/home.ts';
+
+export async function getStaticPaths() {
+  const batches = await getCollection('schedule');
+  return batches
+    .filter((batch) => !batch.data.draft)
+    .map((batch) => ({ params: { slug: batch.data.slug }, props: { batch } }));
+}
+
+const { batch } = Astro.props;
+const data = batch.data;
+
+const todayStart = new Date();
+todayStart.setHours(0, 0, 0, 0);
+const isOpen = new Date(`${data.endDate}T23:59:59`).getTime() >= todayStart.getTime();
+
+const origin = Astro.site ? Astro.site.toString().replace(/\/$/, '') : Astro.url.origin;
+const canonical = `/jadwal/${data.slug}/`;
+const pageUrl = new URL(canonical, origin).toString();
+const venue = data.venue ?? site.venue;
+
+const waMessage = ui.jadwal.waMessage.replaceAll('{dateLabel}', data.dateLabel);
+const waHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(waMessage)}`;
+
+const others = (await getCollection('schedule'))
+  .filter((b) => !b.data.draft && b.data.slug !== data.slug)
+  .sort((a, b) => a.data.startDate.localeCompare(b.data.startDate))
+  .map((b) => ({
+    slug: b.data.slug,
+    batchNo: b.data.batchNo,
+    dateLabel: b.data.dateLabel,
+    mode: b.data.mode,
+    endDate: b.data.endDate,
+    open: new Date(`${b.data.endDate}T23:59:59`).getTime() >= todayStart.getTime(),
+  }));
+
+const attendanceModes: Record<string, string> = {
+  offline: 'https://schema.org/OfflineEventAttendanceMode',
+  online: 'https://schema.org/OnlineEventAttendanceMode',
+  mixed: 'https://schema.org/MixedEventAttendanceMode',
+};
+
+const locations: Array<Record<string, unknown>> = [
+  {
+    '@type': 'Place',
+    name: venue,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: `${site.address.street}, Kelurahan ${site.address.village}`,
+      addressLocality: site.address.city,
+      addressRegion: site.address.province,
+      postalCode: site.address.postalCode,
+      addressCountry: site.address.countryCode,
+    },
+  },
+];
+if (data.virtualUrl) locations.push({ '@type': 'VirtualLocation', url: data.virtualUrl });
+
+// Tiap angkatan adalah CourseInstance (subtype Event) dengan halaman sendiri.
+const courseInstanceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CourseInstance',
+  '@id': `${pageUrl}#courseinstance`,
+  name: data.title,
+  description: data.description,
+  url: pageUrl,
+  startDate: data.startDate,
+  endDate: data.endDate,
+  courseMode: data.mode,
+  eventAttendanceMode: attendanceModes[data.attendanceMode],
+  ...(isOpen ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
+  location: locations,
+  organizer: { '@id': `${origin}/#organization` },
+  offers: {
+    '@type': 'Offer',
+    category: 'Paid',
+    price: String(home.pricing.value),
+    priceCurrency: home.pricing.currencyCode,
+    availability: isOpen ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
+    url: pageUrl,
+  },
+  inLanguage: 'id',
+  isAccessibleForFree: false,
+}).replace(/</g, '\\u003c');
+---
+<BaseLayout
+  title={data.seoTitle ?? data.title}
+  description={data.description}
+  socialImage={data.socialImage}
+  canonical={data.canonical ?? canonical}
+  noindex={data.noindex}
+  pubDate={data.pubDate}
+  updatedDate={data.updatedDate}
+  mainEntityId={`${pageUrl}#courseinstance`}
+>
+  <script type="application/ld+json" set:html={courseInstanceJsonLd} slot="head" />
+
+  <SiteHeader />
+  <main id="main-content">
+    <section class="page-header section">
+      <div class="wrap">
+        <p class="section-label">{ui.jadwal.eyebrow} · {ui.jadwal.batchPrefix} {data.batchNo}</p>
+        <h1>{data.title}</h1>
+        <p>{data.description}</p>
+        <p style="margin-top: 18px;">
+          <span class={`status ${isOpen ? 'is-open' : 'is-closed'}`}>{isOpen ? ui.jadwal.statusOpen : ui.jadwal.statusClosed}</span>
+        </p>
+        <a class="text-link" href={trainingServiceHref}>
+          {ui.jadwal.programLink} <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--light);" aria-label={ui.jadwal.infoHeading}>
+      <div class="wrap">
+        <div class="card-cert" style="grid-template-columns: 1fr; padding: 40px; border-top-width: 4px;">
+          <h2 class="card-cert-title">{ui.jadwal.infoHeading}</h2>
+          <dl class="detail-list">
+            <div><dt>{ui.jadwal.dateLabel}</dt><dd>{data.dateLabel}</dd></div>
+            <div><dt>{ui.jadwal.modeLabel}</dt><dd>{data.mode}</dd></div>
+            <div><dt>{ui.jadwal.venueLabel}</dt><dd>{venue}</dd></div>
+            <div><dt>{ui.jadwal.priceLabel}</dt><dd>{home.pricing.currency} {home.pricing.amount} {home.pricing.unit}</dd></div>
+            <div><dt>{ui.jadwal.certificateLabel}</dt><dd>{ui.jadwal.certificateValue}</dd></div>
+          </dl>
+          <div class="cta-button" style="margin-top: 28px;">
+            <a href={waHref} class="btn btn-gold" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="#i-wa"/></svg>
+              {ui.jadwal.registerButton} <span class="sr-only">{ui.a11y.newTabSuffix}</span>
+            </a>
+            <a href={site.documents.silabus} class="btn btn-outline-navy" target="_blank" rel="noopener">
+              {home.hero.silabusLabel} <span class="sr-only">{ui.a11y.pdfSuffix}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-section section" aria-labelledby="price-title">
+      <div class="wrap">
+        <header class="section-title center">
+          <p class="section-label">{home.pricing.eyebrow}</p>
+          <h2 id="price-title">{home.pricing.heading}</h2>
+          <p>{home.pricing.description}</p>
+        </header>
+
+        <div class="pricing-card">
+          <div class="price-head">
+            <p class="price-from">{home.pricing.fromLabel}</p>
+            <p class="price-amount"><span class="currency">{home.pricing.currency}</span>{home.pricing.amount}</p>
+            <p class="price-unit">{home.pricing.unit}</p>
+          </div>
+
+          <ul class="price-list" role="list">
+            {home.pricing.includes.map((item) => (
+              <li><span class="check-icon" aria-hidden="true"><svg><use href="#i-check"/></svg></span>{item}</li>
+            ))}
+          </ul>
+
+          <div class="price-button">
+            <a href={site.documents.formulir} class="btn btn-navy" download>
+              <svg aria-hidden="true"><use href="#i-file"/></svg>
+              {home.pricing.formulirLabel} <span class="sr-only">{ui.a11y.docSuffix}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="requirement-section section" id="persyaratan" aria-labelledby="req-title">
+      <div class="wrap">
+        <header class="section-title">
+          <p class="section-label">{home.requirement.eyebrow}</p>
+          <h2 id="req-title">{home.requirement.heading}</h2>
+        </header>
+
+        <ul class="requirement-grid" role="list">
+          {home.requirement.items.map((item) => (
+            <li class="requirement-item"><span class="check-icon" aria-hidden="true"><svg><use href="#i-check"/></svg></span>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="schedule-section section" aria-labelledby="other-schedule-title">
+      <div class="wrap">
+        <header class="section-title">
+          <p class="section-label">{ui.jadwal.eyebrow}</p>
+          <h2 id="other-schedule-title">{ui.jadwal.otherHeading}</h2>
+        </header>
+
+        <div class="table-wrap">
+          <table class="schedule-table">
+            <caption class="sr-only">{ui.jadwal.tableCaption}</caption>
+            <thead>
+              <tr>
+                {ui.jadwal.tableHeaders.map((header) => (
+                  <th scope="col">{header}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {others.map((row) => (
+                <tr data-end={row.endDate}>
+                  <td data-label="No">{row.batchNo}</td>
+                  <td data-label="Tanggal"><a href={`/jadwal/${row.slug}/`}>{row.dateLabel}</a></td>
+                  <td data-label="Metode">{row.mode}</td>
+                  <td data-label="Status"><span class={`status ${row.open ? 'is-open' : 'is-closed'}`}>{row.open ? ui.jadwal.statusOpen : ui.jadwal.statusClosed}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <a class="text-link" href="/#jadwal">
+          {ui.jadwal.allScheduleLink} <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="cta-section section" aria-labelledby="jadwal-cta-title">
+      <div class="container cta-box">
+        <p class="section-label">{ui.ctaBlock.eyebrow}</p>
+        <h2 id="jadwal-cta-title">{ui.ctaBlock.heading}</h2>
+        <p>{ui.ctaBlock.text}</p>
+        <div class="cta-button">
+          <a href={waHref} class="btn btn-gold" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg>
+            {ui.jadwal.registerButton} <span class="sr-only">{ui.a11y.newTabSuffix}</span>
+          </a>
+          <a href={site.documents.formulir} class="btn btn-outline-light" download>
+            {home.cta.secondaryLabel} <span class="sr-only">{ui.a11y.docSuffix}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<script src="../../scripts/schedule-status.ts"></script>

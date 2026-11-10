@@ -156,18 +156,6 @@ export const home = {
     eyebrow: 'Jadwal',
     heading: 'Jadwal Pelatihan 2026',
     tableCaption: 'Jadwal pelatihan Teknisi K3 Ruang Terbatas tahun 2026 beserta status pendaftaran',
-    headers: ['No', 'Tanggal', 'Metode', 'Status'],
-    rows: [
-      { no: '14', tanggal: '10 – 14 Agustus 2026', metode: 'Blended Training', start: '2026-08-10', end: '2026-08-14' },
-      { no: '15', tanggal: '24 – 28 & 31 Agustus 2026', metode: 'Blended Training', start: '2026-08-24', end: '2026-08-31' },
-      { no: '16', tanggal: '07 – 11 September 2026', metode: 'Blended Training', start: '2026-09-07', end: '2026-09-11' },
-      { no: '17', tanggal: '21 – 25 September 2026', metode: 'Blended Training', start: '2026-09-21', end: '2026-09-25' },
-      { no: '18', tanggal: '05 – 10 Oktober 2026', metode: 'Blended Training', start: '2026-10-05', end: '2026-10-10' },
-      { no: '19', tanggal: '19 – 23 Oktober 2026', metode: 'Blended Training', start: '2026-10-19', end: '2026-10-23' },
-      { no: '20', tanggal: '09 – 13 November 2026', metode: 'Blended Training', start: '2026-11-09', end: '2026-11-13' },
-      { no: '21', tanggal: '23 – 27 November 2026', metode: 'Blended Training', start: '2026-11-23', end: '2026-11-27' },
-      { no: '22', tanggal: '07 – 11 Desember 2026', metode: 'Blended Training', start: '2026-12-07', end: '2026-12-11' },
-    ],
     note: 'Jadwal dapat berubah. Untuk <em>In House Training</em> atau jadwal khusus, hubungi tim kami via WhatsApp.',
   },
 

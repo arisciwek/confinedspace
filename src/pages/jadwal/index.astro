@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/shared/SiteHeader.astro';
+import SiteFooter from '../../components/shared/SiteFooter.astro';
+import { ui } from '../../config/ui.ts';
+import { site } from '../../config/site.ts';
+import { home } from '../../config/home.ts';
+
+const batches = (await getCollection('schedule'))
+  .filter((batch) => !batch.data.draft)
+  .sort((a, b) => a.data.startDate.localeCompare(b.data.startDate));
+
+const todayStart = new Date();
+todayStart.setHours(0, 0, 0, 0);
+const rows = batches.map((batch) => ({
+  batchNo: batch.data.batchNo,
+  dateLabel: batch.data.dateLabel,
+  mode: batch.data.mode,
+  endDate: batch.data.endDate,
+  href: `/jadwal/${batch.data.slug}/`,
+  open: new Date(`${batch.data.endDate}T23:59:59`).getTime() >= todayStart.getTime(),
+}));
+---
+<BaseLayout
+  title={ui.jadwal.indexTitle}
+  description={ui.jadwal.indexSeoDescription}
+  canonical="/jadwal/"
+>
+  <SiteHeader />
+  <main id="main-content">
+    <section class="page-header section">
+      <div class="wrap">
+        <p class="section-label">{ui.jadwal.eyebrow}</p>
+        <h1>{ui.jadwal.indexTitle}</h1>
+        <p>{ui.jadwal.indexLead}</p>
+      </div>
+    </section>
+
+    <section class="schedule-section section" aria-label={ui.jadwal.indexTitle}>
+      <div class="wrap">
+        <div class="table-wrap">
+          <table class="schedule-table">
+            <caption class="sr-only">{ui.jadwal.tableCaption}</caption>
+            <thead>
+              <tr>
+                {ui.jadwal.tableHeaders.map((header) => (
+                  <th scope="col">{header}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr data-end={row.endDate}>
+                  <td data-label="No">{row.batchNo}</td>
+                  <td data-label="Tanggal"><a href={row.href}>{row.dateLabel}</a></td>
+                  <td data-label="Metode">{row.mode}</td>
+                  <td data-label="Status"><span class={`status ${row.open ? 'is-open' : 'is-closed'}`}>{row.open ? ui.jadwal.statusOpen : ui.jadwal.statusClosed}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p class="schedule-note" set:html={home.schedule.note} />
+      </div>
+    </section>
+
+    <section class="cta-section section" aria-labelledby="jadwal-cta-title">
+      <div class="container cta-box">
+        <p class="section-label">{ui.ctaBlock.eyebrow}</p>
+        <h2 id="jadwal-cta-title">{ui.ctaBlock.heading}</h2>
+        <p>{ui.ctaBlock.text}</p>
+        <div class="cta-button">
+          <a href={`https://wa.me/${site.whatsapp}`} class="btn btn-gold" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg>
+            {ui.ctaBlock.defaultButton} <span class="sr-only">{ui.a11y.newTabSuffix}</span>
+          </a>
+          <a href={site.documents.formulir} class="btn btn-outline-light" download>
+            {home.cta.secondaryLabel} <span class="sr-only">{ui.a11y.docSuffix}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<script src="../../scripts/schedule-status.ts"></script>

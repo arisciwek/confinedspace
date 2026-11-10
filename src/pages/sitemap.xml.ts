@@ -3,11 +3,21 @@ import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async ({ site }) => {
   const base = (site ?? new URL(import.meta.env.SITE_URL ?? 'http://confinedspace.lan')).toString().replace(/\/$/, '');
-  const [articles, services, pages] = await Promise.all([
+  const [articles, services, pages, schedules] = await Promise.all([
     getCollection('articles'),
     getCollection('services'),
     getCollection('pages'),
+    getCollection('schedule'),
   ]);
+
+  // Halaman hub /jadwal/ memakai lastmod terbaru dari angkatan yang aktif.
+  const jadwalLastmod = schedules
+    .filter((item) => !item.data.draft && !item.data.noindex)
+    .reduce<Date | null>((latest, item) => {
+      const updated = item.data.updatedDate ?? item.data.pubDate;
+      return !latest || updated > latest ? updated : latest;
+    }, null);
+
   const urls = [
     ...pages.filter((page) => !page.data.draft && !page.data.noindex && ['home', 'articles', 'services', 'kontak'].includes(page.data.slug)).map((page) => ({
       // Slug "home" dirender oleh index.astro di root, bukan [slug].astro.
@@ -20,6 +30,11 @@ export const GET: APIRoute = async ({ site }) => {
     })),
     ...services.filter((item) => !item.data.draft && item.data.status === 'active').map((item) => ({
       loc: `${base}/services/${item.data.slug}/`,
+      lastmod: item.data.updatedDate ?? item.data.pubDate,
+    })),
+    ...(jadwalLastmod ? [{ loc: `${base}/jadwal/`, lastmod: jadwalLastmod }] : []),
+    ...schedules.filter((item) => !item.data.draft && !item.data.noindex).map((item) => ({
+      loc: `${base}/jadwal/${item.data.slug}/`,
       lastmod: item.data.updatedDate ?? item.data.pubDate,
     })),
   ];

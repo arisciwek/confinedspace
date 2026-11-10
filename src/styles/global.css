@@ -340,10 +340,27 @@ b, strong { font-weight: 700; }
 .schedule-table tbody tr { border-top: 1px solid #eee; transition: background-color .3s; }
 .schedule-table tbody tr:hover { background: #fafafa; }
 .schedule-table td:first-child { width: 80px; font-weight: 700; color: var(--navy); }
+.schedule-table td a {
+    color: var(--navy); font-weight: 700;
+    text-decoration: underline; text-decoration-color: rgba(199,163,93,.6);
+    text-underline-offset: 3px;
+    transition: color var(--transition);
+}
+.schedule-table td a:hover { color: var(--gold); text-decoration-color: var(--gold); }
 .status { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 50px; font-size: .85rem; font-weight: 700; }
 .status.is-open { background: rgba(76,175,80,.15); color: #2e7d32; }
 .status.is-closed { background: rgba(244,67,54,.1); color: #c62828; }
 .schedule-note { margin-top: 20px; font-size: .9rem; color: var(--muted); }
+
+/* Detail angkatan (halaman jadwal) */
+.detail-list { margin-top: 20px; }
+.detail-list > div { display: grid; grid-template-columns: 200px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.detail-list dt { font-family: var(--font-head); font-weight: 700; color: var(--navy); }
+.detail-list dd { color: var(--text); }
+.detail-list > div:last-child { border-bottom: 0; }
+@media (max-width: 560px) {
+    .detail-list > div { grid-template-columns: 1fr; gap: 4px; }
+}
 
 /*==========================
   16. GALERI
