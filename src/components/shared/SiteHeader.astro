@@ -1,0 +1,96 @@
+---
+import { ui } from '../../config/ui.ts';
+import { site } from '../../config/site.ts';
+
+export interface Props {
+  variant?: 'default' | 'home';
+  ariaLabel?: string;
+}
+
+const { variant = 'default', ariaLabel = ui.nav.mainAriaLabel } = Astro.props;
+const navItems = variant === 'home' ? ui.nav.items.home : ui.nav.items.primary;
+const cta = variant === 'home' ? ui.nav.cta.home : ui.nav.cta.default;
+const brandAria = `Beranda ${site.name}`;
+---
+<header class="site-header" aria-label={ariaLabel}>
+  <div class="header-inner">
+    <a href="/" class="brand no-underline" aria-label={brandAria}>
+      {site.logo && (
+        <img
+          class="brand-logo"
+          src={site.logo}
+          alt={ui.brand.logoAlt}
+          width="48" height="48"
+          loading="eager"
+          decoding="async"
+        />
+      )}
+      <div class="brand-word">
+        <span class="brand-word-main">{ui.brand.wordMain}</span>
+        <span class="brand-word-sub">{ui.brand.wordSub}</span>
+      </div>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label={ariaLabel}>
+      {navItems.map((item) => (
+        <a href={item.href} class="no-underline">{item.label}</a>
+      ))}
+    </nav>
+
+    <a href={cta.href} class="header-cta no-underline" {...(cta.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+      {cta.label}
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label={ui.dialog.menuLabel} aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+</header>
+
+<script>
+  // Menu mobile aksesibel: aria-expanded, Esc untuk menutup, klik tautan menutup.
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const nav = document.getElementById('main-nav');
+
+  const setNav = (open: boolean) => {
+    document.body.classList.toggle('nav-open', open);
+    if (!toggle) return;
+    toggle.setAttribute('aria-expanded', String(open));
+  };
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
+
+    nav.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a')) setNav(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
+        setNav(false);
+        toggle.focus();
+      }
+    });
+
+    window.matchMedia('(min-width: 992px)').addEventListener('change', (event) => {
+      if (event.matches) setNav(false);
+    });
+  }
+
+  // Efek scroll: header + progress bar (satu listener pasif).
+  const header = document.querySelector('.site-header');
+  const progress = document.querySelector<HTMLElement>('.scroll-progress');
+
+  const onScroll = () => {
+    const y = window.scrollY;
+    header?.classList.toggle('is-scrolled', y > 20);
+    if (progress) {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = `scaleX(${h > 0 ? Math.min(y / h, 1) : 0})`;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

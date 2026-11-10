@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/shared/SiteHeader.astro';
+import SiteFooter from '../../components/shared/SiteFooter.astro';
+import BlockRenderer from '../../components/blocks/BlockRenderer.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles
+    .filter((a) => !a.data.draft)
+    .map((article) => ({ params: { slug: article.data.slug }, props: { article } }));
+}
+
+const { article } = Astro.props;
+---
+<BaseLayout
+  title={article.data.seoTitle ?? article.data.title}
+  description={article.data.description}
+  socialImage={article.data.socialImage}
+  canonical={article.data.canonical}
+  noindex={article.data.noindex}
+  pubDate={article.data.pubDate}
+  updatedDate={article.data.updatedDate}
+>
+  <SiteHeader />
+  <main id="main-content">
+    <article class="article-hero section" aria-labelledby="article-title">
+      <div class="wrap">
+        <header>
+          <p class="section-label">{article.data.category ?? 'Artikel'}</p>
+          <h1 id="article-title">{article.data.title}</h1>
+          <div class="article-meta" style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 16px; font-size: .9rem; color: var(--muted);">
+            <time datetime={article.data.pubDate.toISOString()}>{article.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+            {article.data.updatedDate && article.data.updatedDate > article.data.pubDate && (
+              <> · Diperbarui: <time datetime={article.data.updatedDate.toISOString()}>{article.data.updatedDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</time></>
+            )}
+            {article.data.author && (
+              <> · Penulis: {typeof article.data.author === 'string' ? article.data.author : article.data.author.name}</>
+            )}
+          </div>
+          {article.data.tags && article.data.tags.length > 0 && (
+            <div class="article-tags" style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
+              {article.data.tags.map((tag) => (
+                <span style="padding: 4px 12px; background: var(--light); border-radius: 50px; font-size: .8rem; color: var(--muted);">{tag}</span>
+              ))}
+            </div>
+          )}
+        </header>
+        {article.data.image && (
+          <figure style="margin-top: 32px;">
+            <img src={article.data.image} alt={article.data.imageAlt ?? article.data.title} loading="eager" decoding="async" style="width: 100%; border-radius: var(--radius-lg);" />
+          </figure>
+        )}
+      </div>
+    </article>
+
+    <div class="wrap section">
+      <div class="prose" style="max-width: 760px; margin: 0 auto;">
+        {article.data.blocks.map((block) => <BlockRenderer block={block} />)}
+      </div>
+    </div>
+  </main>
+  <SiteFooter />
+</BaseLayout>

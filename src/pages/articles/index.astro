@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/shared/SiteHeader.astro';
+import SiteFooter from '../../components/shared/SiteFooter.astro';
+import { ui } from '../../config/ui.ts';
+
+const articles = (await getCollection('articles'))
+  .filter((a) => !a.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+<BaseLayout
+  title={ui.article.indexSeoTitle}
+  description={ui.article.indexSeoDescription}
+  canonical="/articles/"
+>
+  <SiteHeader />
+  <main id="main-content">
+    <section class="page-header section">
+      <div class="wrap">
+        <p class="section-label">{ui.article.latestEyebrow}</p>
+        <h1>{ui.article.indexTitle}</h1>
+        <p>{ui.article.indexLead}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        {articles.length === 0 ? (
+          <p class="text-center text-slate-500 py-12">{ui.article.emptyList}</p>
+        ) : (
+          <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {articles.map((article) => (
+              <li>
+                <article class="card-cert" style="grid-template-columns: 1fr; padding: 24px; border-top-width: 3px;">
+                  <div>
+                    <h3 class="card-cert-title">{article.data.title}</h3>
+                    <p style="font-size: .95rem; color: var(--muted);">{article.data.description}</p>
+                  </div>
+                  <footer style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: .875rem; color: var(--muted);">{article.data.pubDate.toLocaleDateString(ui.locale, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                    <a href={`/articles/${article.data.slug}/`} class="btn btn-outline-navy" style="min-height: 40px; padding: 0 20px; font-size: .9rem;">{ui.article.readMoreShort}</a>
+                  </footer>
+                </article>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

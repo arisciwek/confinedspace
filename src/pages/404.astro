@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/shared/SiteHeader.astro';
+import SiteFooter from '../components/shared/SiteFooter.astro';
+import { ui } from '../config/ui.ts';
+---
+<BaseLayout
+  title={`404 — ${ui.meta.defaultTitle}`}
+  description="Halaman tidak ditemukan."
+  noindex={true}
+>
+  <SiteHeader />
+  <main id="main-content">
+    <section class="section" style="min-height: 60vh; display: flex; align-items: center; text-align: center;">
+      <div class="wrap">
+        <h1 style="font-size: clamp(6rem, 15vw, 12rem); font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 24px;">404</h1>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--navy); margin-bottom: 16px;">Halaman Tidak Ditemukan</h2>
+        <p style="color: var(--muted); max-width: 480px; margin: 0 auto 32px;">Maaf, halaman yang Anda cari tidak ada atau telah dipindahkan.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="/" class="btn btn-gold">Kembali ke Beranda</a>
+          <a href="/articles/" class="btn btn-outline-navy">Baca Artikel</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

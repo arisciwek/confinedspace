@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/shared/SiteHeader.astro';
+import SiteFooter from '../components/shared/SiteFooter.astro';
+
+export async function getStaticPaths() {
+  const reserved = new Set(['home', 'articles', 'services', 'kontak', '404']);
+  const pages = await getCollection('pages');
+  return pages
+    .filter((p) => !p.data.draft && !reserved.has(p.data.slug))
+    .map((page) => ({ params: { slug: page.data.slug }, props: { page } }));
+}
+
+const { page } = Astro.props;
+---
+<BaseLayout
+  title={page.data.seoTitle ?? page.data.title}
+  description={page.data.description}
+  socialImage={page.data.socialImage}
+  canonical={page.data.canonical}
+  noindex={page.data.noindex}
+  pubDate={page.data.pubDate}
+  updatedDate={page.data.updatedDate}
+>
+  <SiteHeader />
+  <main id="main-content">
+    <article>
+      <header class="page-header section">
+        <div class="wrap">
+          <h1>{page.data.title}</h1>
+          <p>{page.data.description}</p>
+        </div>
+      </header>
+      <div class="wrap section">
+        <div class="prose">
+          <slot />
+        </div>
+      </div>
+    </article>
+  </main>
+  <SiteFooter />
+</BaseLayout>

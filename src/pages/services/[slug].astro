@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/shared/SiteHeader.astro';
+import SiteFooter from '../../components/shared/SiteFooter.astro';
+import BlockRenderer from '../../components/blocks/BlockRenderer.astro';
+import { ui } from '../../config/ui.ts';
+import { site } from '../../config/site.ts';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services
+    .filter((s) => !s.data.draft && s.data.status === 'active')
+    .map((service) => ({ params: { slug: service.data.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+---
+<BaseLayout
+  title={service.data.seoTitle ?? service.data.title}
+  description={service.data.description}
+  socialImage={service.data.socialImage}
+  canonical={service.data.canonical}
+  noindex={service.data.noindex}
+  pubDate={service.data.pubDate}
+  updatedDate={service.data.updatedDate}
+>
+  <SiteHeader />
+  <main id="main-content">
+    <article class="service-hero section" aria-labelledby="service-title">
+      <div class="wrap">
+        <header>
+          <p class="section-label">{service.data.eyebrow ?? ui.services.defaultEyebrow}</p>
+          <h1 id="service-title">{service.data.title}</h1>
+          <p style="margin-top: 16px; color: var(--muted); max-width: 760px;">{service.data.description}</p>
+        </header>
+      </div>
+    </article>
+
+    <div class="wrap section">
+      <div class="prose" style="max-width: 760px; margin: 0 auto;">
+        {service.data.blocks.map((block) => <BlockRenderer block={block} />)}
+      </div>
+    </div>
+
+    <section class="cta-section section" aria-labelledby="service-cta-title">
+      <div class="container cta-box">
+        <p class="section-label">{ui.ctaBlock.eyebrow}</p>
+        <h2 id="service-cta-title">{ui.ctaBlock.heading}</h2>
+        <p>{ui.ctaBlock.text}</p>
+        <div class="cta-button">
+          <a href={`https://wa.me/${site.whatsapp}`} class="btn btn-gold" target="_blank" rel="noopener noreferrer">
+            {ui.ctaBlock.defaultButton} <span class="sr-only">{ui.a11y.newTabSuffix}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

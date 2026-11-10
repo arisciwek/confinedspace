@@ -1,0 +1,75 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/shared/SiteHeader.astro';
+import SiteFooter from '../components/shared/SiteFooter.astro';
+import { site } from '../config/site.ts';
+import { ui } from '../config/ui.ts';
+
+const contact = await getEntry('pages', 'kontak');
+if (!contact) throw new Error('Missing "kontak" page content entry.');
+if (contact.data.draft) throw new Error('Page "kontak" is marked draft.');
+---
+<BaseLayout
+  title={contact.data.seoTitle ?? contact.data.title}
+  description={contact.data.description}
+  socialImage={contact.data.socialImage}
+  canonical={contact.data.canonical}
+  noindex={contact.data.noindex}
+  pubDate={contact.data.pubDate}
+  updatedDate={contact.data.updatedDate}
+>
+  <SiteHeader />
+  <main id="main-content">
+    <section class="page-header section">
+      <div class="wrap">
+        <h1>{contact.data.title}</h1>
+        <p>{contact.data.description}</p>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--light);" aria-label={ui.contact.channelsHeading}>
+      <div class="wrap">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+          <div class="card-cert" style="grid-template-columns: 1fr; padding: 32px; border-top-width: 4px;">
+            <h3 class="card-cert-title">{ui.contact.whatsappLabel}</h3>
+            <p style="margin-top: 8px; color: var(--muted);">{ui.contact.whatsappNote}</p>
+            <a href={`https://wa.me/${site.whatsapp}`} class="btn btn-gold" style="margin-top: 20px;" target="_blank" rel="noopener noreferrer">
+              {ui.contact.whatsappButton} <span class="sr-only">{ui.a11y.newTabSuffix}</span>
+            </a>
+          </div>
+
+          <div class="card-cert" style="grid-template-columns: 1fr; padding: 32px; border-top-width: 4px;">
+            <h3 class="card-cert-title">{ui.contact.phoneLabel}</h3>
+            <p style="margin-top: 8px; color: var(--muted);">{ui.contact.phoneNote}</p>
+            <a href={`tel:+${site.phone}`} class="btn btn-navy" style="margin-top: 20px;">
+              {site.phoneDisplay}
+            </a>
+          </div>
+
+          <div class="card-cert" style="grid-template-columns: 1fr; padding: 32px; border-top-width: 4px;">
+            <h3 class="card-cert-title">{ui.contact.emailLabel}</h3>
+            <p style="margin-top: 8px; color: var(--muted);">{ui.contact.emailNote}</p>
+            <a href={`mailto:${site.email}`} class="btn btn-outline-navy" style="margin-top: 20px;">
+              {site.email}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label={ui.contact.addressHeading}>
+      <div class="wrap">
+        <div class="card-cert" style="grid-template-columns: 1fr; padding: 40px; border-top-width: 4px; max-width: 760px; margin: 0 auto;">
+          <h3 class="card-cert-title">{ui.contact.addressHeading}</h3>
+          <p style="margin-top: 8px; color: var(--muted);">{ui.contact.addressNote}</p>
+          <address style="margin-top: 20px; font-style: normal; color: var(--text);">
+            <strong>{site.venue}</strong><br>
+            {site.address.full}
+          </address>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
