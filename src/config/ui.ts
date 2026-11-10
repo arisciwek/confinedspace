@@ -135,6 +135,7 @@ export const ui = {
     listingTitle: 'Pelatihan & Sertifikasi K3',
     listingDescription: 'Program pelatihan dan sertifikasi resmi Kemnaker RI yang diselenggarakan PT Betracom Gemilang Nusa.',
     listingIntro: 'Pilih program pelatihan sesuai kebutuhan perusahaan dan tenaga kerja Anda.',
+    otherProgramsHeading: 'Program K3 Ruang Terbatas Lainnya',
   },
   jadwal: {
     eyebrow: 'Jadwal Pelatihan 2026',
@@ -161,8 +162,8 @@ export const ui = {
   },
   ctaBlock: {
     eyebrow: 'Daftar Sekarang',
-    heading: 'Siap Mengikuti Pelatihan Teknisi K3 Ruang Terbatas?',
-    text: `Hubungi tim ${site.name} untuk jadwal terbaru, penawaran harga, serta informasi lengkap mengenai sertifikasi Teknisi K3 Ruang Terbatas Kemnaker RI.`,
+    heading: 'Siap Mengikuti Program Ini?',
+    text: `Hubungi tim ${site.name} untuk konsultasi jadwal, penawaran, dan informasi lengkap mengenai program pelatihan ini.`,
     defaultButton: 'Konsultasi via WhatsApp',
     whatsappMissing: 'Kanal WhatsApp belum dikonfigurasi. Pastikan nomor kontak resmi diatur sebelum blok CTA ini dipublikasikan.',
   },

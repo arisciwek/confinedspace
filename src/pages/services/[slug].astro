@@ -15,16 +15,52 @@ export async function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+
+const origin = Astro.site ? Astro.site.toString().replace(/\/$/, '') : Astro.url.origin;
+const canonicalPath = service.data.canonical ?? `/services/${service.data.slug}/`;
+const serviceUrl = new URL(canonicalPath, origin).toString();
+
+// FAQPage JSON-LD dirakit dari block faq pada konten (pola yang sama dengan ArticleLayout).
+const faqBlock = service.data.blocks.find((block) => block.component === 'faq');
+const faqJsonLd = faqBlock && 'items' in faqBlock ? {
+  '@type': 'FAQPage',
+  '@id': `${serviceUrl}#faq`,
+  inLanguage: 'id-ID',
+  mainEntity: faqBlock.items.map((item: { question: string; answer: string }) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+} : null;
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    ...(faqJsonLd ? [faqJsonLd] : []),
+  ],
+}).replace(/</g, '\\u003c');
+
+// Program K3 ruang terbatas lain untuk penautan internal antar halaman layanan.
+const otherServices = (await getCollection('services'))
+  .filter((s) => !s.data.draft && s.data.status === 'active' && s.data.slug !== service.data.slug)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((s) => ({ href: `/services/${s.data.slug}/`, title: s.data.title, description: s.data.description }));
 ---
 <BaseLayout
-  title={service.data.seoTitle ?? service.data.title}
+  title={service.data.title}
   description={service.data.description}
   socialImage={service.data.socialImage}
   canonical={service.data.canonical}
   noindex={service.data.noindex}
   pubDate={service.data.pubDate}
   updatedDate={service.data.updatedDate}
+  mainEntityId={faqJsonLd ? `${serviceUrl}#faq` : undefined}
 >
+  {faqJsonLd && <script type="application/ld+json" set:html={serviceJsonLd} slot="head" />}
+
   <SiteHeader />
   <main id="main-content">
     <article class="service-hero section" aria-labelledby="service-title">
@@ -43,6 +79,30 @@ const { service } = Astro.props;
       </div>
     </div>
 
+    {otherServices.length > 0 && (
+      <section class="section" style="background: var(--light);" aria-labelledby="other-programs-title">
+        <div class="wrap">
+          <header class="section-title center">
+            <p class="section-label">{ui.services.listingEyebrow}</p>
+            <h2 id="other-programs-title">{ui.services.otherProgramsHeading}</h2>
+          </header>
+          <ul class="grid gap-6 sm:grid-cols-2" role="list">
+            {otherServices.map((program) => (
+              <li>
+                <article class="card-cert" style="grid-template-columns: 1fr; padding: 28px; border-top-width: 4px;">
+                  <h3 class="card-cert-title">{program.title}</h3>
+                  <p style="margin-top: 8px; color: var(--muted);">{program.description}</p>
+                  <footer style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
+                    <a href={program.href} class="btn btn-outline-navy" style="min-height: 44px; padding: 0 24px;">{ui.services.readMore}</a>
+                  </footer>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
     <section class="cta-section section" aria-labelledby="service-cta-title">
       <div class="container cta-box">
         <p class="section-label">{ui.ctaBlock.eyebrow}</p>
@@ -50,6 +110,7 @@ const { service } = Astro.props;
         <p>{ui.ctaBlock.text}</p>
         <div class="cta-button">
           <a href={`https://wa.me/${site.whatsapp}`} class="btn btn-gold" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg>
             {ui.ctaBlock.defaultButton} <span class="sr-only">{ui.a11y.newTabSuffix}</span>
           </a>
         </div>

@@ -6,7 +6,7 @@ slug: pelatihan-teknisi-k3-ruang-terbatas
 title: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space)
 description: Pelatihan dan sertifikasi Teknisi K3 Ruang Terbatas (Confined Space) resmi Kemnaker RI selama 5 hari, mencakup teori, praktik lapangan, simulasi rescue, serta penerbitan sertifikat dan lisensi resmi.
 pubDate: '2026-11-10T04:45:00Z'
-updatedDate: '2026-11-10T05:10:00Z'
+updatedDate: '2026-11-10T08:55:00Z'
 serviceGroup: Pelatihan
 order: 10
 draft: false
@@ -59,12 +59,12 @@ blocks:
     id: faq-pelatihan
     heading: Pertanyaan Umum
     items:
-      - question: Berapa lama durasi pelatihan?
-        answer: Pelatihan berlangsung selama 5 hari yang terdiri dari teori, praktik lapangan, dan evaluasi kompetensi.
-      - question: Apakah peserta mendapatkan sertifikat?
-        answer: Ya. Peserta yang dinyatakan lulus akan memperoleh Sertifikat serta Lisensi resmi Kemnaker RI sesuai ketentuan yang berlaku.
-      - question: Berapa biaya pelatihan Teknisi K3 Ruang Terbatas?
-        answer: Biaya pelatihan mulai dari Rp6.000.000 per peserta, sudah termasuk sertifikat dan lisensi Kemnaker RI, modul, konsumsi, coffee break, souvenir tas, serta praktik dengan peralatan lengkap.
-      - question: Apakah tersedia In House Training?
-        answer: Ya. PT Betracom Gemilang Nusa melayani In House Training di seluruh Indonesia sesuai kebutuhan perusahaan.
+      - question: Apa perbedaan Teknisi K3 Ruang Terbatas dengan Teknisi Deteksi Gas dan Petugas K3 Penyelamat?
+        answer: Permenaker 11/2023 mengatur tiga kualifikasi personel K3 ruang terbatas yang berbeda. Teknisi K3 Ruang Terbatas menerapkan ketentuan K3 dan bertanggung jawab atas pekerjaan di ruang terbatas, Teknisi Deteksi Gas berfokus pada pengukuran atmosfer berbahaya dan rekomendasi hasilnya, sedangkan Petugas K3 Penyelamat menangani kesiapsiagaan dan penyelamatan saat keadaan darurat.
+      - question: Apa saja tugas dan wewenang Teknisi K3 Ruang Terbatas?
+        answer: Sesuai Permenaker 11/2023, tugasnya mencakup penerapan ketentuan K3 ruang terbatas, identifikasi potensi bahaya, pelaporan kondisi tidak aman, serta tanggung jawab atas pekerjaan pemasangan, perakitan, pemeliharaan, dan perbaikan komponen di ruang terbatas. Wewenangnya termasuk tindakan korektif atau rekomendasi penghentian pekerjaan saat berpotensi menimbulkan keadaan darurat.
+      - question: Apa perbedaan sertifikat, surat keterangan pembinaan, dan lisensi K3?
+        answer: Sertifikat kompetensi diterbitkan setelah peserta lulus pembinaan dan evaluasi. Surat keterangan pembinaan merupakan dokumen untuk kualifikasi yang skema sertifikasi kompetensi nasionalnya belum ditetapkan. Lisensi K3 adalah izin resmi dari Kemnaker RI untuk menjalankan tugas personel K3 tertentu dan diajukan setelah persyaratan terpenuhi.
+      - question: Alat praktik apa yang digunakan dalam pelatihan?
+        answer: Praktik dilengkapi gas detector, SCBA dan escape set, tripod rescue, harness, lifeline, serta peralatan APD lengkap agar peserta mengalami skenario kerja dan penyelamatan yang sesuai kondisi lapangan.
 ---
