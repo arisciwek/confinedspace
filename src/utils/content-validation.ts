@@ -26,18 +26,21 @@ export async function validateContentRelations(): Promise<void> {
 
   const targets = { article: articles, page: pages, service: services };
 
-  const featuredImageOwners = new Map<string, string>();
+  // Setiap gambar hanya boleh dipakai 1 kali di seluruh artikel (featuredImage + galeri).
+  const imageOwners = new Map<string, string>();
+  const claimImage = (src: string, owner: string) => {
+    const previous = imageOwners.get(src);
+    if (previous) {
+      throw new Error(`Image "${src}" is used by both "${previous}" and "${owner}". Each image may only be used once.`);
+    }
+    imageOwners.set(src, owner);
+  };
 
   for (const article of articles) {
     const blockIds = new Set<string>();
 
-    // Setiap gambar hanya boleh dipakai 1 kali di seluruh artikel.
     if (article.data.featuredImage) {
-      const owner = featuredImageOwners.get(article.data.featuredImage);
-      if (owner) {
-        throw new Error(`Article "${article.data.slug}" reuses featuredImage "${article.data.featuredImage}" already used by "${owner}". Each image may only be used once.`);
-      }
-      featuredImageOwners.set(article.data.featuredImage, article.data.slug);
+      claimImage(article.data.featuredImage, `${article.data.slug} (featuredImage)`);
     }
 
     // Aturan SEO gambar: alt foto utama wajib ada dan sama persis dengan judul artikel.
@@ -72,6 +75,24 @@ export async function validateContentRelations(): Promise<void> {
         throw new Error(
           `Article "${article.data.slug}" comparison table "${block.id}" has rows that do not match its ${block.headers.length} headers.`,
         );
+      }
+
+      if (block.component === 'gallery') {
+        if (block.items.length < 2 || block.items.length > 4) {
+          throw new Error(
+            `Article "${article.data.slug}" gallery "${block.id}" must contain 2–4 photos (found ${block.items.length}).`,
+          );
+        }
+        const seenGallerySources = new Set<string>();
+        for (const item of block.items) {
+          if (seenGallerySources.has(item.src)) {
+            throw new Error(
+              `Article "${article.data.slug}" gallery "${block.id}" lists image "${item.src}" more than once.`,
+            );
+          }
+          seenGallerySources.add(item.src);
+          claimImage(item.src, `${article.data.slug} (gallery "${block.id}")`);
+        }
       }
     }
 

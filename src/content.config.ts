@@ -156,6 +156,18 @@ const contentBlocks = z.discriminatedUnion('component', [
     caption: z.string().optional(),
   }),
   z.object({
+    component: z.literal('gallery'),
+    id: z.string().min(1),
+    heading: z.string().min(1).optional(),
+    intro: z.string().min(1).optional(),
+    items: z.array(z.object({
+      src: z.string().min(1),
+      thumb: z.string().min(1).optional(),
+      alt: z.string().min(1),
+      caption: z.string().min(1).optional(),
+    })).min(2).max(4),
+  }),
+  z.object({
     component: z.literal('feature-card-grid'),
     id: z.string().min(1),
     title: z.string().min(1),

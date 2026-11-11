@@ -125,6 +125,15 @@ export const ui = {
   imagePanel: {
     ariaLabel: 'Ilustrasi layanan',
   },
+  gallery: {
+    ariaLabel: 'Galeri foto',
+    openLabel: 'Perbesar foto',
+    closeLabel: 'Tutup galeri',
+    prevLabel: 'Foto sebelumnya',
+    nextLabel: 'Foto berikutnya',
+    counterLabel: 'Foto',
+    ofLabel: 'dari',
+  },
   services: {
     readMore: 'Pelajari layanan →',
     defaultEyebrow: 'Layanan',

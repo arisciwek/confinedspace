@@ -121,6 +121,20 @@ blocks:
       - label: Personel serta rencana penyelamatan tersedia
         detail: Peran petugas jaga dan tim penyelamat telah ditentukan.
         required: true
+  - component: gallery
+    id: galeri-dokumentasi-pelatihan
+    heading: Dokumentasi Pelatihan Ruang Terbatas
+    intro: Cuplikan kegiatan pelatihan K3 ruang terbatas sebagai gambaran penerapan materi di lapangan.
+    items:
+      - src: /images/articles/apa-itu-confined-space-galeri-1.webp
+        thumb: /images/articles/apa-itu-confined-space-galeri-1-thumb.webp
+        alt: Sesi penyampaian materi pelatihan confined space kepada peserta
+      - src: /images/articles/apa-itu-confined-space-galeri-2.webp
+        thumb: /images/articles/apa-itu-confined-space-galeri-2-thumb.webp
+        alt: Peserta mengikuti praktik penggunaan peralatan K3 ruang terbatas
+      - src: /images/articles/apa-itu-confined-space-galeri-3.webp
+        thumb: /images/articles/apa-itu-confined-space-galeri-3-thumb.webp
+        alt: Dokumentasi kegiatan pelatihan teknisi K3 ruang terbatas
   - component: section
     id: peran-personel
     heading: Peran Personel dalam Pekerjaan Confined Space

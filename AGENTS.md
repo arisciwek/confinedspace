@@ -30,3 +30,21 @@
 - `scripts/import-featured-image.mjs` otomatis menghapus foto sumber dari `images/` setelah konversi WebP berhasil. Jangan menyalin/mengembalikan foto yang sudah dipakai.
 - `featuredImage` yang sama **tidak boleh dipakai di lebih dari 1 artikel**. Validator build menolak duplikat.
 - Jika butuh gambar untuk artikel lain, pilih foto lain dari folder `images/` yang belum dipakai.
+
+## Aturan galeri artikel
+
+- Galeri adalah block `gallery` di dalam `blocks` artikel, berisi **2, 3, atau 4 foto** sesuai kebutuhan (`min(2).max(4)`).
+- Setiap foto galeri tetap mengikuti aturan sekali pakai: sumber di `images/` dihapus setelah konversi.
+- Konversi galeri:
+  `node scripts/import-gallery-images.mjs --src images/A.JPG --src images/B.JPG --src images/C.JPG --slug <slug>`
+  Script menghasilkan `public/images/articles/<slug>-galeri-N.webp` (slide penuh) dan `<slug>-galeri-N-thumb.webp` (thumbnail grid), lalu menghapus setiap source.
+- Nama file memakai slug artikel atau slug layanan, dengan akhiran `-galeri-N` (slide) dan `-galeri-N-thumb` (thumbnail).
+- Thumbnail grid memakai file `-thumb` (maks 480 px) agar halaman ringan; slide layar penuh memakai file utama (maks 1600 px).
+- `alt` foto galeri adalah **deskripsi spesifik isi foto**, bukan judul artikel. Contoh:
+  `Peserta praktik pemasangan tripod dan harness sebelum masuk ruang terbatas`.
+- `src` gambar galeri harus unik: tidak boleh duplikat di dalam satu galeri, dan tidak boleh sama dengan `featuredImage` atau foto galeri artikel lain.
+- Thumbnail ditampilkan kecil (grid 2/3/4 kolom, rasio 4:3) agar menyatu dengan halaman artikel; klik foto membuka slide layar penuh.
+- Lightbox memakai `<dialog>` native + CSS scroll-snap (tanpa plugin): tombol prev/next, tombol panah keyboard, swipe di mobile, dan `Esc` untuk menutup.
+- Divalidasi di:
+  - `src/content.config.ts` — schema block `gallery` (2–4 item).
+  - `src/utils/content-validation.ts` — jumlah item, duplikat `src`, dan pemakaian gambar sekali pakai.

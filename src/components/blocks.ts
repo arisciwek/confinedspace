@@ -13,6 +13,7 @@ import ChecklistCard from './shared/ChecklistCard.astro';
 import ComparisonTable from './shared/ComparisonTable.astro';
 import DocumentList from './shared/DocumentList.astro';
 import ImagePanel from './shared/ImagePanel.astro';
+import ArticleGallery from './shared/ArticleGallery.astro';
 import FeatureCardGrid from './shared/FeatureCardGrid.astro';
 import StatsGrid from './shared/StatsGrid.astro';
 import SourceLinks from './shared/SourceLinks.astro';
@@ -42,6 +43,7 @@ const blocks: Record<string, any> = {
   'comparison-table': ComparisonTable,
   'document-list': DocumentList,
   'image-panel': ImagePanel,
+  gallery: ArticleGallery,
   'feature-card-grid': FeatureCardGrid,
   'stats-grid': StatsGrid,
   'source-links': SourceLinks,
