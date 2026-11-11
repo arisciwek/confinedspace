@@ -23,7 +23,7 @@ blocks:
         label: Pilihan program
       - value: Permenaker 11/2023
         label: Dasar regulasi
-      - value: Surat Keterangan Pembinaan
+      - value: Dokumen sesuai ketentuan
         label: Dokumen kelulusan
       - value: Kota Bogor
         label: Lokasi pelatihan
@@ -59,7 +59,7 @@ blocks:
       - title: Pelaksanaan pembinaan
         text: Ikuti materi teori dan praktik pengukuran atmosfer dengan peralatan deteksi gas yang digunakan di lapangan.
       - title: Evaluasi dan penerbitan dokumen
-        text: Peserta yang menyelesaikan pembinaan dan dinyatakan lulus evaluasi menerima surat keterangan pembinaan sesuai ketentuan yang berlaku.
+        text: Peserta mengikuti pembinaan dan evaluasi. Bukti kompetensi mengikuti ketentuan yang berlaku pada saat proses, termasuk status SKKNI dan mekanisme penerbitan dokumen oleh instansi berwenang.
   - component: faq
     id: faq-program
     heading: Pertanyaan Umum
@@ -69,7 +69,7 @@ blocks:
       - question: Apa bedanya program ini dengan Pelatihan Teknisi K3 Ruang Terbatas?
         answer: Teknisi K3 Ruang Terbatas menerapkan ketentuan K3 dan mengawasi pekerjaan di ruang terbatas secara menyeluruh, sedangkan Teknisi Deteksi Gas berfokus khusus pada pengukuran atmosfer dan rekomendasi hasil pengukuran. Keduanya merupakan kualifikasi personel yang berbeda dan dilatih melalui program terpisah.
       - question: Bukti kelulusan apa yang diberikan untuk Teknisi Deteksi Gas?
-        answer: Peserta yang dinyatakan lulus evaluasi menerima surat keterangan pembinaan sesuai ketentuan Permenaker 11/2023 yang mencatat kompetensi teknisi deteksi gas.
+        answer: Pasal 20 Permenaker 11/2023 mengatur bukti kompetensi berupa sertifikat kompetensi sesuai SKKNI. Pasal 21 mengatur surat keterangan telah mengikuti pembinaan K3 dari Direktur Jenderal jika SKKNI untuk Teknisi Deteksi Gas Ruang Terbatas belum ditetapkan. Status SKKNI dan jalur dokumen terbaru harus dikonfirmasi sebelum pendaftaran; lisensi K3 tetap mengikuti Pasal 22.
       - question: Materi praktiknya menggunakan alat apa?
         answer: Praktik menggunakan peralatan yang lazim dipakai di lapangan, antara lain gas detector multigas untuk oksigen, gas mudah terbakar, dan gas beracun seperti H2S dan CO, beserta praktik pengambilan sampel dan interpretasi hasil.
       - question: Bagaimana mengetahui jadwal dan biaya program ini?

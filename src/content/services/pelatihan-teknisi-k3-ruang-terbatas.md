@@ -4,14 +4,14 @@ ulid: 01M72V22KW6HFHE1EHH0KGWDNG
 type: service
 slug: pelatihan-teknisi-k3-ruang-terbatas
 title: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space)
-description: Pelatihan dan sertifikasi Teknisi K3 Ruang Terbatas (Confined Space) resmi Kemnaker RI selama 5 hari, mencakup teori, praktik lapangan, simulasi rescue, serta penerbitan sertifikat dan lisensi resmi.
+description: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) selama 5 hari, mencakup teori, praktik lapangan, dan simulasi rescue sesuai Permenaker 11/2023. Sertifikat kompetensi dan lisensi K3 mengikuti asesmen, persyaratan, serta mekanisme instansi berwenang.
 pubDate: '2026-11-10T04:45:00Z'
 updatedDate: '2026-11-10T08:55:00Z'
 serviceGroup: Pelatihan
 order: 10
 draft: false
 status: active
-eyebrow: Sertifikasi Kemnaker RI
+eyebrow: Pelatihan K3 Ruang Terbatas
 image: /images/galeri-pelatihan-2.webp
 socialImage: /images/og-default.webp
 imageAlt: Peserta praktik keselamatan kerja pada pelatihan Teknisi K3 Ruang Terbatas Betracom, angkatan 9-13 Februari 2026
@@ -25,8 +25,8 @@ blocks:
         label: Metode pelatihan
       - value: Rp6.000.000
         label: Biaya per peserta
-      - value: Kemnaker RI
-        label: Sertifikat dan lisensi
+      - value: Sesuai ketentuan
+        label: Jalur kompetensi dan lisensi
   - component: steps
     id: alur-pendaftaran
     heading: Alur Pendaftaran
@@ -40,7 +40,7 @@ blocks:
       - title: Pelaksanaan pelatihan
         text: Ikuti teori dan praktik selama lima hari di Betracom Arena Training Center, Kota Bogor, atau lokasi perusahaan Anda.
       - title: Evaluasi dan sertifikasi
-        text: Peserta yang dinyatakan lulus akan menerima sertifikat serta lisensi resmi Kemnaker RI.
+        text: Peserta mengikuti evaluasi program. Sertifikat kompetensi diperoleh melalui proses asesmen oleh lembaga berwenang, sedangkan lisensi K3 diajukan secara terpisah sesuai Pasal 22 Permenaker 11/2023 setelah persyaratan dipenuhi.
   - component: table
     id: jadwal-2026
     heading: Jadwal Angkatan 2026
@@ -64,7 +64,7 @@ blocks:
       - question: Apa saja tugas dan wewenang Teknisi K3 Ruang Terbatas?
         answer: Sesuai Permenaker 11/2023, tugasnya mencakup penerapan ketentuan K3 ruang terbatas, identifikasi potensi bahaya, pelaporan kondisi tidak aman, serta tanggung jawab atas pekerjaan pemasangan, perakitan, pemeliharaan, dan perbaikan komponen di ruang terbatas. Wewenangnya termasuk tindakan korektif atau rekomendasi penghentian pekerjaan saat berpotensi menimbulkan keadaan darurat.
       - question: Apa perbedaan sertifikat, surat keterangan pembinaan, dan lisensi K3?
-        answer: Sertifikat kompetensi diterbitkan setelah peserta lulus pembinaan dan evaluasi. Surat keterangan pembinaan merupakan dokumen untuk kualifikasi yang skema sertifikasi kompetensi nasionalnya belum ditetapkan. Lisensi K3 adalah izin resmi dari Kemnaker RI untuk menjalankan tugas personel K3 tertentu dan diajukan setelah persyaratan terpenuhi.
+        answer: Pasal 20 Permenaker 11/2023 mengatur kompetensi personel K3 ruang terbatas dibuktikan dengan sertifikat kompetensi sesuai SKKNI yang ditetapkan Menteri. Pasal 21 memberi mekanisme surat keterangan telah mengikuti pembinaan K3 bagi Teknisi Deteksi Gas dan Petugas K3 Penyelamat apabila SKKNI untuk kualifikasi tersebut belum ditetapkan. Status SKKNI dan jalur dokumen harus dikonfirmasi pada saat pendaftaran. Lisensi K3 merupakan persyaratan terpisah sebagaimana Pasal 22.
       - question: Alat praktik apa yang digunakan dalam pelatihan?
         answer: Praktik dilengkapi gas detector, SCBA dan escape set, tripod rescue, harness, lifeline, serta peralatan APD lengkap agar peserta mengalami skenario kerja dan penyelamatan yang sesuai kondisi lapangan.
 ---

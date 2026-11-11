@@ -3,7 +3,7 @@ export const site = {
   alternateName: 'Betracom Training',
   tagline: 'Pelatihan & Sertifikasi Teknisi K3 Ruang Terbatas Kemnaker RI',
   description:
-    'Pelatihan & sertifikasi Teknisi K3 Ruang Terbatas (Confined Space) resmi Kemnaker RI oleh PJK3 PT Betracom Gemilang Nusa. Teori, praktik rescue, lisensi resmi.',
+    'Pelatihan dan pembinaan K3 Ruang Terbatas (Confined Space) oleh PJK3 PT Betracom Gemilang Nusa. Materi teori, praktik lapangan, simulasi rescue, dan informasi jalur kompetensi serta lisensi sesuai ketentuan.',
   url: 'https://betracomtraining.com',
   whatsapp: '6282268066126',
   whatsappDisplay: '+62 822-6806-6126',

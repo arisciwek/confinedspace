@@ -52,7 +52,7 @@ export const jadwalHowTo = [
 export const jadwalFaq = [
   {
     question: 'Apa saja fasilitas yang didapat peserta selama pelatihan?',
-    answer: 'Sertifikat & Lisensi Kemnaker RI, Surat Keterangan Lulus, Modul Pelatihan (softcopy & hardcopy), Instruktur Berpengalaman, Konsumsi (Coffee Break & Lunch), Souvenir Tas, Praktik Menggunakan Peralatan Lengkap (Gas Detector, SCBA, Tripod Rescue, Harness, Lifeline, APD).',
+    answer: 'Fasilitas pembinaan, modul pelatihan, instruktur, konsumsi, dan praktik menggunakan peralatan seperti gas detector, SCBA, tripod rescue, harness, lifeline, serta APD. Sertifikat kompetensi dan lisensi K3 mengikuti proses serta kewenangan instansi penerbit; rincian biaya asesmen dan pengajuan dikonfirmasi dalam penawaran.',
   },
   {
     question: 'Apakah biaya sudah termasuk akomodasi dan transport?',
@@ -63,8 +63,8 @@ export const jadwalFaq = [
     answer: 'Bisa, dengan syarat mengajukan permohonan minimal 7 hari kerja sebelum batch dimulai dan tersedia kursi kosong pada batch tujuan. Perubahan hanya diperbolehkan maksimal 1× per pendaftaran.',
   },
   {
-    question: 'Berapa lama sertifikat dan lisensi keluar setelah lulus?',
-    answer: 'Proses verifikasi dan penerbitan sertifikat serta lisensi resmi Kemnaker RI membutuhkan waktu sekitar 3–4 bulan setelah evaluasi kompetensi selesai. Surat Keterangan Lulus (SKL) diterbitkan lebih cepat (1–2 minggu) sebagai bukti sementara.',
+    question: 'Berapa lama lisensi K3 diterbitkan?',
+    answer: 'Permenaker 11/2023 Pasal 22 mengatur verifikasi permohonan lisensi paling lambat 2 hari kerja setelah permohonan diterima dan penerbitan lisensi paling lambat 2 hari kerja setelah persyaratan dinyatakan benar dan lengkap. Waktu pelatihan, asesmen sertifikasi kompetensi, pemenuhan dokumen, dan pengajuan merupakan tahapan terpisah sehingga tidak dapat disamakan dengan tenggat verifikasi dan penerbitan lisensi tersebut.',
   },
   {
     question: 'Apakah wajib cek kesehatan / medical check-up sebelum pelatihan?',

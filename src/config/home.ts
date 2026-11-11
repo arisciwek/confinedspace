@@ -11,10 +11,10 @@ const trainingLink = `<a href="${trainingServiceHref}">Teknisi K3 Ruang Terbatas
 
 export const home = {
   hero: {
-    eyebrow: 'Sertifikasi Resmi Kemnaker RI',
+    eyebrow: 'Pelatihan K3 Ruang Terbatas',
     title: 'Sertifikasi Confined Space',
-    subtitle: 'Pelatihan Teknisi K3 Ruang Terbatas Kemnaker RI',
-    leadHtml: `Pelatihan <strong>${trainingLink}</strong> (sertifikasi Confined Space Kemnaker RI) bertujuan meningkatkan kompetensi tenaga kerja dalam melaksanakan pekerjaan di ruang terbatas secara aman sesuai Permenaker Nomor 11 Tahun 2023. Program ini mengombinasikan teori, praktik lapangan, dan simulasi penyelamatan sehingga peserta siap bekerja sesuai standar nasional.`,
+    subtitle: 'Pelatihan Teknisi K3 Ruang Terbatas',
+    leadHtml: `Pelatihan <strong>${trainingLink}</strong> (program pelatihan K3 ruang terbatas) bertujuan meningkatkan kompetensi tenaga kerja dalam melaksanakan pekerjaan di ruang terbatas secara aman sesuai Permenaker Nomor 11 Tahun 2023. Program ini mengombinasikan teori, praktik lapangan, dan simulasi penyelamatan sehingga peserta siap bekerja sesuai standar nasional.`,
     silabusLabel: 'Lihat Silabus',
     daftarLabel: 'Daftar Sekarang',
     image: {
@@ -26,12 +26,12 @@ export const home = {
   },
 
   stats: {
-    title: 'Pelatihan Resmi Kemnaker RI',
-    subtitle: 'Instruktur Profesional • Sertifikat Resmi • Lisensi Kemnaker RI',
+    title: 'Program K3 Ruang Terbatas',
+    subtitle: 'Pembinaan • Praktik Lapangan • Evaluasi Kompetensi',
     items: [
-      { count: 5000, suffix: '+', display: '5.000+', label: 'Alumni' },
-      { count: 500, suffix: '+', display: '500+', label: 'Klien' },
-      { count: 100, suffix: '+', display: '100+', label: 'Program' },
+      { count: 3, suffix: '', display: '3', label: 'Kualifikasi personel' },
+      { count: 2, suffix: '', display: '2', label: 'Format pelatihan' },
+      { count: 1, suffix: '', display: '1', label: 'Pusat pelatihan di Bogor' },
     ],
   },
 
@@ -44,7 +44,7 @@ export const home = {
     items: [
       'SKP PJK3 Kemnaker RI',
       'Instruktur Berpengalaman',
-      'Sertifikat Resmi Kemnaker RI',
+      'Program sesuai Permenaker 11/2023',
       'Pelatihan Sesuai Regulasi',
     ],
     image: {
@@ -59,9 +59,9 @@ export const home = {
 
   about: {
     eyebrow: 'Tentang Pelatihan',
-    heading: 'Teknisi K3 Ruang Terbatas Sertifikasi Kemnaker RI',
+    heading: 'Pelatihan Teknisi K3 Ruang Terbatas',
     paragraphs: [
-      `Pelatihan <strong>${trainingLink}</strong> merupakan program sertifikasi resmi yang dirancang untuk membekali peserta dengan kompetensi dalam mengidentifikasi bahaya, melakukan pengendalian risiko, menerapkan sistem izin kerja, menggunakan alat pelindung diri, melakukan pengujian atmosfer, hingga melaksanakan prosedur penyelamatan pada ruang terbatas.`,
+      `Pelatihan <strong>${trainingLink}</strong> merupakan program pelatihan dan pembinaan yang dirancang untuk membekali peserta dengan kompetensi dalam mengidentifikasi bahaya, melakukan pengendalian risiko, menerapkan sistem izin kerja, menggunakan alat pelindung diri, melakukan pengujian atmosfer, hingga melaksanakan prosedur penyelamatan pada ruang terbatas.`,
       'Selain itu, peserta akan mengikuti praktik penggunaan gas detector, breathing apparatus, tripod rescue, full body harness, serta simulasi evakuasi korban sesuai standar Kemnaker RI.',
     ],
     linkHref: '/articles/apa-itu-confined-space/',
@@ -176,7 +176,7 @@ export const home = {
   pricing: {
     eyebrow: 'Biaya Pelatihan',
     heading: 'Investasi Pelatihan Teknisi K3 Ruang Terbatas',
-    description: 'Biaya pelatihan sudah termasuk teori, praktik, evaluasi, sertifikat resmi Kemnaker RI, serta fasilitas pelatihan lengkap.',
+    description: 'Biaya pelatihan mencakup pembinaan, teori, praktik, evaluasi program, dan fasilitas pelatihan. Biaya asesmen sertifikasi kompetensi serta pengajuan lisensi K3 perlu dikonfirmasi sesuai mekanisme dan persyaratan yang berlaku.',
     fromLabel: 'Mulai dari',
     currency: 'Rp',
     amount: '6.000.000',
@@ -184,8 +184,8 @@ export const home = {
     currencyCode: 'IDR',
     unit: 'per peserta',
     includes: [
-      'Sertifikat & Lisensi Kemnaker RI',
-      'Surat Keterangan Lulus',
+      'Pembinaan dan evaluasi program',
+      'Informasi dan pendampingan administrasi kompetensi serta lisensi K3 sesuai ketentuan',
       'Modul Pelatihan',
       'Instruktur Berpengalaman',
       'Konsumsi Selama Pelatihan',
@@ -202,7 +202,7 @@ export const home = {
     items: [
       {
         question: 'Apa itu Pelatihan Teknisi K3 Ruang Terbatas?',
-        answer: 'Program sertifikasi resmi Kemnaker RI untuk membekali tenaga kerja agar mampu bekerja secara aman di ruang terbatas sesuai regulasi.',
+        answer: 'Program pelatihan dan pembinaan untuk menyiapkan tenaga kerja menerapkan keselamatan kerja di ruang terbatas sesuai Permenaker 11/2023.',
       },
       {
         question: 'Berapa lama durasi pelatihan?',
@@ -210,11 +210,11 @@ export const home = {
       },
       {
         question: 'Apakah peserta mendapatkan sertifikat?',
-        answer: 'Ya. Peserta yang dinyatakan lulus akan memperoleh Sertifikat serta Lisensi resmi Kemnaker RI sesuai ketentuan yang berlaku.',
+        answer: 'Pelatihan ini merupakan bagian dari persiapan kompetensi. Sertifikat kompetensi mengikuti proses asesmen oleh lembaga yang berwenang. Lisensi K3 merupakan proses terpisah yang diajukan sesuai Pasal 22 Permenaker 11/2023 setelah persyaratan dipenuhi; kelulusan pelatihan tidak otomatis menerbitkan keduanya.',
       },
       {
         question: 'Berapa biaya pelatihan Teknisi K3 Ruang Terbatas?',
-        answer: 'Biaya pelatihan mulai dari Rp6.000.000 per peserta, sudah termasuk sertifikat dan lisensi Kemnaker RI, modul, konsumsi, coffee break, souvenir tas, serta praktik dengan peralatan lengkap.',
+        answer: 'Biaya pelatihan mulai dari Rp6.000.000 per peserta. Rincian apakah biaya asesmen sertifikasi kompetensi dan pengajuan lisensi K3 termasuk dalam penawaran harus dikonfirmasi tertulis sebelum pendaftaran.',
       },
       {
         question: 'Apa saja syarat mengikuti pelatihan?',
@@ -234,7 +234,7 @@ export const home = {
   cta: {
     eyebrow: 'Daftar Sekarang',
     heading: 'Siap Mengikuti Pelatihan Teknisi K3 Ruang Terbatas?',
-    text: `Hubungi tim ${site.name} untuk mendapatkan jadwal terbaru, penawaran harga, serta informasi lengkap mengenai sertifikasi Teknisi K3 Ruang Terbatas Kemnaker RI.`,
+    text: `Hubungi tim ${site.name} untuk mendapatkan jadwal terbaru, penawaran harga, serta informasi program, jalur asesmen kompetensi, dan persyaratan lisensi K3 Teknisi K3 Ruang Terbatas.`,
     primaryLabel: 'Konsultasi via WhatsApp',
     secondaryLabel: 'Unduh Formulir Pendaftaran',
   },
