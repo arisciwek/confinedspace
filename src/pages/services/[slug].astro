@@ -38,7 +38,7 @@ const navigationItems = data.blocks.map((block) => {
 const faqBlock = data.blocks.find((block) => block.component === 'faq');
 const faqJsonLd = faqBlock && 'items' in faqBlock ? {
   '@type': 'FAQPage',
-  '@id': `${serviceUrl}#faq`,
+  '@id': `${serviceUrl}#${faqBlock.id ?? 'faq'}`,
   inLanguage: 'id-ID',
   mainEntity: faqBlock.items.map((item) => ({
     '@type': 'Question',
