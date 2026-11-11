@@ -15,7 +15,7 @@ author:
   url: https://betracomtraining.com/
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [sertifikat confined space Kemnaker, sertifikat K3 ruang terbatas, sertifikat kompetensi, lisensi K3, surat keterangan pembinaan, Permenaker 11 Tahun 2023, personel K3 ruang terbatas]
-featuredImage: /images/articles/pelatihan-k3-ruang-terbatas-kemnaker-ri.webp
+featuredImage: /images/articles/sertifikat-confined-space-kemnaker.webp
 featuredImageAlt: "Sertifikat Confined Space Kemnaker: Jenis Dokumen, Persyaratan, dan Cara Mendapatkannya"
 relatedServices: [110]
 relatedArticles: [2, 3, 4, 5]
