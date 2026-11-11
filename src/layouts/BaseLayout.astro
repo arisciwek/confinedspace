@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { ui } from '../config/ui.ts';
 import { site } from '../config/site.ts';
-const { title = ui.meta.defaultTitle, description = ui.meta.defaultDescription, canonical, noindex = false, socialImage = ui.meta.defaultImage, pubDate, updatedDate, mainEntityId, aboutId } = Astro.props as { title?: string; description?: string; canonical?: string; noindex?: boolean; socialImage?: string; pubDate?: Date; updatedDate?: Date; mainEntityId?: string; aboutId?: string };
+const { title = ui.meta.defaultTitle, description = ui.meta.defaultDescription, canonical, noindex = false, socialImage = ui.meta.defaultImage, pubDate, updatedDate, mainEntityId, aboutId, serviceUrl } = Astro.props as { title?: string; description?: string; canonical?: string; noindex?: boolean; socialImage?: string; pubDate?: Date; updatedDate?: Date; mainEntityId?: string; aboutId?: string; serviceUrl?: string };
 // Crawler sosial (Facebook, LinkedIn, WhatsApp, X) tidak merender SVG. Gambar non-raster diganti fallback WebP.
 const isRasterImage = /\.(png|jpe?g|webp|gif)$/i.test(socialImage.split(/[?#]/)[0]);
 const resolvedSocialImage = isRasterImage ? socialImage : ui.meta.defaultImage;
@@ -64,6 +64,9 @@ const pageJsonLd = JSON.stringify({
   isPartOf: { '@id': `${siteOrigin}/#website` },
 }).replace(/</g, '\\u003c');
 const logoUrl = site.logo.startsWith('http') ? site.logo : new URL(site.logo, siteOrigin).toString();
+const profServiceUrl = serviceUrl ?? siteOrigin;
+const profServiceId = serviceUrl ? `${serviceUrl}#professionalservice` : `${siteOrigin}/#localbusiness`;
+
 const siteGraphJsonLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@graph': [
@@ -98,11 +101,11 @@ const siteGraphJsonLd = JSON.stringify({
     },
     {
       '@type': 'ProfessionalService',
-      '@id': `${siteOrigin}/#localbusiness`,
+      '@id': profServiceId,
       name: site.name,
       legalName: site.name,
       description: site.description,
-      url: siteOrigin,
+      url: profServiceUrl,
       image: new URL(site.logo, siteOrigin).toString(),
       logo: { '@type': 'ImageObject', url: new URL(site.logo, siteOrigin).toString() },
       telephone: `+${site.phone}`,

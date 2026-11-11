@@ -54,6 +54,7 @@ const serviceSchemaJsonLd = JSON.stringify({
         name: service.data.title,
         description: service.data.intro ?? service.data.description,
         url: serviceUrl,
+        price: '6000000',
         priceCurrency: 'IDR',
         availability: 'https://schema.org/InStock',
       },
@@ -90,6 +91,7 @@ const otherServices = (await getCollection('services'))
   pubDate={service.data.pubDate}
   updatedDate={service.data.updatedDate}
   mainEntityId={faqJsonLd ? `${serviceUrl}#faq` : undefined}
+  serviceUrl={serviceUrl}
 >
   <script type="application/ld+json" set:html={serviceSchemaJsonLd} slot="head" />
 
