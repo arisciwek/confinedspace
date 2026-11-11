@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import SiteHeader from '../../components/shared/SiteHeader.astro';
 import SiteFooter from '../../components/shared/SiteFooter.astro';
+import ServiceHero from '../../components/shared/ServiceHero.astro';
+import ServiceListBlock from '../../components/shared/ServiceListBlock.astro';
 import BlockRenderer from '../../components/blocks/BlockRenderer.astro';
 import { ui } from '../../config/ui.ts';
 import { site } from '../../config/site.ts';
@@ -19,7 +21,7 @@ const data = service.data;
 const origin = Astro.site?.toString().replace(/\/$/, '') ?? Astro.url.origin;
 const canonicalPath = data.canonical ?? `/services/${data.slug}/`;
 const serviceUrl = new URL(canonicalPath, origin).toString();
-const pageImage = data.image ?? data.socialImage;
+const pageImage = data.socialImage ?? data.image;
 const pageImageUrl = pageImage ? new URL(pageImage, origin).toString() : undefined;
 
 const blockHeading = (block: (typeof data.blocks)[number]) => {
@@ -27,14 +29,11 @@ const blockHeading = (block: (typeof data.blocks)[number]) => {
   if ('title' in block && block.title) return block.title;
   return undefined;
 };
-
-const navigationItems = data.blocks
-  .map((block) => {
-    const label = blockHeading(block);
-    if (!label || !('id' in block) || !block.id) return null;
-    return { id: block.id, label };
-  })
-  .filter((item): item is { id: string; label: string } => item !== null);
+const navigationItems = data.blocks.map((block) => {
+  const label = blockHeading(block);
+  if (!label || !('id' in block) || !block.id) return null;
+  return { id: block.id, label };
+}).filter((item): item is { id: string; label: string } => item !== null);
 
 const faqBlock = data.blocks.find((block) => block.component === 'faq');
 const faqJsonLd = faqBlock && 'items' in faqBlock ? {
@@ -64,18 +63,7 @@ const serviceSchemaJsonLd = JSON.stringify({
     ...(faqJsonLd ? [faqJsonLd] : []),
   ],
 }).replace(/</g, '\\u003c');
-
-const otherServices = (await getCollection('services'))
-  .filter((entry) => !entry.data.draft && entry.data.status === 'active' && entry.data.slug !== data.slug)
-  .sort((a, b) => a.data.order - b.data.order)
-  .map((entry) => ({
-    href: `/services/${entry.data.slug}/`,
-    title: entry.data.title,
-    description: entry.data.description,
-    group: entry.data.serviceGroup,
-  }));
 ---
-
 <ServiceLayout
   title={data.title}
   description={data.description}
@@ -91,63 +79,38 @@ const otherServices = (await getCollection('services'))
   serviceImage={data.image ?? data.socialImage}
 >
   <script type="application/ld+json" set:html={serviceSchemaJsonLd} slot="head" />
-
   <SiteHeader />
 
   <main id="main-content" class="service-page">
-    <section class="service-hero" aria-labelledby="service-title">
-      {pageImage && (
-        <div class="service-hero__media" aria-hidden="true">
-          <img src={pageImage} alt="" fetchpriority="high" decoding="async" />
-        </div>
-      )}
-      <div class="wrap service-hero__inner">
-        <nav class="service-breadcrumb" aria-label="Breadcrumb">
-          <ol>
-            <li><a href="/">Beranda</a></li>
-            <li><a href="/services/">Layanan</a></li>
-            <li aria-current="page">{data.title}</li>
-          </ol>
-        </nav>
+    <nav class="service-breadcrumb wrap" aria-label={ui.nav.breadcrumbAriaLabel}>
+      <ol>
+        <li><a href="/">{ui.nav.home}</a></li>
+        <li><a href="/services/">{ui.nav.services}</a></li>
+        <li aria-current="page">{data.title}</li>
+      </ol>
+    </nav>
 
-        <div class="service-hero__content">
-          <p class="service-hero__eyebrow">{data.eyebrow ?? ui.services.defaultEyebrow}</p>
-          <h1 id="service-title">{data.title}</h1>
-          <p class="service-hero__lead">{data.intro ?? data.description}</p>
-          <div class="service-hero__actions">
-            <a class="btn btn-gold" href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Halo, saya ingin mendapatkan informasi tentang ${data.title}.`)}`} target="_blank" rel="noopener noreferrer">
-              <svg aria-hidden="true"><use href="#i-wa" /></svg>
-              Konsultasi Program
-            </a>
-            <a class="service-hero__text-link" href="#service-content">Pelajari program <span aria-hidden="true">↓</span></a>
-          </div>
-          <p class="service-hero__trust">Program pelatihan K3 ruang terbatas · Informasi dan konsultasi untuk perusahaan maupun peserta individu</p>
-        </div>
-      </div>
-    </section>
+    <ServiceHero
+      eyebrow={data.eyebrow ?? ui.services.defaultEyebrow}
+      title={data.title}
+      intro={data.intro ?? data.description}
+      image={data.image}
+    />
 
     <section class="service-body section" id="service-content" aria-label="Informasi layanan">
       <div class="wrap service-body__layout">
         {navigationItems.length > 1 && (
           <aside class="service-toc" aria-label="Navigasi isi halaman">
             <p class="service-toc__title">Di halaman ini</p>
-            <nav>
-              <ul>
-                {navigationItems.map((item) => (
-                  <li><a href={`#${item.id}`}>{item.label}</a></li>
-                ))}
-              </ul>
-            </nav>
+            <nav><ul>{navigationItems.map((item) => <li><a href={`#${item.id}`}>{item.label}</a></li>)}</ul></nav>
             <a class="service-toc__contact" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer">
-              Butuh informasi?
-              <span>Hubungi tim kami <span aria-hidden="true">↗</span></span>
+              Butuh informasi?<span>Hubungi tim kami <span aria-hidden="true">↗</span></span>
             </a>
           </aside>
         )}
-
         <div class="service-content">
           {data.blocks.map((block) => (
-            <div class={`service-content__block service-content__block--${block.component}`}>
+            <div class:list={['service-content__block', `service-content__block--${block.component}`]}>
               <BlockRenderer block={block} />
             </div>
           ))}
@@ -155,48 +118,19 @@ const otherServices = (await getCollection('services'))
       </div>
     </section>
 
-    {otherServices.length > 0 && (
-      <section class="service-related section" aria-labelledby="other-programs-title">
-        <div class="wrap">
-          <header class="section-title">
-            <p class="section-label">{ui.services.listingEyebrow}</p>
-            <h2 id="other-programs-title">{ui.services.otherProgramsHeading}</h2>
-            <p>Kenali program pembinaan K3 ruang terbatas lainnya sesuai peran dan kebutuhan pekerjaan Anda.</p>
-          </header>
-          <ul class="service-related__grid" role="list">
-            {otherServices.map((program) => (
-              <li>
-                <article class="service-related-card">
-                  <p class="service-related-card__group">{program.group}</p>
-                  <h3>{program.title}</h3>
-                  <p class="service-related-card__description">{program.description}</p>
-                  <a href={program.href} class="service-related-card__link">
-                    Lihat detail layanan <span aria-hidden="true">→</span>
-                  </a>
-                </article>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    )}
-
-    <section class="service-final-cta section" aria-labelledby="service-cta-title">
+    <section class="service-related section" aria-label="Program pelatihan lainnya">
       <div class="wrap">
-        <div class="service-final-cta__panel">
-          <div>
-            <p class="section-label">{ui.ctaBlock.eyebrow}</p>
-            <h2 id="service-cta-title">{ui.ctaBlock.heading}</h2>
-            <p>{ui.ctaBlock.text}</p>
-          </div>
-          <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Halo, saya ingin berkonsultasi mengenai ${data.title}.`)}`} class="btn btn-gold" target="_blank" rel="noopener noreferrer">
-            <svg aria-hidden="true"><use href="#i-wa" /></svg>
-            {ui.ctaBlock.defaultButton}
-          </a>
-        </div>
+        <ServiceListBlock
+          id="program-lainnya"
+          eyebrow="Program terkait"
+          heading={ui.services.otherProgramsHeading}
+          description="Bandingkan peran dan ruang lingkup program K3 ruang terbatas lainnya."
+          variant="listing"
+          columns={3}
+          excludeSlug={data.slug}
+        />
       </div>
     </section>
   </main>
-
   <SiteFooter serviceTitle={data.title} group={data.serviceGroup} />
 </ServiceLayout>
