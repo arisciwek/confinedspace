@@ -317,7 +317,6 @@ const articles = defineCollection({
     }).optional(),
     blocks: z.array(contentBlocks).default([]),
   }),
-  render: true,
 });
 
 const pages = defineCollection({
@@ -358,7 +357,6 @@ const services = defineCollection({
     }).optional(),
     blocks: z.array(contentBlocks).default([]),
   }),
-  render: true,
 });
 
 const schedule = defineCollection({
