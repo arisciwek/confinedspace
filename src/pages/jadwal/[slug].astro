@@ -64,30 +64,71 @@ const locations: Array<Record<string, unknown>> = [
 if (data.virtualUrl) locations.push({ '@type': 'VirtualLocation', url: data.virtualUrl });
 
 // Tiap angkatan adalah CourseInstance (subtype Event) dengan halaman sendiri.
-const courseInstanceJsonLd = JSON.stringify({
+const courseJsonLd = JSON.stringify({
   '@context': 'https://schema.org',
-  '@type': 'CourseInstance',
-  '@id': `${pageUrl}#courseinstance`,
-  name: data.title,
-  description: data.description,
-  url: pageUrl,
-  startDate: data.startDate,
-  endDate: data.endDate,
-  courseMode: data.mode,
-  eventAttendanceMode: attendanceModes[data.attendanceMode],
-  ...(isOpen ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
-  location: locations,
-  organizer: { '@id': `${origin}/#organization` },
-  offers: {
-    '@type': 'Offer',
-    category: 'Paid',
-    price: String(home.pricing.value),
-    priceCurrency: home.pricing.currencyCode,
-    availability: isOpen ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
-    url: pageUrl,
-  },
-  inLanguage: 'id',
-  isAccessibleForFree: false,
+  '@graph': [
+    {
+      '@type': 'Course',
+      '@id': `${origin}/#course`,
+      name: 'Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) Kemnaker RI',
+      description:
+        'Program sertifikasi resmi Kemnaker RI untuk membekali tenaga kerja dalam identifikasi bahaya, pengendalian risiko, sistem izin kerja, penggunaan APD, pengukuran atmosfer, dan prosedur penyelamatan di ruang terbatas sesuai Permenaker Nomor 11 Tahun 2023.',
+      url: `${origin}/`,
+      image: new URL('/images/hero-teknisi-k3-ruang-terbatas-optimized.webp', origin).toString(),
+      inLanguage: 'id',
+      provider: { '@id': `${origin}/#organization` },
+      educationalCredentialAwarded: 'Sertifikat dan Lisensi Teknisi K3 Ruang Terbatas Kemnaker RI',
+      hasCourseInstance: { '@id': `${pageUrl}#courseinstance` },
+    },
+    {
+      '@type': 'CourseInstance',
+      '@id': `${pageUrl}#courseinstance`,
+      name: data.title,
+      description: data.description,
+      url: pageUrl,
+      startDate: data.startDate,
+      endDate: data.endDate,
+      courseMode: data.mode,
+      eventAttendanceMode: attendanceModes[data.attendanceMode],
+      ...(isOpen ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
+      location: locations,
+      organizer: { '@id': `${origin}/#organization` },
+      offers: {
+        '@type': 'Offer',
+        category: 'Paid',
+        price: String(home.pricing.value),
+        priceCurrency: home.pricing.currencyCode,
+        availability: isOpen ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
+        url: pageUrl,
+      },
+      inLanguage: 'id',
+      isAccessibleForFree: false,
+      course: { '@id': `${origin}/#course` },
+    },
+    {
+      '@type': 'Event',
+      '@id': `${pageUrl}#event`,
+      name: data.title,
+      description: data.description,
+      url: pageUrl,
+      startDate: data.startDate,
+      endDate: data.endDate,
+      eventAttendanceMode: attendanceModes[data.attendanceMode],
+      ...(isOpen ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
+      location: locations,
+      organizer: { '@id': `${origin}/#organization` },
+      offers: {
+        '@type': 'Offer',
+        category: 'Paid',
+        price: String(home.pricing.value),
+        priceCurrency: home.pricing.currencyCode,
+        availability: isOpen ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
+        url: pageUrl,
+      },
+      inLanguage: 'id',
+      isAccessibleForFree: false,
+    },
+  ],
 }).replace(/</g, '\\u003c');
 ---
 <BaseLayout
@@ -100,7 +141,7 @@ const courseInstanceJsonLd = JSON.stringify({
   updatedDate={data.updatedDate}
   mainEntityId={`${pageUrl}#courseinstance`}
 >
-  <script type="application/ld+json" set:html={courseInstanceJsonLd} slot="head" />
+  <script type="application/ld+json" set:html={courseJsonLd} slot="head" />
 
   <SiteHeader />
   <main id="main-content">
