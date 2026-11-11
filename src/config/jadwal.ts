@@ -9,22 +9,18 @@ export const jadwalHowTo = [
       {
         name: 'Unduh & Isi Formulir',
         text: 'Unduh formulir pendaftaran di tombol "Unduh Formulir Pendaftaran" pada halaman ini, lalu isi dengan data lengkap dan benar.',
-        image: `${site.url}/images/formulir-pendaftaran.webp`,
       },
       {
         name: 'Kirim Formulir & Dokumen',
         text: 'Kirim formulir yang sudah diisi beserta fotokopi KTP, pas foto 3×4, dan surat keterangan sehat via WhatsApp ke nomor resmi kami.',
-        image: `${site.url}/images/kirim-wa.webp`,
       },
       {
         name: 'Pembayaran DP / Lunas',
         text: 'Lakukan pembayaran DP minimal 50% atau lunas sesuai kesepakatan untuk mengunci kursi. Bukti transfer dikirim via WhatsApp.',
-        image: `${site.url}/images/bayar.webp`,
       },
       {
         name: 'Konfirmasi & Surat Undangan',
         text: 'Tim kami akan mengonfirmasi pembayaran dan mengirim surat undangan resmi beserta jadwal detail ke WhatsApp/email Anda.',
-        image: `${site.url}/images/undangan.webp`,
       },
     ],
   },
