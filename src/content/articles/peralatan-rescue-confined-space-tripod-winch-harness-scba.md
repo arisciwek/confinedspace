@@ -7,8 +7,8 @@ slug: peralatan-rescue-confined-space-tripod-winch-harness-scba
 title: "Peralatan Rescue Confined Space: Fungsi Tripod, Winch, Harness, Lifeline, dan SCBA"
 description: "Kenali peralatan rescue confined space, fungsi tripod, davit, winch, full body harness, lifeline, SCBA, escape set, komunikasi, serta pemeriksaan dan pemilihan alat berdasarkan risiko."
 draft: false
-pubDate: '2026-11-12T21:30:00+07:00'
-updatedDate: '2026-11-12T21:30:00+07:00'
+pubDate: '2026-11-12T14:30:00Z'
+updatedDate: '2026-11-12T14:30:00Z'
 author:
   name: Tim Confined Space Indonesia
   type: Organization
@@ -216,7 +216,7 @@ blocks:
       - label: OSHA — Permit-Required Confined Spaces
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.146
         description: Referensi teknis tambahan mengenai program ruang terbatas dan kesiapan rescue.
-      - label: OSHA — Appendix F: Rescue Team or Rescue Service Evaluation Criteria
+      - label: "OSHA — Appendix F: Rescue Team or Rescue Service Evaluation Criteria"
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.146AppF
         description: Kriteria evaluasi kesiapan tim atau layanan penyelamatan sebagai referensi tambahan.
   - component: faq
@@ -244,5 +244,7 @@ blocks:
     heading: Latih Tim Menggunakan Peralatan Rescue dengan Benar
     message: Kesiapan peralatan harus disertai kemampuan memilih konfigurasi, melakukan pemeriksaan, mengoperasikan sistem retrieval, menggunakan perlindungan pernapasan, dan berkoordinasi dalam simulasi. Diskusikan kebutuhan Pelatihan Petugas K3 Penyelamat Ruang Terbatas untuk tim perusahaan Anda.
     button: Lihat Pelatihan Petugas K3 Penyelamat
-    serviceHref: /services/pelatihan-petugas-k3-penyelamat-ruang-terbatas/
+    serviceHref: /services/petugas-k3-penyelamat-ruang-terbatas/
     serviceLabel: Pelatihan Petugas K3 Penyelamat Ruang Terbatas
+
+---
