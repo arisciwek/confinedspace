@@ -68,7 +68,7 @@ const otherServices = (await getCollection('services'))
         <header>
           <p class="section-label">{service.data.eyebrow ?? ui.services.defaultEyebrow}</p>
           <h1 id="service-title">{service.data.title}</h1>
-          <p style="margin-top: 16px; color: var(--muted); max-width: 760px;">{service.data.description}</p>
+          <p style="margin-top: 16px; color: var(--muted); max-width: 760px;">{service.data.intro ?? service.data.description}</p>
         </header>
       </div>
     </article>
