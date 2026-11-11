@@ -26,8 +26,19 @@ export async function validateContentRelations(): Promise<void> {
 
   const targets = { article: articles, page: pages, service: services };
 
+  const featuredImageOwners = new Map<string, string>();
+
   for (const article of articles) {
     const blockIds = new Set<string>();
+
+    // Setiap gambar hanya boleh dipakai 1 kali di seluruh artikel.
+    if (article.data.featuredImage) {
+      const owner = featuredImageOwners.get(article.data.featuredImage);
+      if (owner) {
+        throw new Error(`Article "${article.data.slug}" reuses featuredImage "${article.data.featuredImage}" already used by "${owner}". Each image may only be used once.`);
+      }
+      featuredImageOwners.set(article.data.featuredImage, article.data.slug);
+    }
 
     // Aturan SEO gambar: alt foto utama wajib ada dan sama persis dengan judul artikel.
     if (article.data.featuredImage && !article.data.featuredImageAlt) {

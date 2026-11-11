@@ -23,3 +23,10 @@
 - Divalidasi di:
   - `src/content.config.ts` — `max(1)` + `superRefine` (gagal saat `astro sync`).
   - `src/utils/content-validation.ts` — validasi saat build (gagal saat `npm run build`).
+
+## Aturan penggunaan gambar
+
+- Setiap foto sumber di `images/` **hanya boleh dipakai 1 kali**.
+- `scripts/import-featured-image.mjs` otomatis menghapus foto sumber dari `images/` setelah konversi WebP berhasil. Jangan menyalin/mengembalikan foto yang sudah dipakai.
+- `featuredImage` yang sama **tidak boleh dipakai di lebih dari 1 artikel**. Validator build menolak duplikat.
+- Jika butuh gambar untuk artikel lain, pilih foto lain dari folder `images/` yang belum dipakai.

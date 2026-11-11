@@ -17,8 +17,8 @@
  */
 
 import sharp from 'sharp';
-import { existsSync, mkdirSync, statSync } from 'fs';
-import { join, resolve } from 'path';
+import { existsSync, mkdirSync, statSync, unlinkSync } from 'fs';
+import { join, resolve, sep } from 'path';
 
 const DEFAULTS = {
   width: 1600,
@@ -100,6 +100,17 @@ async function main() {
 
   console.log(`Source : ${src} (${(originalSize / 1024 / 1024).toFixed(1)} MB, ${metadata.width}x${metadata.height})`);
   console.log(`Output : ${relativePath} (${(outputSize / 1024).toFixed(1)} KB)`);
+
+  // Setiap foto sumber hanya boleh dipakai sekali: hapus dari folder images/ setelah konversi berhasil.
+  const imagesDir = resolve('./images');
+  const sourcePath = resolve(src);
+  if (sourcePath.startsWith(`${imagesDir}${sep}`)) {
+    unlinkSync(sourcePath);
+    console.log('Source : dihapus dari folder images/ (sekali pakai).');
+  } else {
+    console.log('Source : di luar folder images/, tidak dihapus.');
+  }
+
   console.log('');
   console.log('Tambahkan ke frontmatter artikel:');
   console.log(`  featuredImage: ${publicPath}`);
