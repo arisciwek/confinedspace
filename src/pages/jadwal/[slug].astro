@@ -31,7 +31,7 @@ const waHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(waMessa
 
 const others = (await getCollection('schedule'))
   .filter((b) => !b.data.draft && b.data.slug !== data.slug)
-  .sort((a, b) => a.data.startDate.localeCompare(b.data.startDate))
+  .sort((a, b) => b.data.startDate.localeCompare(a.data.startDate))
   .map((b) => ({
     slug: b.data.slug,
     batchNo: b.data.batchNo,

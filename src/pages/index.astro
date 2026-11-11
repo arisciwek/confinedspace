@@ -19,7 +19,7 @@ await validateContentRelations();
 // lalu diperbarui oleh skrip klien schedule-status.ts.
 const batches = (await getCollection('schedule'))
   .filter((batch) => !batch.data.draft)
-  .sort((a, b) => a.data.startDate.localeCompare(b.data.startDate));
+  .sort((a, b) => b.data.startDate.localeCompare(a.data.startDate));
 
 const todayStart = new Date();
 todayStart.setHours(0, 0, 0, 0);
