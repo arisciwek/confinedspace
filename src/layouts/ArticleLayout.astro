@@ -25,7 +25,7 @@ const articleUrl = new URL(canonical, siteUrl).toString();
 const articleImageSource = article.data.featuredImage ?? article.data.socialImage ?? ui.meta.articleImage;
 const isRasterArticleImage = /\.(png|jpe?g|webp|gif)$/i.test(articleImageSource.split(/[?#]/)[0]);
 const articleImage = new URL(isRasterArticleImage ? articleImageSource : ui.meta.defaultImage, siteUrl).toString();
-const articleImageAlt = article.data.featuredImageAlt ?? `${ui.article.inlineAltPrefix}${pageTitle}`;
+const articleImageAlt = article.data.featuredImageAlt ?? pageTitle;
 
 const authorName = typeof article.data.author === 'object' ? article.data.author.name : article.data.author;
 const authorUrl = typeof article.data.author === 'object' ? article.data.author.url : undefined;

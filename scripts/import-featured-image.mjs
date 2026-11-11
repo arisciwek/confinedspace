@@ -103,7 +103,9 @@ async function main() {
   console.log('');
   console.log('Tambahkan ke frontmatter artikel:');
   console.log(`  featuredImage: ${publicPath}`);
-  console.log('  featuredImageAlt: "Deskripsi singkat isi foto"');
+  console.log('  featuredImageAlt: "<judul artikel, harus sama persis>"');
+  console.log('');
+  console.log('Aturan: featuredImageAlt wajib sama persis dengan title artikel (SEO gambar).');
 }
 
 main().catch((error) => {

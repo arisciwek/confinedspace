@@ -321,9 +321,22 @@ const articles = defineCollection({
       description: z.string().min(1).optional(),
     }).optional(),
     blocks: z.array(contentBlocks).default([]),
+  }).superRefine((data, ctx) => {
+    // Aturan SEO gambar: alt foto utama harus sama persis dengan judul artikel.
+    if (data.featuredImage && !data.featuredImageAlt) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `Article "${data.slug}" has featuredImage but is missing featuredImageAlt (must equal the article title).`,
+      });
+    }
+    if (data.featuredImageAlt && data.featuredImageAlt !== data.title) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `Article "${data.slug}" featuredImageAlt must equal the article title "${data.title}".`,
+      });
+    }
   }),
 });
-
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
   schema: z.object({

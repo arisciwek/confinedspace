@@ -29,6 +29,14 @@ export async function validateContentRelations(): Promise<void> {
   for (const article of articles) {
     const blockIds = new Set<string>();
 
+    // Aturan SEO gambar: alt foto utama wajib ada dan sama persis dengan judul artikel.
+    if (article.data.featuredImage && !article.data.featuredImageAlt) {
+      throw new Error(`Article "${article.data.slug}" has featuredImage but is missing featuredImageAlt (must equal the article title).`);
+    }
+    if (article.data.featuredImageAlt && article.data.featuredImageAlt !== article.data.title) {
+      throw new Error(`Article "${article.data.slug}" featuredImageAlt must equal the article title "${article.data.title}".`);
+    }
+
     for (const block of article.data.blocks) {
       if ('id' in block && block.id) {
         if (blockIds.has(block.id)) {
