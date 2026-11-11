@@ -50,7 +50,7 @@ const articleCtaButton = relatedServiceLinks.length ? 'Lihat layanan terkait' : 
 const relatedServiceJsonLd = relatedServices.map((related) => {
   const relServiceUrl = new URL(`/services/${related.data.slug}/`, siteUrl).toString();
   const relServiceImageSource = related.data.socialImage ?? ui.meta.defaultImage;
-  const relIsRasterImage = /\\.(png|jpe?g|webp|gif)$/i.test(relServiceImageSource.split(/[?#]/)[0]);
+  const relIsRasterImage = /\.(png|jpe?g|webp|gif)$/i.test(relServiceImageSource.split(/[?#]/)[0]);
   const relServiceImage = new URL(relIsRasterImage ? relServiceImageSource : ui.meta.defaultImage, siteUrl).toString();
   return {
     '@type': 'Service',
