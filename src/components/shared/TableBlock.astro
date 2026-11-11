@@ -1,22 +1,12 @@
 ---
 const { id, heading, head, rows, class: css } = Astro.props;
 ---
-<section id={id} class={`rounded-2xl border border-slate-200 bg-white p-6 md:p-8 ${css?.section ?? ''}`}>
-  {heading && <h2 class={`mb-4 text-2xl font-extrabold text-slate-950 ${css?.heading ?? ''}`}>{heading}</h2>}
-  <div class={`overflow-x-auto rounded-xl border border-slate-200 ${css?.wrapper ?? ''}`}>
-    <table class={`w-full text-left text-sm ${css?.table ?? ''}`}>
-      <thead>
-        <tr class={`border-b border-slate-200 bg-slate-50 ${css?.row ?? ''}`}>
-          {head.map((h: string) => <th class={`px-4 py-3 font-semibold text-slate-950 ${css?.th ?? ''}`}>{h}</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row: string[], i: number) => (
-          <tr class={`border-b border-slate-100 last:border-0 ${i % 2 === 1 ? 'bg-slate-50/50' : ''} ${css?.row ?? ''}`}>
-            {row.map((cell: string) => <td class={`px-4 py-3 text-slate-700 ${css?.td ?? ''}`}>{cell}</td>)}
-          </tr>
-        ))}
-      </tbody>
+<section id={id} class={`table-block ${css?.section ?? ''}`} aria-labelledby={heading ? `${id}-title` : undefined}>
+  {heading && <h2 id={`${id}-title`} class={`table-block__heading ${css?.heading ?? ''}`}>{heading}</h2>}
+  <div class={`table-block__scroll ${css?.wrapper ?? ''}`} role="region" aria-label={heading ?? 'Tabel informasi'} tabindex="0">
+    <table class={`table-block__table ${css?.table ?? ''}`}>
+      <thead><tr>{head.map((label: string) => <th scope="col">{label}</th>)}</tr></thead>
+      <tbody>{rows.map((row: string[], index: number) => <tr class={index % 2 ? 'table-block__row table-block__row--alt' : 'table-block__row'}>{row.map((cell: string) => <td>{cell}</td>)}</tr>)}</tbody>
     </table>
   </div>
 </section>
