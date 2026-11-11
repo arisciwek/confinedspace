@@ -36,9 +36,41 @@ const faqJsonLd = faqBlock && 'items' in faqBlock ? {
   })),
 } : null;
 
-const serviceJsonLd = JSON.stringify({
+// Service + Course schema spesifik per layanan
+const serviceSchemaJsonLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@graph': [
+    {
+      '@type': 'Service',
+      '@id': `${serviceUrl}#service`,
+      name: service.data.title,
+      description: service.data.intro ?? service.data.description,
+      url: serviceUrl,
+      image: service.data.socialImage ? new URL(service.data.socialImage, origin).toString() : undefined,
+      provider: { '@id': `${origin}/#organization` },
+      areaServed: site.areaServed.map((area) => ({ '@type': 'Country', name: area })),
+      offers: {
+        '@type': 'Offer',
+        name: service.data.title,
+        description: service.data.intro ?? service.data.description,
+        url: serviceUrl,
+        priceCurrency: 'IDR',
+        availability: 'https://schema.org/InStock',
+      },
+      hasCourse: { '@id': `${origin}/#course` },
+    },
+    {
+      '@type': 'Course',
+      '@id': `${serviceUrl}#course`,
+      name: service.data.title,
+      description: service.data.intro ?? service.data.description,
+      url: serviceUrl,
+      image: service.data.socialImage ? new URL(service.data.socialImage, origin).toString() : undefined,
+      provider: { '@id': `${origin}/#organization` },
+      inLanguage: 'id',
+      educationalCredentialAwarded: 'Sertifikat dan Lisensi Teknisi K3 Ruang Terbatas Kemnaker RI',
+      hasCourseInstance: { '@id': `${origin}/#course` },
+    },
     ...(faqJsonLd ? [faqJsonLd] : []),
   ],
 }).replace(/</g, '\\u003c');
@@ -59,7 +91,7 @@ const otherServices = (await getCollection('services'))
   updatedDate={service.data.updatedDate}
   mainEntityId={faqJsonLd ? `${serviceUrl}#faq` : undefined}
 >
-  {faqJsonLd && <script type="application/ld+json" set:html={serviceJsonLd} slot="head" />}
+  <script type="application/ld+json" set:html={serviceSchemaJsonLd} slot="head" />
 
   <SiteHeader />
   <main id="main-content">
