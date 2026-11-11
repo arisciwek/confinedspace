@@ -7,6 +7,7 @@ import { ui } from '../../config/ui.ts';
 import { site } from '../../config/site.ts';
 import { home, trainingServiceHref } from '../../config/home.ts';
 import { jadwalHowTo, jadwalFaq } from '../../config/jadwal.ts';
+import { getScheduleStatus } from '../../utils/schedule.ts';
 
 export async function getStaticPaths() {
   const batches = await getCollection('schedule');
@@ -18,9 +19,9 @@ export async function getStaticPaths() {
 const { batch } = Astro.props;
 const data = batch.data;
 
-const todayStart = new Date();
-todayStart.setHours(0, 0, 0, 0);
-const isOpen = new Date(`${data.endDate}T23:59:59`).getTime() >= todayStart.getTime();
+const scheduleStatus = getScheduleStatus(data.startDate, data.endDate);
+const isOpen = scheduleStatus === 'open';
+const statusLabel = scheduleStatus === 'open' ? ui.jadwal.statusOpen : scheduleStatus === 'ongoing' ? ui.jadwal.statusOngoing : ui.jadwal.statusClosed;
 
 const origin = Astro.site ? Astro.site.toString().replace(/\/$/, '') : Astro.url.origin;
 const canonical = `/jadwal/${data.slug}/`;
@@ -38,8 +39,9 @@ const others = (await getCollection('schedule'))
     batchNo: b.data.batchNo,
     dateLabel: b.data.dateLabel,
     mode: b.data.mode,
+    startDate: b.data.startDate,
     endDate: b.data.endDate,
-    open: new Date(`${b.data.endDate}T23:59:59`).getTime() >= todayStart.getTime(),
+    status: getScheduleStatus(b.data.startDate, b.data.endDate),
   }));
 
 const attendanceModes: Record<string, string> = {
@@ -73,12 +75,11 @@ const courseJsonLd = JSON.stringify({
       '@id': `${origin}/#course`,
       name: 'Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) Kemnaker RI',
       description:
-        'Program sertifikasi resmi Kemnaker RI untuk membekali tenaga kerja dalam identifikasi bahaya, pengendalian risiko, sistem izin kerja, penggunaan APD, pengukuran atmosfer, dan prosedur penyelamatan di ruang terbatas sesuai Permenaker Nomor 11 Tahun 2023.',
+        'Program pelatihan dan pembinaan untuk menyiapkan tenaga kerja menerapkan keselamatan kerja, mengidentifikasi bahaya, mengendalikan risiko, menggunakan APD, mengukur atmosfer, dan memahami prosedur penyelamatan di ruang terbatas sesuai Permenaker Nomor 11 Tahun 2023.',
       url: `${origin}/`,
       image: new URL('/images/hero-teknisi-k3-ruang-terbatas-optimized.webp', origin).toString(),
       inLanguage: 'id',
       provider: { '@id': `${origin}/#organization` },
-      educationalCredentialAwarded: 'Sertifikat dan Lisensi Teknisi K3 Ruang Terbatas Kemnaker RI',
       hasCourseInstance: { '@id': `${pageUrl}#courseinstance` },
     },
     {
@@ -91,7 +92,6 @@ const courseJsonLd = JSON.stringify({
       endDate: data.endDate,
       courseMode: data.mode,
       eventAttendanceMode: attendanceModes[data.attendanceMode],
-      ...(isOpen ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
       location: locations,
       organizer: { '@id': `${origin}/#organization` },
       offers: {
@@ -116,7 +116,6 @@ const courseJsonLd = JSON.stringify({
       startDate: data.startDate,
       endDate: data.endDate,
       eventAttendanceMode: attendanceModes[data.attendanceMode],
-      eventStatus: isOpen ? 'https://schema.org/EventScheduled' : 'https://schema.org/EventCancelled',
       location: locations,
       organizer: { '@id': `${origin}/#organization` },
       performer: { '@id': `${origin}/#organization` },
@@ -179,7 +178,7 @@ const courseJsonLd = JSON.stringify({
         <h1>{data.title}</h1>
         <p>{data.description}</p>
         <p style="margin-top: 18px;">
-          <span class={`status ${isOpen ? 'is-open' : 'is-closed'}`}>{isOpen ? ui.jadwal.statusOpen : ui.jadwal.statusClosed}</span>
+          <span class={`status ${scheduleStatus === 'closed' ? 'is-closed' : scheduleStatus === 'ongoing' ? 'is-ongoing' : 'is-open'}`}>{statusLabel}</span>
         </p>
         <a class="text-link" href={trainingServiceHref}>
           {ui.jadwal.programLink} <span aria-hidden="true">&rarr;</span>
@@ -276,11 +275,11 @@ const courseJsonLd = JSON.stringify({
             </thead>
             <tbody>
               {others.map((row) => (
-                <tr data-end={row.endDate}>
+                <tr data-start={row.startDate} data-end={row.endDate}>
                   <td data-label="No">{row.batchNo}</td>
                   <td data-label="Tanggal"><a href={`/jadwal/${row.slug}/`}>{row.dateLabel}</a></td>
                   <td data-label="Metode">{row.mode}</td>
-                  <td data-label="Status"><span class={`status ${row.open ? 'is-open' : 'is-closed'}`}>{row.open ? ui.jadwal.statusOpen : ui.jadwal.statusClosed}</span></td>
+                  <td data-label="Status"><span class={`status ${row.status === 'closed' ? 'is-closed' : row.status === 'ongoing' ? 'is-ongoing' : 'is-open'}`}>{row.status === 'open' ? ui.jadwal.statusOpen : row.status === 'ongoing' ? ui.jadwal.statusOngoing : ui.jadwal.statusClosed}</span></td>
                 </tr>
               ))}
             </tbody>

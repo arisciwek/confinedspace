@@ -1,26 +1,24 @@
-// Status jadwal otomatis (Dibuka / Ditutup) berdasarkan tanggal lokal perangkat
-// Dipakai bersama oleh halaman depan, listing jadwal, dan detail angkatan.
-// Versi plain JS untuk di-serve sebagai static file.
-
-// Label dari config ui.ts (hardcode agar tidak butuh import)
-const STATUS_OPEN = 'Dibuka';
-const STATUS_CLOSED = 'Ditutup';
-
+// Status jadwal otomatis dalam kalender WIB (Asia/Jakarta).
 (function () {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Jakarta',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map(function (part) { return [part.type, part.value]; }));
+  const today = values.year + '-' + values.month + '-' + values.day;
 
-  document.querySelectorAll('tr[data-end]').forEach(function (row) {
-    var endAttr = row.dataset.end || '';
-    var parts = endAttr.split('-').map(Number);
-    if (parts.length !== 3) return;
-    var endDate = new Date(parts[0], parts[1] - 1, parts[2]);
-    var statusEl = row.querySelector('.status');
-    if (!statusEl) return;
+  document.querySelectorAll('tr[data-start][data-end]').forEach(function (row) {
+    const startDate = row.dataset.start || '';
+    const endDate = row.dataset.end || '';
+    const statusEl = row.querySelector('.status');
+    if (!statusEl || !/^\d{4}-\d{2}-\d{2}$/.test(startDate) || !/^\d{4}-\d{2}-\d{2}$/.test(endDate)) return;
 
-    var isOpen = endDate >= today;
-    statusEl.textContent = isOpen ? STATUS_OPEN : STATUS_CLOSED;
-    statusEl.classList.toggle('is-open', isOpen);
-    statusEl.classList.toggle('is-closed', !isOpen);
+    const status = today < startDate ? 'open' : today <= endDate ? 'ongoing' : 'closed';
+    statusEl.textContent = status === 'open' ? 'Dibuka' : status === 'ongoing' ? 'Berlangsung' : 'Ditutup';
+    statusEl.classList.toggle('is-open', status === 'open');
+    statusEl.classList.toggle('is-ongoing', status === 'ongoing');
+    statusEl.classList.toggle('is-closed', status === 'closed');
   });
 })();

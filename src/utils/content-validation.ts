@@ -19,7 +19,7 @@ export async function validateContentRelations(): Promise<void> {
     if (batch.data.startDate > batch.data.endDate) {
       throw new Error(`Schedule "${batch.data.slug}" has startDate after endDate.`);
     }
-    if (batch.data.attendanceMode !== 'offline' && !batch.data.virtualUrl) {
+    if (batch.data.attendanceMode === 'online' && !batch.data.virtualUrl) {
       throw new Error(`Schedule "${batch.data.slug}" with attendanceMode "${batch.data.attendanceMode}" requires virtualUrl.`);
     }
   }

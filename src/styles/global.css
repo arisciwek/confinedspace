@@ -352,6 +352,7 @@ b, strong { font-weight: 700; }
 .schedule-table td a:hover { color: var(--gold); text-decoration-color: var(--gold); }
 .status { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 50px; font-size: .85rem; font-weight: 700; }
 .status.is-open { background: rgba(76,175,80,.15); color: #2e7d32; }
+.status.is-ongoing { background: rgba(13,148,136,.14); color: #0f766e; }
 .status.is-closed { background: rgba(244,67,54,.1); color: #c62828; }
 .schedule-note { margin-top: 20px; font-size: .9rem; color: var(--muted); }
 
