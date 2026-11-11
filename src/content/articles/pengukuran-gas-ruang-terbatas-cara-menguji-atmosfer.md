@@ -15,6 +15,8 @@ author:
   url: https://betracomtraining.com/
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [pengukuran gas ruang terbatas, pengujian atmosfer, tes gas sebelum masuk, oksigen ruang terbatas, gas mudah terbakar, gas beracun, atmospheric testing]
+featuredImage: /images/articles/pengukuran-gas-ruang-terbatas-cara-menguji-atmosfer.webp
+featuredImageAlt: "Pengukuran Gas Ruang Terbatas: Cara Menguji Oksigen, Gas Mudah Terbakar, dan Gas Beracun"
 relatedServices: [111]
 relatedArticles: [5, 2]
 blocks:
