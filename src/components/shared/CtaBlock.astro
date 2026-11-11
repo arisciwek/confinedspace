@@ -5,17 +5,13 @@ const { id, heading, message, button = ui.ctaBlock.defaultButton, serviceHref, s
 const hasWhatsapp = /^\d{8,15}$/.test(site.whatsapp);
 const whatsappHref = hasWhatsapp ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}` : undefined;
 ---
-<section id={id} class={`rounded-2xl border border-blue-200 bg-blue-50 p-6 md:p-8 ${css?.section ?? ''}`}>
-  {heading && <h2 class={`mb-2 text-xl font-bold text-slate-950 ${css?.heading ?? ''}`}>{heading}</h2>}
-  <p class={`mb-5 text-slate-700 ${css?.message ?? ''}`}>{message}</p>
-  <div class="flex flex-col gap-2 sm:flex-row sm:gap-4">
-    {serviceHref && (
-      <a href={serviceHref} class={`inline-flex items-center gap-2 rounded-lg bg-blue-700 px-5 py-3 text-sm font-bold text-white no-underline transition hover:bg-blue-800 ${css?.button ?? ''}`}>{serviceLabel}</a>
-    )}
-    {whatsappHref ? (
-      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class={`inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-3 text-sm font-bold text-white no-underline transition hover:bg-green-700 ${css?.button ?? ''}`}>{button}</a>
-    ) : (
-      <p class="text-sm text-slate-600">{ui.ctaBlock.whatsappMissing}</p>
-    )}
+<section id={id} class={`cta-content-block ${css?.section ?? ''}`} aria-labelledby={heading ? `${id}-title` : undefined}>
+  <div class="cta-content-block__copy">
+    {heading && <h2 id={`${id}-title`} class={`cta-content-block__heading ${css?.heading ?? ''}`}>{heading}</h2>}
+    <p class={`cta-content-block__message ${css?.message ?? ''}`}>{message}</p>
+  </div>
+  <div class="cta-content-block__actions">
+    {serviceHref && <a href={serviceHref} class={`cta-content-block__secondary ${css?.button ?? ''}`}>{serviceLabel}</a>}
+    {whatsappHref ? <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class={`cta-content-block__button ${css?.button ?? ''}`}>{button}</a> : <p class="cta-content-block__missing">{ui.ctaBlock.whatsappMissing}</p>}
   </div>
 </section>

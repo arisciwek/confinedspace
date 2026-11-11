@@ -1,0 +1,103 @@
+---
+import { site } from '../../config/site.ts';
+const { id = 'multi-step-form', heading, intro, submitLabel = 'Kirim', successMessage, steps } = Astro.props as {
+  id?: string;
+  heading: string;
+  intro?: string;
+  submitLabel?: string;
+  successMessage: string;
+  steps: { title: string; fields: { name: string; label: string; type: 'text' | 'email' | 'tel' | 'textarea' | 'select' | 'checkbox' | 'radio'; required?: boolean; hint?: string; options?: string[] }[] }[];
+};
+const formId = `${id}-form`;
+---
+<section id={id} class="multi-step-form-block" aria-labelledby={`${id}-title`}>
+  <header class="multi-step-form-block__header">
+    <h2 id={`${id}-title`} class="multi-step-form-block__heading">{heading}</h2>
+    {intro && <p class="multi-step-form-block__intro">{intro}</p>}
+  </header>
+  <form id={formId} class="multi-step-form" data-multi-step-form data-whatsapp={site.whatsapp} data-success={successMessage}>
+    <ol class="multi-step-form__progress" aria-label="Tahapan formulir">
+      {steps.map((step, index) => <li class:list={['multi-step-form__progress-item', index === 0 && 'is-current']} data-progress-item={index}>
+        <span>{index + 1}</span><small>{step.title}</small>
+      </li>)}
+    </ol>
+    {steps.map((step, stepIndex) => <fieldset class="multi-step-form__step" data-form-step={stepIndex} hidden={stepIndex !== 0}>
+      <legend>{step.title}</legend>
+      <div class="multi-step-form__fields">
+        {step.fields.map((field) => <div class:list={['multi-step-form__field', field.type === 'checkbox' && 'multi-step-form__field--choice']}>
+          {field.type === 'checkbox' ? (
+            <label class="multi-step-form__choice"><input name={field.name} type="checkbox" value="Ya" required={field.required} /><span>{field.label}</span></label>
+          ) : field.type === 'radio' ? (
+            <fieldset class="multi-step-form__radio-group"><legend>{field.label}{field.required && <span aria-hidden="true"> *</span>}</legend>
+              {field.options?.map((option) => <label class="multi-step-form__choice"><input name={field.name} type="radio" value={option} required={field.required} /><span>{option}</span></label>)}
+            </fieldset>
+          ) : (
+            <>
+              <label for={`${formId}-${field.name}`}>{field.label}{field.required && <span aria-hidden="true"> *</span>}</label>
+              {field.type === 'textarea' ? <textarea id={`${formId}-${field.name}`} name={field.name} required={field.required} rows="4"></textarea> :
+              field.type === 'select' ? <select id={`${formId}-${field.name}`} name={field.name} required={field.required}><option value="">Pilih salah satu</option>{field.options?.map((option) => <option value={option}>{option}</option>)}</select> :
+              <input id={`${formId}-${field.name}`} name={field.name} type={field.type} required={field.required} />}
+            </>
+          )}
+          {field.hint && <small class="multi-step-form__hint">{field.hint}</small>}
+        </div>)}
+      </div>
+    </fieldset>)}
+    <div class="multi-step-form__actions">
+      <button type="button" class="multi-step-form__back" data-step-back hidden>Kembali</button>
+      <button type="button" class="multi-step-form__next" data-step-next>Berikutnya</button>
+      <button type="submit" class="multi-step-form__submit" data-step-submit hidden>{submitLabel}</button>
+    </div>
+    <p class="multi-step-form__success" data-form-success role="status" hidden>{successMessage}</p>
+  </form>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-multi-step-form]').forEach((form) => {
+    if (form.dataset.initialized) return;
+    form.dataset.initialized = 'true';
+    const steps = Array.from(form.querySelectorAll<HTMLElement>('[data-form-step]'));
+    const progress = Array.from(form.querySelectorAll<HTMLElement>('[data-progress-item]'));
+    const back = form.querySelector<HTMLButtonElement>('[data-step-back]');
+    const next = form.querySelector<HTMLButtonElement>('[data-step-next]');
+    const submit = form.querySelector<HTMLButtonElement>('[data-step-submit]');
+    const success = form.querySelector<HTMLElement>('[data-form-success]');
+    let active = 0;
+    const render = () => {
+      steps.forEach((step, index) => { step.hidden = index !== active; });
+      progress.forEach((item, index) => {
+        item.classList.toggle('is-current', index === active);
+        item.classList.toggle('is-complete', index < active);
+      });
+      if (back) back.hidden = active === 0;
+      if (next) next.hidden = active === steps.length - 1;
+      if (submit) submit.hidden = active !== steps.length - 1;
+    };
+    const validCurrentStep = () => {
+      const controls = Array.from(steps[active].querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('input, select, textarea'));
+      const invalid = controls.find((control) => !control.checkValidity());
+      if (invalid) { invalid.reportValidity(); return false; }
+      return true;
+    };
+    next?.addEventListener('click', () => {
+      if (!validCurrentStep()) return;
+      active = Math.min(active + 1, steps.length - 1);
+      render();
+    });
+    back?.addEventListener('click', () => {
+      active = Math.max(active - 1, 0);
+      render();
+    });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!validCurrentStep()) return;
+      const formData = new FormData(form);
+      const lines = ['Permintaan informasi dari website Betracom'];
+      formData.forEach((value, key) => lines.push(`${key}: ${String(value)}`));
+      const phone = form.dataset.whatsapp;
+      if (phone) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener,noreferrer');
+      if (success) success.hidden = false;
+    });
+    render();
+  });
+</script>

@@ -220,6 +220,7 @@ const contentBlocks = z.discriminatedUnion('component', [
     variant: z.enum(['home', 'listing']).default('listing'),
     columns: z.union([z.literal(2), z.literal(3)]).default(3),
     showBenefits: z.boolean().default(false),
+    excludeSlug: z.string().optional(),
   }),
   z.object({
     component: z.literal('home-process'),

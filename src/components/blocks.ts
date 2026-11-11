@@ -24,6 +24,7 @@ import HomeProcessBlock from './shared/HomeProcessBlock.astro';
 import ArticleListBlock from './shared/ArticleListBlock.astro';
 import HomeCtaBlock from './shared/HomeCtaBlock.astro';
 import NotFoundBlock from './shared/NotFoundBlock.astro';
+import MultiStepFormBlock from './shared/MultiStepFormBlock.astro';
 
 const blocks: Record<string, any> = {
   card: ContentCard,
@@ -52,6 +53,7 @@ const blocks: Record<string, any> = {
   'article-list': ArticleListBlock,
   'home-cta': HomeCtaBlock,
   'not-found': NotFoundBlock,
+  'multi-step-form': MultiStepFormBlock,
 };
 
 export default blocks;

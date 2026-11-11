@@ -4,9 +4,13 @@ ulid: 01M72WVTMFJ0H1K3BFWATH8V8V
 type: service
 slug: petugas-k3-penyelamat-ruang-terbatas
 title: Pelatihan Petugas K3 Penyelamat Ruang Terbatas
-description: Pembinaan Petugas K3 Penyelamat Ruang Terbatas sesuai Permenaker 11/2023, mencakup kesiapsiagaan tanggap darurat, sistem penyelamatan dengan tripod dan SCBA, serta simulasi evakuasi pekerja dari ruang terbatas.
+description: Pembinaan Petugas K3 Penyelamat Ruang Terbatas untuk kesiapsiagaan darurat, perencanaan rescue, penggunaan peralatan penyelamatan, dan evakuasi korban sesuai Permenaker Nomor 11 Tahun 2023.
+intro: |
+  Pelatihan Petugas K3 Penyelamat Ruang Terbatas membekali personel yang terlibat dalam kesiapsiagaan dan penanganan keadaan darurat di ruang terbatas. Peserta mempelajari cara menilai situasi, memahami risiko penyelamatan, menyiapkan sistem rescue, serta berkoordinasi dalam proses evakuasi pekerja.
+
+  Pembinaan mengacu pada Peraturan Menteri Ketenagakerjaan Republik Indonesia Nomor 11 Tahun 2023 tentang Keselamatan dan Kesehatan Kerja di Ruang Terbatas. Materi praktik dan skenario disesuaikan dengan silabus, fasilitas, serta karakteristik risiko yang dibahas dalam program.
 pubDate: '2026-11-10T08:45:00Z'
-updatedDate: '2026-11-10T08:50:00Z'
+updatedDate: '2026-11-11T12:00:00+07:00'
 serviceGroup: Pelatihan
 order: 30
 draft: false
@@ -19,60 +23,98 @@ blocks:
   - component: stats-grid
     id: ringkasan-program
     items:
-      - value: Kelas Publik & In House
-        label: Pilihan program
       - value: Permenaker 11/2023
-        label: Dasar regulasi
-      - value: Dokumen sesuai ketentuan
-        label: Dokumen kelulusan
-      - value: Kota Bogor
-        label: Lokasi pelatihan
+        label: Acuan regulasi
+      - value: Kesiapsiagaan
+        label: Fokus peran
+      - value: Sistem rescue
+        label: Materi praktik
+      - value: Evakuasi korban
+        label: Tujuan latihan
   - component: section
     id: ruang-lingkup
-    heading: Ruang Lingkup Program
+    heading: Peran Petugas K3 Penyelamat Ruang Terbatas
     content:
       - type: p
-        text: Petugas K3 Penyelamat Ruang Terbatas adalah salah satu kualifikasi personel K3 ruang terbatas yang diatur Peraturan Menteri Ketenagakerjaan Nomor 11 Tahun 2023. Perannya berfokus pada kesiapsiagaan dan pelaksanaan penyelamatan pekerja yang mengalami keadaan darurat di ruang terbatas.
+        text: Petugas K3 Penyelamat Ruang Terbatas berperan dalam kesiapsiagaan dan pelaksanaan penyelamatan ketika terjadi keadaan darurat pada pekerjaan di ruang terbatas. Penyelamatan di ruang terbatas memiliki risiko tinggi sehingga harus direncanakan, menggunakan personel terlatih, dan dilaksanakan dengan sistem serta peralatan yang sesuai.
       - type: p
-        text: Program pembinaan ini menyiapkan peserta agar mampu merespons keadaan darurat secara cepat, aman, dan terukur, mulai dari penilaian situasi, pemilihan strategi penyelamatan, hingga evakuasi korban dari ruang terbatas.
-      - type: p
-        text: 'Materi pembinaan meliputi:'
-      - type: list
-        items:
-          - Dasar regulasi K3 ruang terbatas dan tanggung jawab petugas penyelamat.
-          - Prinsip tanggap darurat dan sistem kesiapsiagaan di tempat kerja.
-          - Penilaian situasi darurat dan pemilihan strategi penyelamatan yang aman.
-          - Penggunaan peralatan penyelamatan seperti tripod, winch, harness, dan lifeline.
-          - Teknik masuk keluar ruang terbatas dengan peralatan pernapasan SCBA dan escape set.
-          - Komunikasi dan koordinasi tim penyelamat dengan pengawas pekerjaan.
-          - Pertolongan pertama dasar bagi korban keadaan darurat di ruang terbatas.
-          - Simulasi evakuasi pekerja dari skenario ruang terbatas.
-  - component: steps
-    id: alur-pendaftaran
-    heading: Alur Pendaftaran
+        text: Penolong tidak boleh melakukan entry secara spontan tanpa penilaian bahaya dan rencana penyelamatan. Upaya penyelamatan yang tidak terkendali dapat menambah jumlah korban. Karena itu, koordinasi, komunikasi, pemilihan metode evakuasi, dan perlindungan tim rescue menjadi bagian penting dari pembinaan.
+  - component: feature-card-grid
+    id: materi-rescue
+    title: Materi Kesiapsiagaan dan Penyelamatan
+    columns: 2
     items:
-      - title: Konsultasi kebutuhan
-        text: Hubungi tim kami via WhatsApp untuk berdiskusi kebutuhan peserta atau perusahaan serta menentukan waktu penyelenggaraan.
-      - title: Pengisian formulir pendaftaran
-        text: Unduh formulir pendaftaran, lengkapi data peserta, lalu kirimkan kepada tim kami untuk konfirmasi.
-      - title: Persiapan dokumen persyaratan
-        text: Siapkan dokumen dasar pendaftaran peserta sesuai arahan tim kami.
-      - title: Pelaksanaan pembinaan
-        text: Ikuti materi teori dan praktik penyelamatan dengan peralatan rescue yang digunakan di lapangan.
-      - title: Evaluasi dan penerbitan dokumen
-        text: Peserta mengikuti pembinaan dan evaluasi. Bukti kompetensi mengikuti ketentuan yang berlaku pada saat proses, termasuk status SKKNI dan mekanisme penerbitan dokumen oleh instansi berwenang.
+      - title: Persiapan tanggap darurat
+        description: Memahami struktur respons darurat dan informasi yang diperlukan sebelum pekerjaan dimulai.
+        points:
+          - Identifikasi skenario keadaan darurat.
+          - Perencanaan rescue dan pembagian peran tim.
+      - title: Penilaian situasi
+        description: Memahami bahaya ruang, kondisi korban, akses, dan risiko bagi personel penyelamat.
+        points:
+          - Komunikasi dan koordinasi dengan pengawas.
+          - Penentuan metode penyelamatan yang sesuai.
+      - title: Sistem dan peralatan rescue
+        description: Mengenali penggunaan peralatan penyelamatan berdasarkan konfigurasi ruang.
+        points:
+          - Tripod, winch, harness, dan lifeline.
+          - Pemeriksaan kesiapan serta kompatibilitas peralatan.
+      - title: Evakuasi dan pertolongan awal
+        description: Memahami prinsip evakuasi korban dan koordinasi dengan tim medis atau tanggap darurat.
+        points:
+          - Teknik evakuasi tanpa entry bila memungkinkan.
+          - Penanganan awal korban sesuai kompetensi dan prosedur.
+  - component: document-list
+    id: peralatan-rescue
+    title: Peralatan Penyelamatan yang Dikenalkan
+    intro: Peralatan praktik mengikuti fasilitas, silabus, dan skenario yang disiapkan penyelenggara.
+    items:
+      - name: Tripod dan winch
+        purpose: Sistem bantu untuk akses dan evakuasi vertikal pada kondisi yang sesuai.
+      - name: Full body harness
+        purpose: Perlengkapan penahan tubuh yang dipilih sesuai sistem penyelamatan.
+      - name: Lifeline dan konektor
+        purpose: Komponen penghubung dalam sistem penarikan atau evakuasi.
+      - name: SCBA atau escape set
+        purpose: Peralatan perlindungan pernapasan yang penggunaannya memerlukan pelatihan dan prosedur khusus.
+      - name: Peralatan komunikasi
+        purpose: Membantu koordinasi antara personel di dalam, di luar, dan tim tanggap darurat.
+  - component: process-timeline
+    id: tahapan-rescue
+    title: Tahapan Umum Respons Keadaan Darurat
+    steps:
+      - title: Aktifkan prosedur darurat
+        description: Hentikan pekerjaan, informasikan keadaan darurat, dan aktifkan struktur respons yang telah ditetapkan.
+      - title: Nilai kondisi dan potensi bahaya
+        description: Kumpulkan informasi tentang atmosfer, sumber energi, akses, kondisi korban, dan bahaya bagi tim penolong.
+      - title: Tentukan metode penyelamatan
+        description: Pilih metode yang paling aman, termasuk penyelamatan non-entry jika dapat dilakukan dan sesuai kondisi.
+      - title: Laksanakan evakuasi terencana
+        description: Gunakan personel, sistem, dan peralatan yang sesuai dengan rencana penyelamatan serta prosedur.
+      - title: Serahkan korban dan evaluasi
+        description: Koordinasikan pertolongan lanjutan, dokumentasikan kejadian, dan lakukan evaluasi respons.
+  - component: note
+    id: keselamatan-rescue
+    variant: danger
+    title: Jangan melakukan penyelamatan spontan
+    text: Jangan memasuki ruang terbatas untuk menolong korban tanpa penilaian bahaya, perlindungan yang sesuai, personel terlatih, dan rencana penyelamatan. Tindakan spontan dapat menyebabkan penolong menjadi korban berikutnya.
   - component: faq
     id: faq-program
     heading: Pertanyaan Umum
     items:
       - question: Apa tugas Petugas K3 Penyelamat Ruang Terbatas?
-        answer: Sesuai Permenaker 11/2023, petugas K3 penyelamat bertanggung jawab atas kesiapsiagaan dan pelaksanaan penyelamatan pekerja yang mengalami keadaan darurat di ruang terbatas, termasuk evakuasi korban secara aman.
+        answer: Perannya berkaitan dengan kesiapsiagaan dan pelaksanaan penyelamatan pekerja yang mengalami keadaan darurat di ruang terbatas, sesuai pembagian tugas dan prosedur tanggap darurat perusahaan.
       - question: Siapa yang perlu mengikuti program ini?
-        answer: Program ini relevan bagi personel yang ditugaskan dalam tim tanggap darurat atau tim penyelamat di tempat kerja dengan ruang terbatas, seperti tangki, sumur, saluran, dan ruang bawah tanah, serta pekerja yang menjadi mitra kerja teknisi K3 ruang terbatas.
-      - question: Bukti kelulusan apa yang diberikan untuk Petugas K3 Penyelamat?
-        answer: Pasal 20 Permenaker 11/2023 mengatur bukti kompetensi berupa sertifikat kompetensi sesuai SKKNI. Pasal 21 mengatur surat keterangan telah mengikuti pembinaan K3 dari Direktur Jenderal jika SKKNI untuk Petugas K3 Penyelamat Ruang Terbatas belum ditetapkan. Status SKKNI dan jalur dokumen terbaru harus dikonfirmasi sebelum pendaftaran; lisensi K3 tetap mengikuti Pasal 22.
-      - question: Peralatan penyelamatan apa yang dipraktikkan?
-        answer: Praktik menggunakan peralatan rescue yang lazim dipakai di lapangan, antara lain tripod dan winch, harness dan lifeline, serta peralatan pernapasan SCBA dan escape set dalam skenario evakuasi ruang terbatas.
-      - question: Apakah program ini bisa diselenggarakan di lokasi perusahaan?
-        answer: Ya. Program Petugas K3 Penyelamat dapat diselenggarakan sebagai In House Training dengan skenario yang disesuaikan jenis ruang terbatas di lokasi perusahaan Anda. Silakan hubungi tim kami via WhatsApp untuk menyusun kebutuhan pelatihan.
+        answer: Program ini relevan bagi personel yang ditugaskan dalam tim tanggap darurat atau tim penyelamat pada tempat kerja yang memiliki ruang terbatas, setelah kebutuhan kompetensi dan persyaratan peserta dikonfirmasi.
+      - question: Apakah praktik menggunakan tripod dan SCBA?
+        answer: Jenis peralatan praktik mengikuti silabus dan fasilitas angkatan. Tripod, winch, harness, lifeline, serta peralatan pernapasan dapat menjadi bagian pengenalan atau praktik sesuai skenario yang disiapkan.
+      - question: Apakah pelatihan dapat dilakukan di lokasi perusahaan?
+        answer: Kebutuhan In House Training dapat dikonsultasikan. Skenario, fasilitas, jumlah peserta, dan kelayakan lokasi akan dibahas terlebih dahulu dengan tim penyelenggara.
+      - question: Dokumen apa yang diperoleh setelah pembinaan?
+        answer: Bukti keikutsertaan atau kompetensi mengikuti ketentuan yang berlaku untuk kualifikasi terkait, termasuk status SKKNI dan mekanisme penerbitan dokumen oleh instansi berwenang. Konfirmasikan jalur dokumen sebelum pendaftaran.
+  - component: cta
+    id: konsultasi-petugas-rescue
+    heading: Siapkan Tim Penyelamat yang Terlatih
+    message: Konsultasikan kebutuhan pembinaan, jumlah personel, fasilitas praktik, dan skenario penyelamatan yang relevan dengan kondisi ruang terbatas di tempat kerja Anda.
+    button: Konsultasi via WhatsApp
 ---
