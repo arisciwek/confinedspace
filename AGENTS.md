@@ -37,14 +37,18 @@
 - Setiap foto galeri tetap mengikuti aturan sekali pakai: sumber di `images/` dihapus setelah konversi.
 - Konversi galeri:
   `node scripts/import-gallery-images.mjs --src images/A.JPG --src images/B.JPG --src images/C.JPG --slug <slug>`
-  Script menghasilkan `public/images/articles/<slug>-galeri-N.webp` (slide penuh) dan `<slug>-galeri-N-thumb.webp` (thumbnail grid), lalu menghapus setiap source.
-- Nama file memakai slug artikel atau slug layanan, dengan akhiran `-galeri-N` (slide) dan `-galeri-N-thumb` (thumbnail).
+  Tambahkan `--service-slug <slug-layanan>` bila foto pertama menjadi representasi layanan.
+  Script menghasilkan `<slug>-N.webp` (slide penuh) dan `<slug>-N-thumb.webp` (thumbnail grid), lalu menghapus setiap source.
+- Penamaan default: **slug + nomor urut** (`<slug>-1.webp`, `<slug>-2.webp`, dst.).
+- **Satu foto** per galeri (foto pertama) memakai slug layanan: `<slug-layanan>-1.webp`. Foto ini menjadi representasi layanan, dan `alt`-nya diawali `<judul layanan> adalah ...`.
+- Foto sisanya memakai slug artikel/layanan induk dengan nomor urut (`<slug>-1.webp`, `<slug>-2.webp`, dst.).
 - Thumbnail grid memakai file `-thumb` (maks 480 px) agar halaman ringan; slide layar penuh memakai file utama (maks 1600 px).
 - `alt` foto galeri adalah **deskripsi spesifik isi foto**, bukan judul artikel. Contoh:
   `Peserta praktik pemasangan tripod dan harness sebelum masuk ruang terbatas`.
+  Pengecualian: foto representasi layanan memakai pola `<judul layanan> adalah <deskripsi singkat>`.
 - `src` gambar galeri harus unik: tidak boleh duplikat di dalam satu galeri, dan tidak boleh sama dengan `featuredImage` atau foto galeri artikel lain.
 - Thumbnail ditampilkan kecil (grid 2/3/4 kolom, rasio 4:3) agar menyatu dengan halaman artikel; klik foto membuka slide layar penuh.
 - Lightbox memakai `<dialog>` native + CSS scroll-snap (tanpa plugin): tombol prev/next, tombol panah keyboard, swipe di mobile, dan `Esc` untuk menutup.
 - Divalidasi di:
   - `src/content.config.ts` — schema block `gallery` (2–4 item).
-  - `src/utils/content-validation.ts` — jumlah item, duplikat `src`, dan pemakaian gambar sekali pakai.
+  - `src/utils/content-validation.ts` — jumlah item, duplikat `src`, pemakaian gambar sekali pakai, pola nama file (`<slug>-N`), dan alt foto layanan (`<judul layanan> adalah ...`).

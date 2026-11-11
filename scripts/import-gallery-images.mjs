@@ -12,9 +12,14 @@
  *     --src images/IMG_6542.JPG \
  *     --slug apa-itu-confined-space
  *
+ * Naming: by default files are `<slug>-1.webp`, `<slug>-2.webp`, ...
+ * If `--service-slug` is given, the FIRST photo is named `<service-slug>-1.webp`
+ * (the service-representative photo) and the rest keep `<slug>-N.webp`.
+ *
  * Options:
  *   --src      Path to a source image (repeat 2–4 times, required)
  *   --slug     Article or service slug, used as the output filename prefix (required)
+ *   --service-slug  Optional service slug for the first (service) photo
  *   --width    Max width in pixels for the full-size slide (default: 1600)
  *   --thumb-width  Max width in pixels for the small grid thumbnail (default: 480)
  *   --quality  WebP quality 1-100 for the full-size slide (default: 82)
@@ -73,6 +78,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   const sources = args.src;
   const slug = args.slug ? slugify(args.slug) : '';
+  const serviceSlug = args['service-slug'] ? slugify(args['service-slug']) : '';
 
   if (sources.length < DEFAULTS.min || sources.length > DEFAULTS.max) {
     console.error(`Error: pass ${DEFAULTS.min}–${DEFAULTS.max} --src values (got ${sources.length}).`);
@@ -125,8 +131,11 @@ async function main() {
   const imagesDir = resolve('./images');
   const results = [];
 
+  let articlePhotoIndex = 0;
+
   for (const [index, src] of sources.entries()) {
-    const baseName = `${slug}-galeri-${index + 1}`;
+    const isServicePhoto = Boolean(serviceSlug) && index === 0;
+    const baseName = isServicePhoto ? `${serviceSlug}-1` : `${slug}-${++articlePhotoIndex}`;
     const outputPath = join(outDir, `${baseName}.webp`);
     const thumbPath = join(outDir, `${baseName}-thumb.webp`);
     const metadata = await sharp(src).metadata();
@@ -145,9 +154,9 @@ async function main() {
     const outputSize = statSync(outputPath).size;
     const thumbSize = statSync(thumbPath).size;
     const relativePath = outputPath.replace(`${process.cwd()}/`, '');
-    const publicPath = `/${relativePath.replace(/^public\//, '')}`;
+    const publicPath = relativePath.startsWith('/') ? relativePath : `/${relativePath.replace(/^public\//, '')}`;
     const thumbRelativePath = thumbPath.replace(`${process.cwd()}/`, '');
-    const thumbPublicPath = `/${thumbRelativePath.replace(/^public\//, '')}`;
+    const thumbPublicPath = thumbRelativePath.startsWith('/') ? thumbRelativePath : `/${thumbRelativePath.replace(/^public\//, '')}`;
 
     console.log(`Source : ${src} (${(originalSize / 1024 / 1024).toFixed(1)} MB, ${metadata.width}x${metadata.height})`);
     console.log(`Output : ${relativePath} (${(outputSize / 1024).toFixed(1)} KB)`);
@@ -163,7 +172,7 @@ async function main() {
     }
     console.log('');
 
-    results.push({ publicPath, thumbPublicPath });
+    results.push({ publicPath, thumbPublicPath, isServicePhoto });
   }
 
   console.log('Tambahkan ke artikel sebagai block gallery:');
@@ -175,10 +184,15 @@ async function main() {
   for (const result of results) {
     console.log(`    - src: ${result.publicPath}`);
     console.log(`      thumb: ${result.thumbPublicPath}`);
-    console.log('      alt: "<deskripsi spesifik isi foto>"');
+    console.log(
+      result.isServicePhoto
+        ? '      alt: "<judul layanan> adalah <deskripsi singkat>"'
+        : '      alt: "<deskripsi spesifik isi foto>"',
+    );
   }
   console.log('');
   console.log('Aturan: alt foto galeri wajib deskriptif (bukan judul artikel), dan setiap gambar hanya dipakai 1 kali.');
+  console.log('Aturan: foto pertama yang memakai --service-slug memakai alt "<judul layanan> adalah ...".');
 }
 
 main().catch((error) => {

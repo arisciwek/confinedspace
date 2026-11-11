@@ -126,14 +126,14 @@ blocks:
     heading: Dokumentasi Pelatihan Ruang Terbatas
     intro: Cuplikan kegiatan pelatihan K3 ruang terbatas sebagai gambaran penerapan materi di lapangan.
     items:
-      - src: /images/articles/apa-itu-confined-space-galeri-1.webp
-        thumb: /images/articles/apa-itu-confined-space-galeri-1-thumb.webp
-        alt: Sesi penyampaian materi pelatihan confined space kepada peserta
-      - src: /images/articles/apa-itu-confined-space-galeri-2.webp
-        thumb: /images/articles/apa-itu-confined-space-galeri-2-thumb.webp
+      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-1.webp
+        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-1-thumb.webp
+        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi untuk pekerjaan di ruang terbatas
+      - src: /images/articles/apa-itu-confined-space-1.webp
+        thumb: /images/articles/apa-itu-confined-space-1-thumb.webp
         alt: Peserta mengikuti praktik penggunaan peralatan K3 ruang terbatas
-      - src: /images/articles/apa-itu-confined-space-galeri-3.webp
-        thumb: /images/articles/apa-itu-confined-space-galeri-3-thumb.webp
+      - src: /images/articles/apa-itu-confined-space-2.webp
+        thumb: /images/articles/apa-itu-confined-space-2-thumb.webp
         alt: Dokumentasi kegiatan pelatihan teknisi K3 ruang terbatas
   - component: section
     id: peran-personel

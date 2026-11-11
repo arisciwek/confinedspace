@@ -83,6 +83,13 @@ export async function validateContentRelations(): Promise<void> {
             `Article "${article.data.slug}" gallery "${block.id}" must contain 2–4 photos (found ${block.items.length}).`,
           );
         }
+        const relatedServiceId = article.data.relatedServices?.[0];
+        const relatedService = relatedServiceId !== undefined
+          ? services.find((service) => service.data.id === relatedServiceId)
+          : undefined;
+        const allowedPrefixes = [article.data.slug, relatedService?.data.slug].filter(
+          (prefix): prefix is string => Boolean(prefix),
+        );
         const seenGallerySources = new Set<string>();
         for (const item of block.items) {
           if (seenGallerySources.has(item.src)) {
@@ -92,6 +99,21 @@ export async function validateContentRelations(): Promise<void> {
           }
           seenGallerySources.add(item.src);
           claimImage(item.src, `${article.data.slug} (gallery "${block.id}")`);
+
+          const fileName = item.src.split('/').pop() ?? '';
+          if (!allowedPrefixes.some((prefix) => fileName.startsWith(`${prefix}-`))) {
+            throw new Error(
+              `Article "${article.data.slug}" gallery "${block.id}" image "${fileName}" must be named with the article slug or related service slug plus a number (e.g. "${allowedPrefixes[0]}-1.webp").`,
+            );
+          }
+          if (relatedService && fileName.startsWith(`${relatedService.data.slug}-`)) {
+            const expectedAlt = `${relatedService.data.title} adalah `;
+            if (!item.alt.startsWith(expectedAlt)) {
+              throw new Error(
+                `Article "${article.data.slug}" gallery "${block.id}" service image "${fileName}" alt must start with "${expectedAlt}".`,
+              );
+            }
+          }
         }
       }
     }
