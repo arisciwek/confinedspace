@@ -1,14 +1,14 @@
 ---
 id: 5
-ulid: 01K9Z9C3D4E5F6G7H8J9K0L1M2
+ulid: 01K9Z9C3D4E5F6G7H8J9K0M3D4
 type: article
 schemaType: Article
 slug: teknisi-deteksi-gas-ruang-terbatas
-title: Teknisi Deteksi Gas Ruang Terbatas: Pengukuran Atmosfer, Gas Detector, dan Kompetensi
+title: "Teknisi Deteksi Gas Ruang Terbatas: Pengukuran Atmosfer, Gas Detector, dan Kompetensi"
 description: Pelajari peran Teknisi Deteksi Gas Ruang Terbatas, pengujian oksigen, gas mudah terbakar dan beracun, penggunaan gas detector, bump test, kalibrasi, interpretasi hasil, serta pemantauan atmosfer berdasarkan Permenaker 11 Tahun 2023.
 draft: false
-pubDate: '2026-11-12T21:00:00+07:00'
-updatedDate: '2026-11-12T21:00:00+07:00'
+pubDate: '2026-11-12T14:00:00Z'
+updatedDate: '2026-11-12T14:00:00Z'
 author:
   name: Tim Confined Space Indonesia
   type: Organization
@@ -16,8 +16,8 @@ author:
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [Teknisi Deteksi Gas Ruang Terbatas, gas detector, pengukuran gas, pengujian atmosfer, bump test, kalibrasi gas detector, confined space, Permenaker 11 Tahun 2023]
 featuredImage: /images/articles/teknisi-deteksi-gas-ruang-terbatas.webp
-featuredImageAlt: Teknisi Deteksi Gas melakukan pengujian atmosfer menggunakan gas detector sebelum pekerjaan di ruang terbatas
-relatedServices: []
+featuredImageAlt: "Teknisi Deteksi Gas Ruang Terbatas: Pengukuran Atmosfer, Gas Detector, dan Kompetensi"
+relatedServices: [110]
 relatedArticles: [2, 3, 4]
 blocks:
   - component: section
@@ -320,8 +320,8 @@ blocks:
       - title: Nilai dan satuan
         description: Pastikan angka dibaca dengan satuan dan skala yang benar.
         points:
-          - % volume untuk oksigen.
-          - %LEL untuk gas mudah terbakar.
+          - "% volume untuk oksigen."
+          - "%LEL untuk gas mudah terbakar."
           - ppm atau satuan sensor untuk gas beracun.
       - title: Jenis dan kondisi sensor
         description: Periksa apakah sensor sesuai dengan gas target dan masih berfungsi.
