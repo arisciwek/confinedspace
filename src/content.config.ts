@@ -357,7 +357,6 @@ const services = defineCollection({
     }).optional(),
     blocks: z.array(contentBlocks).default([]),
   }),
-  render: true,
 });
 
 const schedule = defineCollection({
