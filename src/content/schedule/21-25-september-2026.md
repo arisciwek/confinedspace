@@ -10,7 +10,7 @@ dateLabel: '21 – 25 September 2026'
 startDate: '2026-09-21'
 endDate: '2026-09-25'
 mode: Blended Training
-attendanceMode: offline
+attendanceMode: mixed
 draft: false
 pubDate: '2026-11-10T07:35:00Z'
 updatedDate: '2026-11-10T07:40:00Z'
