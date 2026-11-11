@@ -15,6 +15,8 @@ author:
   url: https://betracomtraining.com/
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [peralatan rescue confined space, tripod rescue, winch rescue, full body harness, lifeline, SCBA, escape set, alat penyelamatan ruang terbatas]
+featuredImage: /images/articles/peralatan-rescue-confined-space-tripod-winch-harness-scba.webp
+featuredImageAlt: "Peralatan Rescue Confined Space: Fungsi Tripod, Winch, Harness, Lifeline, dan SCBA"
 relatedServices: [112]
 relatedArticles: [3, 2]
 blocks:
