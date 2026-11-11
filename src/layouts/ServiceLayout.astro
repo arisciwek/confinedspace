@@ -51,6 +51,7 @@ const serviceProfJsonLd = JSON.stringify({
   logo: { '@type': 'ImageObject', url: new URL(site.logo, siteOrigin).toString() },
   telephone: `+${site.phone}`,
   email: site.email,
+  priceRange: 'Rp6.000.000',
   address: {
     '@type': 'PostalAddress',
     streetAddress: `${site.address.street}, Kelurahan ${site.address.village}`,
