@@ -846,10 +846,24 @@ b, strong { font-weight: 700; }
 .service-content__block--cta a { background: var(--gold); color: var(--navy); }
 .service-related .service-list__header { margin-inline: auto; text-align: center; }
 .service-related .service-list__grid { margin-top: 26px; }
+/* Program lainnya: jumlah kartu sering tidak penuh per baris (mis. 2 kartu dari
+   3 kolom saat hanya ada 3 layanan). Baris yang belum penuh dipusatkan agar
+   posisinya simetris — lebar kartu tetap 1 kolom, konsisten dengan /services/. */
+.service-related .service-list__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+.service-related .service-list__grid > li {
+    flex: 0 1 calc((100% - 36px) / 3);
+    max-width: calc((100% - 36px) / 3);
+}
 
 @media (max-width: 900px) {
   .stats-grid-block__grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .service-list__grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .service-related .service-list__grid > li { flex-basis: calc((100% - 18px) / 2); max-width: calc((100% - 18px) / 2); }
 }
 @media (max-width: 640px) {
   .service-hero { min-height: auto; padding-block: 58px 66px; }
@@ -859,6 +873,7 @@ b, strong { font-weight: 700; }
   .steps-block__item { grid-template-columns: 38px minmax(0,1fr); gap: 12px; }
   .steps-block__number { width: 36px; height: 36px; }
   .service-list__grid, .service-list__grid--2 { grid-template-columns: 1fr; }
+  .service-related .service-list__grid > li { flex-basis: 100%; max-width: 100%; }
 }
 
 
