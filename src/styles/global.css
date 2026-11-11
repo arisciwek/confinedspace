@@ -1113,3 +1113,32 @@ b, strong { font-weight: 700; }
   .article-cta__actions { max-width: none; }
   .article-cta__actions > a { flex: 1 1 100%; }
 }
+
+
+/* Mid-article CTA should read as a deliberate editorial pause. */
+.article-blocks__item--cta { margin-block: 4px; }
+.article-blocks__item--cta .cta-content-block { min-height: 190px; }
+.article-blocks__item--cta .cta-content-block__actions { width: min(100%, 280px); flex-direction: column; }
+.article-blocks__item--cta .cta-content-block__button,
+.article-blocks__item--cta .cta-content-block__secondary { width: 100%; min-height: 48px; padding-inline: 16px; text-align: center; line-height: 1.45; }
+.article-blocks__item--cta .cta-content-block__button { background: var(--gold); color: var(--navy) !important; }
+.article-blocks__item--cta .cta-content-block__button:hover { background: #dfc38d; }
+.article-toc__list a:focus-visible,
+.article-footer-cta a:focus-visible,
+.comparison-table__scroll:focus-visible {
+  outline: 3px solid #c7a35d;
+  outline-offset: 3px;
+}
+@media (max-width: 900px) {
+  .article-sidebar { padding: 0; }
+  .article-toc__list { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 640px) {
+  .article-toc__list { grid-template-columns: 1fr; }
+  .comparison-table__table { min-width: 680px; font-size: .86rem; }
+  .comparison-table__table th, .comparison-table__table td { padding: 12px 14px; }
+  .checklist-card { padding: 20px 17px; }
+  .checklist-card__header { grid-template-columns: 32px minmax(0,1fr); gap: 12px; }
+  .checklist-card__icon { width: 32px; height: 32px; }
+  .article-footer-cta__inner { padding-block: 42px; }
+}
