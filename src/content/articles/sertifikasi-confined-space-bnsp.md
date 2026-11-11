@@ -91,25 +91,25 @@ blocks:
       - title: K3 Nasional
         description: Profil direktori BNSP menampilkan skema Teknisi Ruang Terbatas dengan 13 unit. Status lisensi tercantum aktif pada saat pemeriksaan, dengan masa berlaku yang ditampilkan sampai 15 Desember 2026.
         points:
-          - Nomor lisensi: BNSP-LSP-2037-ID.
+          - "Nomor lisensi: BNSP-LSP-2037-ID."
           - Periksa kembali masa berlaku dan status terbaru.
           - Cocokkan dokumen skema sebelum mendaftar.
       - title: Pertambangan Indonesia Mandiri
         description: Profil direktori BNSP menampilkan skema Teknisi Ruang Terbatas dengan 13 unit dan profil lisensi aktif pada saat pemeriksaan.
         points:
-          - Nomor lisensi: BNSP-LSP-1406-ID.
+          - "Nomor lisensi: BNSP-LSP-1406-ID."
           - Profil juga menampilkan skema Ahli Muda Ruang Terbatas.
           - Tanyakan ruang lingkup sektor dan persyaratan peserta.
       - title: Environmental Health Safety Indonesia
         description: Profil direktori BNSP menampilkan skema Teknisi Masuk Ruang Terbatas (Jenjang 4) dengan 16 unit dan status lisensi aktif.
         points:
-          - Nomor lisensi: BNSP-LSP-2712-ID.
+          - "Nomor lisensi: BNSP-LSP-2712-ID."
           - Masa berlaku yang ditampilkan sampai 1 November 2030.
           - Periksa dokumen skema dan TUK yang tersedia.
       - title: Teknik Katiga Indonesia
         description: Profil direktori BNSP menampilkan skema Teknisi Masuk Ruang Terbatas dengan 18 unit dan status lisensi aktif.
         points:
-          - Nomor lisensi: BNSP-LSP-2681-ID.
+          - "Nomor lisensi: BNSP-LSP-2681-ID."
           - Profil juga memuat skema petugas jaga dan petugas penyelamat ruang terbatas.
           - Pastikan skema yang dipilih sesuai tujuan sertifikasi.
   - component: section
