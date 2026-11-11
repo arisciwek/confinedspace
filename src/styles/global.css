@@ -941,3 +941,15 @@ b, strong { font-weight: 700; }
   .multi-step-form__progress { flex-direction: column; }
   .multi-step-form__fields { grid-template-columns: 1fr; }
 }
+
+
+/* Services index */
+.services-index__hero { padding: clamp(54px, 7vw, 88px) 0; background: var(--navy); color: #fff; }
+.services-index__hero .section-label { color: var(--gold); }
+.services-index__hero h1 { max-width: 820px; margin: 16px 0; color: #fff; font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -.04em; }
+.services-index__intro { max-width: 720px; color: rgba(255,255,255,.76); font-size: 1.05rem; line-height: 1.8; }
+.services-index__breadcrumb { margin-bottom: 42px; }
+.services-index__breadcrumb ol { display: flex; flex-wrap: wrap; gap: 9px; color: rgba(255,255,255,.65); font-size: .82rem; }
+.services-index__breadcrumb li + li::before { content: "/"; margin-right: 9px; color: var(--gold); }
+.services-index__breadcrumb a:hover { color: var(--gold); }
+.services-index__listing .service-list__header { display: none; }
