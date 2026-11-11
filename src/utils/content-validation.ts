@@ -65,6 +65,9 @@ export async function validateContentRelations(): Promise<void> {
     }
 
     const relatedServiceIds = article.data.relatedServices ?? [];
+    if (relatedServiceIds.length > 1) {
+      throw new Error(`Article "${article.data.slug}" may reference only one related service (found ${relatedServiceIds.length}); the footer claim must name a single service.`);
+    }
     const uniqueRelatedServiceIds = new Set<number>();
     for (const serviceId of relatedServiceIds) {
       if (uniqueRelatedServiceIds.has(serviceId)) {
@@ -86,6 +89,11 @@ export async function validateContentRelations(): Promise<void> {
       if (!target) {
         throw new Error(`Article "${article.data.slug}" references missing or draft ${relatedType} ID ${relatedId}.`);
       }
+    }
+    const combinedServiceIds = new Set<number>(relatedServiceIds);
+    if (relatedType === 'service' && relatedId !== undefined) combinedServiceIds.add(relatedId);
+    if (combinedServiceIds.size > 1) {
+      throw new Error(`Article "${article.data.slug}" may reference only one related service (found ${combinedServiceIds.size}); the footer claim must name a single service.`);
     }
     const relatedArticleIds = new Set<number>();
     for (const relatedIdValue of relatedArticles) {

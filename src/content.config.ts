@@ -313,7 +313,7 @@ const articles = defineCollection({
     featuredImageAlt: z.string().optional(),
     relatedType: z.enum(['service', 'page', 'article']).optional(),
     relatedId: z.number().int().positive().optional(),
-    relatedServices: z.array(z.number().int().positive()).default([]),
+    relatedServices: z.array(z.number().int().positive()).max(1, 'relatedServices maksimal 1 layanan (dipakai untuk klaim footer).').default([]),
     relatedArticles: z.array(z.number().int().positive()).default([]),
     howTo: z.object({
       blockId: z.string().min(1),
@@ -333,6 +333,15 @@ const articles = defineCollection({
       ctx.addIssue({
         code: 'custom',
         message: `Article "${data.slug}" featuredImageAlt must equal the article title "${data.title}".`,
+      });
+    }
+    // Aturan relasi layanan: artikel hanya boleh terkait ke 1 layanan (dipakai untuk klaim footer).
+    const combinedServiceIds = new Set<number>(data.relatedServices);
+    if (data.relatedType === 'service' && data.relatedId !== undefined) combinedServiceIds.add(data.relatedId);
+    if (combinedServiceIds.size > 1) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `Article "${data.slug}" may reference only one related service (found ${combinedServiceIds.size}); the footer claim must name a single service.`,
       });
     }
   }),

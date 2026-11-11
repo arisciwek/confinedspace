@@ -11,3 +11,15 @@
 - Aturan ini divalidasi di dua tempat:
   - `src/content.config.ts` — `superRefine` pada schema artikel (gagal saat `astro sync`).
   - `src/utils/content-validation.ts` — validasi saat build (gagal saat `npm run build`).
+
+## Aturan relasi layanan artikel
+
+- Satu artikel **hanya boleh terkait ke 1 layanan** (`relatedServices` maksimal 1 item).
+- Meskipun isi artikel menyinggung beberapa layanan, tetap pilih satu layanan yang paling relevan.
+- Jangan menggabungkan `relatedServices` dengan `relatedType: service` + `relatedId` yang berbeda; total layanan unik tetap harus 1.
+- Alasan: relasi ini membentuk klaim di footer, misalnya:
+  `PT Betracom Gemilang Nusa Menyediakan Pelatihan dan Sertifikasi <judul layanan>`
+  Klaim harus menyebut satu layanan saja, bukan daftar.
+- Divalidasi di:
+  - `src/content.config.ts` — `max(1)` + `superRefine` (gagal saat `astro sync`).
+  - `src/utils/content-validation.ts` — validasi saat build (gagal saat `npm run build`).
