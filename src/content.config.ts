@@ -303,6 +303,7 @@ const articles = defineCollection({
       z.string(),
       z.object({
         name: z.string().min(1),
+        type: z.enum(['Person', 'Organization']).default('Person'),
         url: z.url().optional()
       })
     ]).optional(),
