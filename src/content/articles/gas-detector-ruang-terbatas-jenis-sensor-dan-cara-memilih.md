@@ -7,8 +7,8 @@ slug: gas-detector-ruang-terbatas-jenis-sensor-dan-cara-memilih
 title: "Gas Detector Ruang Terbatas: Jenis Alat, Sensor, dan Cara Memilihnya"
 description: "Kenali jenis gas detector ruang terbatas, perbedaan single-gas dan multigas, sensor O₂, LEL, H₂S, CO, teknologi katalitik dan inframerah, serta cara memilih alat sesuai bahaya atmosfer."
 draft: false
-pubDate: '2026-11-12T21:00:00+07:00'
-updatedDate: '2026-11-12T21:00:00+07:00'
+pubDate: '2026-11-12T14:00:00Z'
+updatedDate: '2026-11-12T14:00:00Z'
 author:
   name: Tim Confined Space Indonesia
   type: Organization
@@ -35,7 +35,7 @@ blocks:
     text: Monitor empat gas yang umum digunakan biasanya mengukur oksigen, persentase LEL, hidrogen sulfida, dan karbon monoksida. Alat tersebut tidak otomatis mendeteksi VOC, amonia, klorin, pelarut, atau seluruh zat beracun lain. Tentukan sensor berdasarkan hasil identifikasi bahaya dan jangan menganggap pembacaan normal pada empat kanal sebagai bukti bahwa seluruh atmosfer aman.
   - component: section
     id: jenis-gas-detector-single-multigas
-    heading: Jenis Gas Detector: Single-Gas dan Multigas
+    heading: "Jenis Gas Detector: Single-Gas dan Multigas"
     content:
       - type: p
         text: Secara umum, portable gas detector dapat dibedakan berdasarkan jumlah parameter yang diukur. Single-gas detector dirancang untuk memantau satu jenis gas atau satu parameter tertentu, sedangkan multigas detector menggabungkan beberapa sensor dalam satu perangkat. Keduanya dapat digunakan dalam konteks kerja ruang terbatas apabila spesifikasi alat sesuai dengan bahaya yang telah diidentifikasi.
@@ -212,5 +212,6 @@ blocks:
     heading: Tingkatkan Kompetensi Pengukuran Atmosfer Ruang Terbatas
     message: Personel yang melakukan deteksi gas perlu memahami pemilihan sensor, pemeriksaan alat, metode sampling, interpretasi hasil, dan pemantauan atmosfer. Pelatihan Teknisi Deteksi Gas Ruang Terbatas membantu peserta memahami fungsi tersebut sesuai ruang lingkup program.
     button: Konsultasi Pelatihan Teknisi Deteksi Gas
-    serviceHref: /services/pelatihan-teknisi-deteksi-gas-ruang-terbatas/
+    serviceHref: /services/teknisi-deteksi-gas-ruang-terbatas/
     serviceLabel: Pelatihan Teknisi Deteksi Gas Ruang Terbatas
+---
