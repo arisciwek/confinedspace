@@ -20,6 +20,7 @@ const slugify = (value: string) => value
   .replace(/^-|-$/g, '');
 
 const headings = blocks.flatMap((block) => {
+  if (block.component === 'cta') return [];
   const label = 'heading' in block && block.heading
     ? block.heading
     : 'title' in block && block.title
