@@ -54,7 +54,7 @@ const contentBlocks = z.discriminatedUnion('component', [
     heading: z.string().min(1).optional(),
     icon: z.string().optional(),
     head: z.array(z.string().min(1)).min(1),
-    rows: z.array(z.array(z.string().min(1))).min(1),
+    rows: z.array(z.array(z.string().min(1)).min(1)).min(1),
     class: z.record(z.string(), z.string()).optional(),
   }),
   z.object({
@@ -277,7 +277,6 @@ const contentBlocks = z.discriminatedUnion('component', [
       })).min(1),
     })).min(1),
   }),
-
   z.object({
     component: z.literal('contact-panel'),
     id: z.string().min(1),
@@ -350,6 +349,7 @@ const services = defineCollection({
     order: z.number().int().default(100),
     status: z.enum(['active', 'inactive']).default('active'),
     eyebrow: z.string().default('Layanan'),
+    intro: z.string().min(1).optional(),
     imageAlt: z.string().default('Ilustrasi layanan konsultasi'),
     howTo: z.object({
       blockId: z.string().min(1),
@@ -358,6 +358,7 @@ const services = defineCollection({
     }).optional(),
     blocks: z.array(contentBlocks).default([]),
   }),
+  render: true,
 });
 
 const schedule = defineCollection({
