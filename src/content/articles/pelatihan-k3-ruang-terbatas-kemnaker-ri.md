@@ -35,6 +35,17 @@ blocks:
     variant: info
     title: Pelatihan, sertifikat kompetensi, dan lisensi K3 bukan istilah yang sama
     text: Mengikuti pelatihan tidak otomatis berarti peserta telah memperoleh seluruh bukti kompetensi atau lisensi yang dipersyaratkan. Pastikan penyelenggara menjelaskan tahapan pembinaan, evaluasi atau uji kompetensi, penerbitan sertifikat atau surat keterangan yang berlaku, serta proses pengajuan lisensi K3 sesuai ketentuan.
+  - component: gallery
+    id: galeri-dokumentasi-kegiatan-pelatihan
+    heading: Dokumentasi Kegiatan Pelatihan K3
+    intro: Cuplikan kegiatan pelatihan K3 ruang terbatas untuk menggambarkan suasana dan pelaksanaan pembinaan.
+    items:
+      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-5.webp
+        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-5-thumb.webp
+        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi dengan praktik di area lapangan yang rindang
+      - src: /images/articles/pelatihan-k3-ruang-terbatas-kemnaker-ri-1.webp
+        thumb: /images/articles/pelatihan-k3-ruang-terbatas-kemnaker-ri-1-thumb.webp
+        alt: Peserta mengikuti pembinaan di area terbuka pada pagi hari dengan langit cerah
   - component: section
     id: dasar-regulasi-pelatihan
     heading: Dasar Regulasi Pelatihan K3 Ruang Terbatas
