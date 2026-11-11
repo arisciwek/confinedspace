@@ -6,6 +6,7 @@ import SiteFooter from '../../components/shared/SiteFooter.astro';
 import { ui } from '../../config/ui.ts';
 import { site } from '../../config/site.ts';
 import { home, trainingServiceHref } from '../../config/home.ts';
+import { jadwalHowTo, jadwalFaq } from '../../config/jadwal.ts';
 
 export async function getStaticPaths() {
   const batches = await getCollection('schedule');
@@ -130,6 +131,30 @@ const courseJsonLd = JSON.stringify({
       },
       inLanguage: 'id',
       isAccessibleForFree: false,
+    },
+    ...jadwalHowTo.map((howto, idx) => ({
+      '@type': 'HowTo',
+      '@id': `${pageUrl}#howto-${idx}`,
+      name: howto.name,
+      description: howto.description,
+      step: howto.steps.map((step, sIdx) => ({
+        '@type': 'HowToStep',
+        position: sIdx + 1,
+        name: step.name,
+        text: step.text,
+        ...(step.image ? { image: step.image } : {}),
+      })),
+      inLanguage: 'id',
+    })),
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      mainEntity: jadwalFaq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      })),
+      inLanguage: 'id',
     },
   ],
 }).replace(/</g, '\\u003c');
@@ -265,6 +290,59 @@ const courseJsonLd = JSON.stringify({
         <a class="text-link" href="/#jadwal">
           {ui.jadwal.allScheduleLink} <span aria-hidden="true">&rarr;</span>
         </a>
+      </div>
+    </section>
+
+    <!-- HOW TO DAFTAR -->
+    <section class="howto-section section" id="cara-daftar" aria-labelledby="howto-title">
+      <div class="wrap">
+        {jadwalHowTo.map((howto, idx) => (
+          <article class="howto-card" itemprop="hasPart" itemtype="https://schema.org/HowTo" itemscope>
+            <header class="section-title">
+              <h2 id={`howto-${idx}`}>{howto.name}</h2>
+            </header>
+            <p>{howto.description}</p>
+            <ol class="howto-steps" role="list">
+              {howto.steps.map((step, sIdx) => (
+                <li class="howto-step" itemprop="step" itemtype="https://schema.org/HowToStep" itemscope>
+                  <span class="step-number" aria-hidden="true">{sIdx + 1}</span>
+                  <div class="step-content">
+                    <h3 itemprop="name">{step.name}</h3>
+                    <p itemprop="text">{step.text}</p>
+                    {step.image && (
+                      <img
+                        src={step.image}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        width="640"
+                        height="360"
+                        itemprop="image"
+                      />
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- FAQ JADWAL -->
+    <section class="faq-section section" id="faq-jadwal" aria-labelledby="faq-jadwal-title">
+      <div class="wrap">
+        <header class="section-title center">
+          <h2 id="faq-jadwal-title">Pertanyaan Khusus Angkatan Ini</h2>
+        </header>
+        <div class="faq-list">
+          {jadwalFaq.map((item, index) => (
+            <details open={index === 0}>
+              <summary>{item.question}</summary>
+              <p class="faq-answer">{item.answer}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
 
