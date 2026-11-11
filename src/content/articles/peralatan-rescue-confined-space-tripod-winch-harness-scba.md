@@ -35,6 +35,17 @@ blocks:
     variant: warning
     title: Peralatan harus sesuai dengan metode dan konfigurasi ruang
     text: Tripod, winch, harness, lifeline, dan SCBA bukan satu paket universal untuk semua ruang terbatas. Periksa kesesuaian alat, kapasitas, sertifikasi atau standar produk yang relevan, instruksi produsen, titik jangkar, geometri akses, dan skenario penyelamatan sebelum pekerjaan dimulai.
+  - component: gallery
+    id: galeri-dokumentasi-peralatan-rescue
+    heading: Dokumentasi Peralatan Rescue
+    intro: Cuplikan kegiatan pelatihan peralatan penyelamatan ruang terbatas sebagai gambaran penggunaannya di lapangan.
+    items:
+      - src: /images/articles/petugas-k3-penyelamat-ruang-terbatas-4.webp
+        thumb: /images/articles/petugas-k3-penyelamat-ruang-terbatas-4-thumb.webp
+        alt: Pelatihan Petugas K3 Penyelamat Ruang Terbatas adalah program pelatihan kompetensi penyelamatan dengan sesi praktik peralatan di lapangan
+      - src: /images/articles/peralatan-rescue-confined-space-tripod-winch-harness-scba-1.webp
+        thumb: /images/articles/peralatan-rescue-confined-space-tripod-winch-harness-scba-1-thumb.webp
+        alt: Peserta memeriksa kondisi peralatan sebelum sesi praktik penyelamatan dimulai
   - component: section
     id: tripod-davit-rescue
     heading: Tripod dan Davit untuk Akses Vertikal
