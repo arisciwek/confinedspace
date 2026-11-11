@@ -1,14 +1,14 @@
 ---
 id: 2
-ulid: 01K9Z8Y7X6W5V4U3T2S1R0Q9P8
+ulid: 01K9Z8Y7X6W5V4T3S2R0Q9P8MN
 type: article
 schemaType: Article
 slug: pelatihan-k3-ruang-terbatas-kemnaker-ri
-title: Pelatihan K3 Ruang Terbatas Kemnaker RI: Jenis, Syarat, Kompetensi, dan Sertifikasi
+title: "Pelatihan K3 Ruang Terbatas Kemnaker RI: Jenis, Syarat, Kompetensi, dan Sertifikasi"
 description: Panduan pelatihan K3 ruang terbatas Kemnaker RI berdasarkan Permenaker Nomor 11 Tahun 2023. Kenali jenis pembinaan, peran personel, persyaratan, proses pelatihan, dan bukti kompetensinya.
 draft: false
-pubDate: '2026-11-12T00:39:00+07:00'
-updatedDate: '2026-11-12T00:39:00+07:00'
+pubDate: '2026-11-12T00:39:00Z'
+updatedDate: '2026-11-12T00:39:00Z'
 author:
   name: Tim Confined Space Indonesia
   type: Organization
@@ -16,8 +16,8 @@ author:
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [pelatihan K3 ruang terbatas, Kemnaker RI, confined space, teknisi K3 ruang terbatas, teknisi deteksi gas, petugas K3 penyelamat, Permenaker 11 Tahun 2023, sertifikasi K3]
 featuredImage: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-1.webp
-featuredImageAlt: Pelatihan K3 Ruang Terbatas Kemnaker RI: Jenis, Syarat, Kompetensi, dan Sertifikasi
-relatedServices: []
+featuredImageAlt: "Pelatihan K3 Ruang Terbatas Kemnaker RI: Jenis, Syarat, Kompetensi, dan Sertifikasi"
+relatedServices: [110]
 relatedArticles: [1]
 blocks:
   - component: section
