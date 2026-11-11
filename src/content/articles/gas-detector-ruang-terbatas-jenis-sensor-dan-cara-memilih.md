@@ -15,6 +15,8 @@ author:
   url: https://betracomtraining.com/
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [gas detector ruang terbatas, alat deteksi gas, multigas detector, sensor oksigen, sensor LEL, sensor H2S, sensor CO, confined space]
+featuredImage: /images/articles/gas-detector-ruang-terbatas-jenis-sensor-dan-cara-memilih.webp
+featuredImageAlt: "Gas Detector Ruang Terbatas: Jenis Alat, Sensor, dan Cara Memilihnya"
 relatedServices: [111]
 relatedArticles: [5, 2]
 blocks:
