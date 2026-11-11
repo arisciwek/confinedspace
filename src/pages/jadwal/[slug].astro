@@ -178,7 +178,7 @@ const courseJsonLd = JSON.stringify({
         <h1>{data.title}</h1>
         <p>{data.description}</p>
         <p style="margin-top: 18px;">
-          <span class={`status ${scheduleStatus === 'closed' ? 'is-closed' : scheduleStatus === 'ongoing' ? 'is-ongoing' : 'is-open'}`}>{statusLabel}</span>
+          <span class={`status ${scheduleStatus === 'closed' ? 'is-closed' : scheduleStatus === 'ongoing' ? 'is-ongoing' : 'is-open'}`} data-start={data.startDate} data-end={data.endDate} data-schedule-status>{statusLabel}</span>
         </p>
         <a class="text-link" href={trainingServiceHref}>
           {ui.jadwal.programLink} <span aria-hidden="true">&rarr;</span>
