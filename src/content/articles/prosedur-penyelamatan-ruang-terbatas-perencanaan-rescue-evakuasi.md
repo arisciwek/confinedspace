@@ -35,6 +35,17 @@ blocks:
     variant: danger
     title: Jangan melakukan entry rescue spontan
     text: Jangan memasuki ruang terbatas untuk menolong korban tanpa penilaian bahaya, perlindungan, personel, peralatan, dan prosedur yang sesuai. Banyak kejadian fatal melibatkan penolong yang masuk secara spontan. Prioritaskan metode penyelamatan tanpa masuk apabila dapat dilakukan dengan aman; entry rescue hanya dilakukan oleh tim yang terlatih dan dipersiapkan untuk skenario tersebut.
+  - component: gallery
+    id: galeri-dokumentasi-prosedur-penyelamatan
+    heading: Dokumentasi Prosedur Penyelamatan
+    intro: Cuplikan kegiatan pelatihan perencanaan dan evakuasi sebagai gambaran pelaksanaan prosedur penyelamatan.
+    items:
+      - src: /images/articles/petugas-k3-penyelamat-ruang-terbatas-5.webp
+        thumb: /images/articles/petugas-k3-penyelamat-ruang-terbatas-5-thumb.webp
+        alt: Pelatihan Petugas K3 Penyelamat Ruang Terbatas adalah program pelatihan kompetensi penyelamatan dengan sesi simulasi di lapangan
+      - src: /images/articles/prosedur-penyelamatan-ruang-terbatas-perencanaan-rescue-evakuasi-1.webp
+        thumb: /images/articles/prosedur-penyelamatan-ruang-terbatas-perencanaan-rescue-evakuasi-1-thumb.webp
+        alt: Tim memeriksa perlengkapan dan pembagian peran sebelum simulasi evakuasi korban dimulai
   - component: section
     id: dasar-regulasi-rencana-tanggap-darurat
     heading: Dasar Regulasi Rencana Tanggap Darurat Ruang Terbatas
