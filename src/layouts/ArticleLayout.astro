@@ -95,6 +95,29 @@ const faqJsonLd = faqBlock && 'items' in faqBlock ? {
   })),
 } : null;
 
+// Galeri: ImageGallery schema.org untuk setiap block gallery
+const galleryBlocks = article.data.blocks.filter((block) => block.component === 'gallery');
+const galleryJsonLd = galleryBlocks.map((block, index) => {
+  const blockId = block.id ?? `gallery-${index + 1}`;
+  const items = 'items' in block ? block.items : [];
+  const imageObjects = items.map((item: { src: string; alt: string; caption?: string }) => {
+    const imageUrl = new URL(item.src, siteUrl).toString();
+    const caption = item.caption ?? item.alt;
+    return {
+      '@type': 'ImageObject',
+      url: imageUrl,
+      ...(caption ? { caption } : {}),
+    };
+  });
+  return {
+    '@type': 'ImageGallery',
+    '@id': `${articleUrl}#${blockId}`,
+    name: block.heading ?? `Galeri ${index + 1}`,
+    ...(block.intro ? { description: block.intro } : {}),
+    ...(imageObjects.length ? { image: imageObjects } : {}),
+  };
+});
+
 // HowTo opsional: dirakit dari blok prosedural (steps/process-timeline) yang dirujuk frontmatter `howTo`.
 const howToNode = article.data.howTo ? howToJsonLd({
   pageUrl: articleUrl,
@@ -133,6 +156,7 @@ const articleJsonLd = JSON.stringify({
     ...relatedServiceJsonLd,
     ...(buildingTypesJsonLd ? [buildingTypesJsonLd] : []),
     ...(faqJsonLd ? [faqJsonLd] : []),
+    ...galleryJsonLd,
     ...(howToNode ? [howToNode] : [])
   ]
 }).replace(/</g, '\\u003c');
