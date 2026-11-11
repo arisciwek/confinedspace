@@ -15,7 +15,7 @@ author:
   url: https://betracomtraining.com/
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [Kemnaker vs BNSP confined space, sertifikasi confined space, sertifikat K3 ruang terbatas, sertifikat kompetensi BNSP, lisensi K3 Kemnaker, Teknisi Ruang Terbatas, Permenaker 11 Tahun 2023]
-featuredImage: /images/articles/pelatihan-k3-ruang-terbatas-kemnaker-ri.webp
+featuredImage: /images/articles/perbandingan-sertifikasi-confined-space-kemnaker-bnsp.webp
 featuredImageAlt: "Kemnaker vs BNSP untuk Confined Space: Perbedaan Sertifikasi, Proses, dan Bukti Kompetensi"
 relatedServices: [110]
 relatedArticles: [2, 3, 4, 5, 6, 7]
