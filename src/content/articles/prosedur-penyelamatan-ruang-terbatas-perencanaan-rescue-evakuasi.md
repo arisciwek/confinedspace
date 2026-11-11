@@ -15,6 +15,8 @@ author:
   url: https://betracomtraining.com/
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [prosedur penyelamatan ruang terbatas, confined space rescue, rencana rescue, evakuasi korban, non-entry rescue, entry rescue, Petugas K3 Penyelamat]
+featuredImage: /images/articles/prosedur-penyelamatan-ruang-terbatas-perencanaan-rescue-evakuasi.webp
+featuredImageAlt: "Prosedur Penyelamatan Ruang Terbatas: Perencanaan Rescue dan Evakuasi Korban"
 relatedServices: [112]
 relatedArticles: [3, 2]
 blocks:
