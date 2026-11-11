@@ -35,6 +35,17 @@ blocks:
     variant: warning
     title: Jangan menyimpulkan jenis sertifikat hanya dari nama paket pelatihan
     text: Nama pemasaran seperti Sertifikat Confined Space, Sertifikat Teknisi Ruang Terbatas, atau Sertifikat Kemnaker belum cukup untuk membuktikan jenis dan kewenangan dokumen. Periksa dokumen contoh, identitas penerbit, dasar penerbitan, ruang lingkup kompetensi, dan mekanisme verifikasinya sebelum melakukan pembayaran atau pendaftaran.
+  - component: gallery
+    id: galeri-dokumentasi-dokumen-kinerja
+    heading: Dokumentasi Pelatihan dan Dokumen
+    intro: Cuplikan kegiatan pelatihan sebagai gambaran proses yang menghasilkan dokumen kompetensi personel K3 ruang terbatas.
+    items:
+      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-6.webp
+        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-6-thumb.webp
+        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi dengan sesi praktik di area lapangan
+      - src: /images/articles/sertifikat-confined-space-kemnaker-1.webp
+        thumb: /images/articles/sertifikat-confined-space-kemnaker-1-thumb.webp
+        alt: Peserta mengikuti sesi pembelajaran bersama instruktur lewat perangkat yang disiapkan penyelenggara
   - component: section
     id: dasar-hukum-sertifikat-ruang-terbatas
     heading: Dasar Hukum Kompetensi Personel Ruang Terbatas
