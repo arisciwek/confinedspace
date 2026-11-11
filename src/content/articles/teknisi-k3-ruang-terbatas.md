@@ -35,6 +35,17 @@ blocks:
     variant: info
     title: Fokus artikel ini adalah fungsi teknis K3
     text: Teknisi K3 Ruang Terbatas bukan nama lain untuk Teknisi Deteksi Gas dan bukan pula Petugas K3 Penyelamat. Pengukuran gas atmosfer berbahaya merupakan kewenangan khusus Teknisi Deteksi Gas, sedangkan penyelamatan pekerja merupakan fungsi Petugas K3 Penyelamat. Artikel ini membahas fungsi teknis K3 sebagaimana diatur dalam Pasal 26 Permenaker 11/2023.
+  - component: gallery
+    id: galeri-dokumentasi-pelatihan-teknisi-k3
+    heading: Dokumentasi Pelatihan Teknisi K3
+    intro: Cuplikan kegiatan pelatihan kompetensi teknis sebagai gambaran penerapan materi di lapangan.
+    items:
+      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-2.webp
+        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-2-thumb.webp
+        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi dengan sesi praktik lapangan di area terbuka
+      - src: /images/articles/teknisi-k3-ruang-terbatas-1.webp
+        thumb: /images/articles/teknisi-k3-ruang-terbatas-1-thumb.webp
+        alt: Area praktik pelatihan dengan langit cerah saat sesi kegiatan bersama peserta
   - component: section
     id: dasar-hukum-teknisi-k3
     heading: Dasar Hukum Teknisi K3 Ruang Terbatas
