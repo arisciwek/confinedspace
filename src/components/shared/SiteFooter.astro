@@ -5,16 +5,19 @@ import { site } from '../../config/site.ts';
 export interface Props {
   ariaLabel?: string;
   serviceTitle?: string;
+  serviceTitles?: string[];
   group?: string;
 }
-const { ariaLabel = ui.nav.footerAriaLabel, serviceTitle, group } = Astro.props;
+const { ariaLabel = ui.nav.footerAriaLabel, serviceTitle, serviceTitles = [], group } = Astro.props;
 const year = new Date().getFullYear();
 
 // Tagline footer: jika ada serviceTitle, tampilkan "PT Betracom Gemilang Nusa Menyediakan Pelatihan dan Sertifikasi <serviceTitle>"
-const cleanTitle = serviceTitle?.replace(/^Pelatihan\s+/i, '') ?? '';
-const footerTagline = serviceTitle
-  ? `PT ${site.name.replace(/^PT\s+/i, '')} Menyediakan Pelatihan dan Sertifikasi ${cleanTitle}`
-  : 'Lembaga pelatihan dan sertifikasi K3 terakreditasi Kemnaker RI & BNSP, melayani perusahaan dan individu di seluruh Indonesia.';
+const serviceNames = [...new Set([...(serviceTitles ?? []), ...(serviceTitle ? [serviceTitle] : [])])]
+  .map((title) => title.replace(/^Pelatihan\\s+/i, '').trim())
+  .filter(Boolean);
+const footerTagline = serviceNames.length
+  ? `PT ${site.name.replace(/^PT\\s+/i, '')} Menyediakan Pelatihan dan Sertifikasi ${serviceNames.join(', ')}`
+  : 'Lembaga pelatihan dan sertifikasi K3, melayani perusahaan dan individu di seluruh Indonesia.';
 const socialIcon: Record<string, string> = {
   LinkedIn:
     'M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.68H9.35V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.48v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM3.56 20.45h3.56V8.99H3.56v11.46Z',
