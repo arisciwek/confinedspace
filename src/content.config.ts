@@ -309,6 +309,8 @@ const articles = defineCollection({
     ]).optional(),
     category: z.string().optional(),
     tags: z.array(z.string()).default([]),
+    featuredImage: z.string().optional(),
+    featuredImageAlt: z.string().optional(),
     relatedType: z.enum(['service', 'page', 'article']).optional(),
     relatedId: z.number().int().positive().optional(),
     relatedServices: z.array(z.number().int().positive()).default([]),

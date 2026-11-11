@@ -14,6 +14,8 @@ author:
   url: https://betracomtraining.com/
 category: Dasar K3 Ruang Terbatas
 tags: [confined space, ruang terbatas, permenaker 11/2023, identifikasi bahaya, izin masuk, K3]
+featuredImage: /images/articles/apa-itu-confined-space.webp
+featuredImageAlt: Praktik pelatihan K3 ruang terbatas PT Betracom Gemilang Nusa
 relatedServices: [110, 111, 112]
 relatedArticles: []
 blocks:
