@@ -16,7 +16,7 @@ const serviceNames = [...new Set([...(serviceTitles ?? []), ...(serviceTitle ? [
   .map((title) => title.replace(/^Pelatihan\s+/i, '').trim())
   .filter(Boolean);
 const footerTagline = serviceNames.length
-  ? `PT ${site.name.replace(/^PT\\s+/i, '')} Menyediakan Pelatihan dan Sertifikasi ${serviceNames.join(', ')}`
+  ? `PT ${site.name.replace(/^PT\s+/i, '')} Menyediakan Pelatihan dan Sertifikasi ${serviceNames.join(', ')}`
   : 'Lembaga pelatihan dan sertifikasi K3, melayani perusahaan dan individu di seluruh Indonesia.';
 const socialIcon: Record<string, string> = {
   LinkedIn:
