@@ -52,3 +52,13 @@
 - Divalidasi di:
   - `src/content.config.ts` — schema block `gallery` (2–4 item).
   - `src/utils/content-validation.ts` — jumlah item, duplikat `src`, pemakaian gambar sekali pakai, pola nama file (`<slug>-N`), dan alt foto layanan (`<judul layanan> adalah ...`).
+
+## Aturan struktur heading
+
+- Urutan heading harus berurutan: **H1 → H2 → H3 → H4** (jika ada), lalu boleh turun lagi ke H3/H2.
+- Naik lebih dari satu level **dilarang**: `H1 → H3 → H4` dan `H1 → H2 → H4` tidak valid.
+- Setiap halaman hanya boleh punya **satu H1**. Artikel dan layanan sudah mendapat H1 dari layout, jadi block konten tidak boleh merender H1 (`page-header`, `home-hero`, `not-found` hanya untuk halaman mandiri).
+- Level heading tiap block mengikuti komponennya, misalnya: `section`/`faq`/`cta`/`gallery` = H2, `card`/`note` = H3, `steps`/`feature-card-grid`/`document-list`/`process-timeline` = H2 lalu H3.
+- Jika sebuah block butuh sub-judul di dalam H3, gunakan H4 — bukan H2 atau H3 baru yang melompat.
+- Divalidasi di `src/utils/content-validation.ts` (`assertHeadingOrder` + `headingLevelsForBlock`) saat build. Build gagal dengan pesan seperti:
+  `Article "..." heading order invalid at block "card": H3 follows H1 (skips H2).`

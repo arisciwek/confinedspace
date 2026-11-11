@@ -164,6 +164,92 @@ export async function validateContentRelations(): Promise<void> {
         throw new Error(`Article "${article.data.slug}" cannot reference itself in relatedArticles.`);
       }
     }
+
+    assertHeadingOrder('Article', article.data.slug, article.data.blocks);
+  }
+
+  for (const service of services) {
+    assertHeadingOrder('Service', service.data.slug, service.data.blocks);
+  }
+  for (const page of pages) {
+    assertHeadingOrder('Page', page.data.slug, page.data.blocks, { allowLeadingH1: true });
+  }
+}
+
+type HeadingBlock = { component: string; heading?: string; title?: string };
+
+/**
+ * Level heading yang dirender tiap block, sesuai urutan di DOM.
+ * Hanya block yang benar-benar merender <hN> yang dicatat.
+ */
+function headingLevelsForBlock(block: HeadingBlock): number[] {
+  switch (block.component) {
+    case 'card': return [3];
+    case 'faq': return [2];
+    case 'cta': return block.heading ? [2] : [];
+    case 'table': return block.heading ? [2] : [];
+    case 'note': return [3];
+    case 'steps': return [2, 3];
+    case 'stats': return block.heading ? [2] : [];
+    case 'glossary': return [2];
+    case 'quote': return [];
+    case 'section': return [2];
+    case 'process-timeline': return [2, 3];
+    case 'checklist-card': return [2];
+    case 'comparison-table': return [2];
+    case 'document-list': return [2, 3];
+    case 'image-panel': return [];
+    case 'gallery': return block.heading ? [2] : [];
+    case 'feature-card-grid': return [2, 3];
+    case 'stats-grid': return [];
+    case 'source-links': return [2];
+    case 'page-header': return [1];
+    case 'home-hero': return [1, 2, 3];
+    case 'service-list': return block.heading ? [2] : [];
+    case 'home-process': return [2, 3];
+    case 'article-list': return [2];
+    case 'home-cta': return [2];
+    case 'not-found': return [1];
+    case 'multi-step-form': return [2];
+    case 'contact-panel': return [2, 3, 3, 3, 3];
+    default: return [];
+  }
+}
+
+/**
+ * Struktur heading harus berurutan: H1 → H2 → H3 → H4 → (boleh turun lagi ke H3).
+ * Naik lebih dari satu level (mis. H1 → H3 atau H2 → H4) ditolak.
+ * Halaman artikel/layanan sudah punya H1 dari layout, jadi block tidak boleh merender H1.
+ */
+function assertHeadingOrder(
+  kind: string,
+  slug: string,
+  blocks: ReadonlyArray<HeadingBlock>,
+  options: { allowLeadingH1?: boolean } = {},
+): void {
+  let previous = 1;
+  let seenHeading = false;
+
+  for (const block of blocks) {
+    for (const level of headingLevelsForBlock(block)) {
+      if (level === 1) {
+        if (options.allowLeadingH1 && !seenHeading) {
+          previous = 1;
+          seenHeading = true;
+          continue;
+        }
+        throw new Error(
+          `${kind} "${slug}" block "${block.component}" renders an H1, but the page already has an H1 title. Use H2 or lower.`,
+        );
+      }
+      if (level > previous + 1) {
+        throw new Error(
+          `${kind} "${slug}" heading order invalid at block "${block.component}": H${level} follows H${previous} (skips H${previous + 1}). Headings must run H1 → H2 → H3 → H4 without gaps.`,
+        );
+      }
+      previous = level;
+      seenHeading = true;
+    }
   }
 }
 
