@@ -4,9 +4,13 @@ ulid: 01M72V22KW6HFHE1EHH0KGWDNG
 type: service
 slug: pelatihan-teknisi-k3-ruang-terbatas
 title: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space)
-description: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) selama 5 hari, mencakup teori, praktik lapangan, dan simulasi rescue sesuai Permenaker 11/2023. Sertifikat kompetensi dan lisensi K3 mengikuti asesmen, persyaratan, serta mekanisme instansi berwenang.
+description: Pelatihan Teknisi K3 Ruang Terbatas adalah program pembinaan Kemnaker RI untuk membekali tenaga kerja dengan kompetensi K3 sesuai Permenaker No. 11 Tahun 2023.
+intro: |
+  Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pembinaan dan sertifikasi kompetensi Keselamatan dan Kesehatan Kerja (K3) yang mempersiapkan tenaga kerja untuk mengidentifikasi bahaya, menilai risiko, serta menerapkan prosedur keselamatan saat bekerja di ruang terbatas. Program ini mengacu pada Peraturan Menteri Ketenagakerjaan Republik Indonesia Nomor 11 Tahun 2023 tentang Keselamatan dan Kesehatan Kerja di Ruang Terbatas.
+
+  Peserta mempelajari pengukuran dan deteksi gas berbahaya, penggunaan Alat Pelindung Diri (APD) dan Self-Contained Breathing Apparatus (SCBA), sistem izin kerja (Permit to Work), prosedur Lock Out-Tag Out (LOTO), tanggap darurat, pertolongan pertama, serta praktik penyelamatan (rescue) dan simpul tali.
 pubDate: '2026-11-10T04:45:00Z'
-updatedDate: '2026-11-10T08:55:00Z'
+updatedDate: '2026-11-11T03:00:00Z'
 serviceGroup: Pelatihan
 order: 10
 draft: false
