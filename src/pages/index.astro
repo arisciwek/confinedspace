@@ -70,6 +70,8 @@ const homeJsonLd = JSON.stringify({
           category: 'Paid',
           price: String(home.pricing.value),
           priceCurrency: home.pricing.currencyCode,
+          priceRange: `Rp${home.pricing.amount}`,
+          image: absolute(ui.meta.defaultImage),
           availability: 'https://schema.org/InStock',
           url: `${origin}/#harga`,
         },
