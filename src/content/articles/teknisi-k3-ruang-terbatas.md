@@ -1,14 +1,14 @@
 ---
 id: 4
-ulid: 01K9Z9B2C3D4E5F6G7H8J9K0L1
+ulid: 01K9Z9B2C3D4E5F6G7H8J9K0MN
 type: article
 schemaType: Article
 slug: teknisi-k3-ruang-terbatas
-title: Teknisi K3 Ruang Terbatas Kemnaker: Tugas, Wewenang, Kompetensi, dan Pelatihan
+title: Teknisi K3 Ruang Terbatas Kemnaker Tugas Wewenang Kompetensi dan Pelatihan
 description: Kenali tugas dan wewenang Teknisi K3 Ruang Terbatas menurut Permenaker 11 Tahun 2023, mulai dari identifikasi bahaya, pekerjaan teknis, pemeriksaan peralatan, hingga persyaratan kompetensi dan lisensi K3.
 draft: false
-pubDate: '2026-11-12T21:00:00+07:00'
-updatedDate: '2026-11-12T21:00:00+07:00'
+pubDate: '2026-11-12T14:00:00Z'
+updatedDate: '2026-11-12T14:00:00Z'
 author:
   name: Tim Confined Space Indonesia
   type: Organization
@@ -16,8 +16,8 @@ author:
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [Teknisi K3 Ruang Terbatas, pelatihan Teknisi K3, sertifikasi K3, Kemnaker RI, confined space, Permenaker 11 Tahun 2023, keselamatan kerja ruang terbatas]
 featuredImage: /images/articles/teknisi-k3-ruang-terbatas.webp
-featuredImageAlt: Teknisi K3 Ruang Terbatas melakukan pemeriksaan teknis dan identifikasi bahaya pada area kerja confined space
-relatedServices: []
+featuredImageAlt: Teknisi K3 Ruang Terbatas Kemnaker Tugas Wewenang Kompetensi dan Pelatihan
+relatedServices: [110]
 relatedArticles: [2, 3]
 blocks:
   - component: section
@@ -402,4 +402,5 @@ blocks:
         text: Teknisi K3 Ruang Terbatas menjalankan fungsi teknis yang penting dalam penerapan keselamatan kerja. Tugasnya mencakup penerapan ketentuan K3, identifikasi potensi bahaya, pekerjaan pemasangan dan perakitan, pemeliharaan, perawatan, perbaikan, pemeriksaan peralatan, serta pelaporan dan tindakan korektif sesuai kewenangannya.
       - type: p
         text: Perusahaan perlu memastikan personel yang ditunjuk memahami batas tugas, memiliki kompetensi yang sesuai, dan bekerja berdasarkan prosedur serta pengendalian risiko. Koordinasi dengan Teknisi Deteksi Gas dan Petugas K3 Penyelamat juga harus dibangun tanpa mencampuradukkan fungsi masing-masing. Dengan pembagian peran yang jelas, pekerjaan di ruang terbatas dapat direncanakan dan diawasi secara lebih terarah.
+
 ---
