@@ -28,6 +28,7 @@ const articleImage = new URL(isRasterArticleImage ? articleImageSource : ui.meta
 
 const authorName = typeof article.data.author === 'object' ? article.data.author.name : article.data.author;
 const authorUrl = typeof article.data.author === 'object' ? article.data.author.url : undefined;
+const authorType = typeof article.data.author === 'object' ? article.data.author.type : 'Person';
 
 const services = await getCollection('services');
 const relatedServiceIds = [...new Set([
@@ -115,7 +116,7 @@ const articleJsonLd = JSON.stringify({
       image: [articleImage],
       datePublished: utcIso(article.data.pubDate),
       ...(article.data.updatedDate ? { dateModified: utcIso(article.data.updatedDate) } : {}),
-      ...(authorName ? { author: { '@type': 'Person', name: authorName, ...(authorUrl ? { url: authorUrl } : {}) } } : {}),
+      ...(authorName ? { author: { '@type': authorType, name: authorName, url: authorUrl ?? siteUrl } } : {}),
       publisher: {
         '@type': 'Organization',
         '@id': `${siteUrl}/#organization`,
