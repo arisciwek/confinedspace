@@ -35,6 +35,17 @@ blocks:
     variant: warning
     title: Nama skema BNSP tidak otomatis sama dengan jabatan personel Kemnaker
     text: Permenaker 11/2023 menyebut Teknisi K3 Ruang Terbatas sebagai salah satu fungsi personel K3. Sementara direktori BNSP dapat menampilkan nama skema seperti Teknisi Ruang Terbatas atau Teknisi Masuk Ruang Terbatas. Kemiripan nama tidak otomatis membuktikan kesetaraan kewenangan, persyaratan, atau dokumen dengan jalur Kemnaker.
+  - component: gallery
+    id: galeri-dokumentasi-asesmen-kompetensi
+    heading: Dokumentasi Sertifikasi dan Asesmen
+    intro: Cuplikan kegiatan pelatihan dan asesmen sebagai gambaran proses yang dijalani peserta sertifikasi.
+    items:
+      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-7.webp
+        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-7-thumb.webp
+        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi dengan sesi praktik di area terbuka
+      - src: /images/articles/sertifikasi-confined-space-bnsp-1.webp
+        thumb: /images/articles/sertifikasi-confined-space-bnsp-1-thumb.webp
+        alt: Dokumentasi kegiatan pembekalan peserta di area terbuka sebelum sesi praktik
   - component: section
     id: dasar-standar-kompetensi-bnsp-ruang-terbatas
     heading: Standar Kompetensi dan Dasar Skema Sertifikasi
