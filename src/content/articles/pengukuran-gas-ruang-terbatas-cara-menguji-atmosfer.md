@@ -7,8 +7,8 @@ slug: pengukuran-gas-ruang-terbatas-cara-menguji-atmosfer
 title: "Pengukuran Gas Ruang Terbatas: Cara Menguji Oksigen, Gas Mudah Terbakar, dan Gas Beracun"
 description: "Panduan pengukuran gas ruang terbatas meliputi pemeriksaan oksigen, gas mudah terbakar, gas beracun, urutan sampling, pengujian berlapis, interpretasi hasil, dan pemantauan atmosfer selama pekerjaan."
 draft: false
-pubDate: '2026-11-12T21:10:00+07:00'
-updatedDate: '2026-11-12T21:10:00+07:00'
+pubDate: '2026-11-12T14:10:00Z'
+updatedDate: '2026-11-12T14:10:00Z'
 author:
   name: Tim Confined Space Indonesia
   type: Organization
@@ -27,7 +27,7 @@ blocks:
       - type: p
         text: Atmosfer di dalam ruang dapat berubah akibat sisa bahan, proses produksi, pembersihan, pengelasan, penggunaan bahan kimia, kebocoran, aktivitas mikrobiologis, atau perubahan ventilasi. Karena itu, satu kali pengukuran tidak selalu mewakili kondisi sepanjang pekerjaan. Pengujian harus menjadi bagian dari sistem izin masuk, identifikasi bahaya, pengendalian risiko, dan pemantauan.
       - type: p
-        text: Pengukuran juga harus menjawab pertanyaan yang tepat: parameter apa yang perlu diuji, di titik mana sampel diambil, berapa lama alat merespons, apakah kondisi atmosfer berlapis, dan kapan pengujian perlu diulang. Jawabannya ditentukan oleh karakteristik ruang dan potensi bahaya, bukan hanya kebiasaan menggunakan satu jenis monitor.
+        text: "Pengukuran juga harus menjawab pertanyaan yang tepat: parameter apa yang perlu diuji, di titik mana sampel diambil, berapa lama alat merespons, apakah kondisi atmosfer berlapis, dan kapan pengujian perlu diulang. Jawabannya ditentukan oleh karakteristik ruang dan potensi bahaya, bukan hanya kebiasaan menggunakan satu jenis monitor."
   - component: note
     id: peringatan-atmosfer-tidak-dinilai-dari-bau
     variant: warning
@@ -263,5 +263,7 @@ blocks:
     heading: Siapkan Personel yang Kompeten Melakukan Pengujian Atmosfer
     message: Pengukuran yang andal membutuhkan personel yang memahami karakteristik gas, sensor, metode sampling, interpretasi hasil, dan tindakan saat kondisi tidak memenuhi kriteria. Pelajari program Pelatihan Teknisi Deteksi Gas Ruang Terbatas untuk memetakan kebutuhan kompetensi personel perusahaan.
     button: Lihat Pelatihan Teknisi Deteksi Gas
-    serviceHref: /services/pelatihan-teknisi-deteksi-gas-ruang-terbatas/
+    serviceHref: /services/teknisi-deteksi-gas-ruang-terbatas/
     serviceLabel: Pelatihan Teknisi Deteksi Gas Ruang Terbatas
+
+---
