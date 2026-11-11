@@ -37,7 +37,7 @@ blocks:
     text: Sertifikat kompetensi dari LSP berlisensi BNSP dan lisensi K3 menurut ketentuan Kemnaker memiliki dasar serta mekanisme berbeda. Jangan menyimpulkan bahwa salah satunya otomatis memenuhi seluruh persyaratan yang ditetapkan jalur lainnya. Cocokkan dokumen dengan fungsi pekerjaan dan ketentuan yang benar-benar berlaku.
   - component: section
     id: dasar-hukum-jalur-kemnaker
-    heading: Jalur Kemnaker: Pemenuhan Ketentuan Personel K3 Ruang Terbatas
+    heading: "Jalur Kemnaker: Pemenuhan Ketentuan Personel K3 Ruang Terbatas"
     content:
       - type: p
         text: Dasar pengaturan khusus K3 ruang terbatas adalah Permenaker Nomor 11 Tahun 2023. Pasal 19 menetapkan tiga kelompok personel, yaitu Teknisi K3 Ruang Terbatas, Teknisi Deteksi Gas Ruang Terbatas, dan Petugas K3 Penyelamat Ruang Terbatas. Pasal 20 mewajibkan personel tersebut memiliki kompetensi yang dibuktikan dengan sertifikat kompetensi sesuai ketentuan peraturan perundang-undangan dan SKKNI yang ditetapkan Menteri.
@@ -61,7 +61,7 @@ blocks:
         description: Informasi status dan catatan perubahan atau pencabutan sebagian ketentuan.
   - component: section
     id: dasar-jalur-sertifikasi-bnsp
-    heading: Jalur BNSP: Sertifikasi Kompetensi melalui LSP
+    heading: "Jalur BNSP: Sertifikasi Kompetensi melalui LSP"
     content:
       - type: p
         text: BNSP melaksanakan fungsi sertifikasi kompetensi kerja melalui sistem LSP yang memperoleh lisensi. Untuk bidang ruang terbatas, direktori BNSP menampilkan beberapa LSP dengan skema seperti Teknisi Ruang Terbatas, Teknisi Masuk Ruang Terbatas, Ahli Muda Ruang Terbatas, atau skema lain yang terkait. Nama dan paket unit kompetensi dapat berbeda menurut LSP dan dokumen skemanya.
