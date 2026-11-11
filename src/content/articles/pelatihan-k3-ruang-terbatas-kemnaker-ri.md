@@ -40,7 +40,7 @@ blocks:
     heading: Dasar Regulasi Pelatihan K3 Ruang Terbatas
     content:
       - type: p
-        text: Permenaker Nomor 11 Tahun 2023 menjadi landasan khusus penerapan K3 di ruang terbatas. Peraturan ini mengatur klasifikasi ruang, pembatasan akses, izin masuk, prosedur kerja aman, peralatan dan perlengkapan, serta personel K3. Dengan demikian, pelatihan personel merupakan bagian dari sistem pengendalian pekerjaan, bukan kegiatan yang berdiri sendiri.
+        text: Permenaker Nomor 11 Tahun 2023 menjadi landasan khusus penerapan K3 di ruang terbatas. Peraturan ini mengatur klasifikasi ruang, pembatasan akses, izin masuk, prosedur kerja aman, peralatan dan perlengkapan, serta personel K3. Dengan demikian, pelatihan personel merupakan bagian dari sistem pengendalian pekerjaan, bukan kegiatan yang berdiri sendiri. Perlu diperhatikan bahwa Permenaker Nomor 11 Tahun 2026 tentang Tata Cara Pengawasan Ketenagakerjaan mencabut sebagian Permenaker 11/2023, yaitu Pasal 12 angka 4, Pasal 13 angka 3, dan Pasal 18 angka 5. Pencabutan sebagian tersebut tidak menghapus keseluruhan Permenaker 11/2023.
       - type: p
         text: Pasal 19 menyebut tiga jenis personel K3 ruang terbatas. Pasal 20 mengatur bahwa personel tersebut harus memiliki kompetensi yang dibuktikan dengan sertifikat kompetensi sesuai ketentuan peraturan perundang-undangan dan SKKNI yang ditetapkan Menteri. Pasal 21 memuat ketentuan peralihan untuk pembinaan Teknisi Deteksi Gas dan Petugas K3 Penyelamat apabila SKKNI untuk kedua fungsi tersebut belum ditetapkan. Status standar kompetensi yang berlaku perlu dikonfirmasi kepada penyelenggara dan instansi berwenang pada saat pendaftaran.
       - type: p
@@ -48,7 +48,7 @@ blocks:
   - component: source-links
     id: regulasi-resmi-ruang-terbatas
     title: Rujukan Regulasi
-    intro: Gunakan naskah peraturan dan status terbarunya sebagai acuan. Permenaker Nomor 11 Tahun 2023 tercatat berlaku, dengan pencabutan sebagian pada beberapa pasal oleh peraturan yang lebih baru; ketentuan personel pada Pasal 19–22 perlu dibaca pada naskah konsolidasi atau status resmi terkini.
+    intro: Gunakan naskah peraturan dan status terbarunya sebagai acuan. Permenaker Nomor 11 Tahun 2023 masih tercatat berlaku, tetapi dicabut sebagian oleh Permenaker Nomor 11 Tahun 2026 pada Pasal 12 angka 4, Pasal 13 angka 3, dan Pasal 18 angka 5. Ketentuan personel pada Pasal 19–22 tetap perlu dibaca bersama status resmi terkini.
     items:
       - label: Permenaker Nomor 11 Tahun 2023 — JDIH Kemnaker
         url: https://jdih.kemnaker.go.id/peraturan/detail/2412/peraturan-menteri-nomor-11-tahun-2023
@@ -56,6 +56,9 @@ blocks:
       - label: Permenaker Nomor 11 Tahun 2023 — Database Peraturan BPK
         url: https://peraturan.bpk.go.id/Details/282464/permenaker-no-11-tahun-2023
         description: Status peraturan dan catatan perubahan atau pencabutan sebagian.
+      - label: Permenaker Nomor 11 Tahun 2026 — Database Peraturan BPK
+        url: https://peraturan.bpk.go.id/Details/351282/permenaker-no-11-tahun-2026
+        description: Peraturan tentang Tata Cara Pengawasan Ketenagakerjaan yang mencabut sebagian ketentuan Permenaker 11/2023.
       - label: Kepmenakertrans KEP.326/MEN/XII/2011
         url: https://jdih.kemnaker.go.id/peraturan/detail/872/keputusan-menakertrans-nomor-kep-326-men-xii-2011
         description: Referensi SKKNI bidang K3 subbidang bekerja di ruang terbatas; periksa keterkaitannya dengan ketentuan kompetensi yang berlaku saat ini.
