@@ -6,20 +6,20 @@ import SiteFooter from '../../components/shared/SiteFooter.astro';
 import { ui } from '../../config/ui.ts';
 import { site } from '../../config/site.ts';
 import { home } from '../../config/home.ts';
+import { getScheduleStatus } from '../../utils/schedule.ts';
 
 const batches = (await getCollection('schedule'))
   .filter((batch) => !batch.data.draft)
   .sort((a, b) => a.data.startDate.localeCompare(b.data.startDate));
 
-const todayStart = new Date();
-todayStart.setHours(0, 0, 0, 0);
 const rows = batches.map((batch) => ({
   batchNo: batch.data.batchNo,
   dateLabel: batch.data.dateLabel,
   mode: batch.data.mode,
+  startDate: batch.data.startDate,
   endDate: batch.data.endDate,
   href: `/jadwal/${batch.data.slug}/`,
-  open: new Date(`${batch.data.endDate}T23:59:59`).getTime() >= todayStart.getTime(),
+  status: getScheduleStatus(batch.data.startDate, batch.data.endDate),
 }));
 ---
 <BaseLayout
@@ -51,11 +51,11 @@ const rows = batches.map((batch) => ({
             </thead>
             <tbody>
               {rows.map((row) => (
-                <tr data-end={row.endDate}>
+                <tr data-start={row.startDate} data-end={row.endDate}>
                   <td data-label="No">{row.batchNo}</td>
                   <td data-label="Tanggal"><a href={row.href}>{row.dateLabel}</a></td>
                   <td data-label="Metode">{row.mode}</td>
-                  <td data-label="Status"><span class={`status ${row.open ? 'is-open' : 'is-closed'}`}>{row.open ? ui.jadwal.statusOpen : ui.jadwal.statusClosed}</span></td>
+                  <td data-label="Status"><span class={`status ${row.status === 'closed' ? 'is-closed' : row.status === 'ongoing' ? 'is-ongoing' : 'is-open'}`}>{row.status === 'open' ? ui.jadwal.statusOpen : row.status === 'ongoing' ? ui.jadwal.statusOngoing : ui.jadwal.statusClosed}</span></td>
                 </tr>
               ))}
             </tbody>

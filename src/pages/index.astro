@@ -7,6 +7,7 @@ import { ui } from '../config/ui.ts';
 import { site } from '../config/site.ts';
 import { home } from '../config/home.ts';
 import { validateContentRelations } from '../utils/content-validation.ts';
+import { getScheduleStatus } from '../utils/schedule.ts';
 
 const homeEntry = await getEntry('pages', 'home');
 if (!homeEntry) throw new Error('Missing "home" page content entry.');
@@ -21,15 +22,14 @@ const batches = (await getCollection('schedule'))
   .filter((batch) => !batch.data.draft)
   .sort((a, b) => b.data.startDate.localeCompare(a.data.startDate));
 
-const todayStart = new Date();
-todayStart.setHours(0, 0, 0, 0);
 const jadwal = batches.map((batch) => ({
   no: batch.data.batchNo,
   tanggal: batch.data.dateLabel,
   metode: batch.data.mode,
+  start: batch.data.startDate,
   end: batch.data.endDate,
   href: `/jadwal/${batch.data.slug}/`,
-  open: new Date(`${batch.data.endDate}T23:59:59`).getTime() >= todayStart.getTime(),
+  status: getScheduleStatus(batch.data.startDate, batch.data.endDate),
 }));
 
 const origin = Astro.site ? Astro.site.toString().replace(/\/$/, '') : Astro.url.origin;
@@ -56,12 +56,12 @@ const homeJsonLd = JSON.stringify({
       '@id': `${origin}/#course`,
       name: 'Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) Kemnaker RI',
       description:
-        'Program sertifikasi resmi Kemnaker RI untuk membekali tenaga kerja dalam identifikasi bahaya, pengendalian risiko, sistem izin kerja, penggunaan APD, pengukuran atmosfer, dan prosedur penyelamatan di ruang terbatas sesuai Permenaker Nomor 11 Tahun 2023.',
+        'Program pelatihan dan pembinaan untuk menyiapkan tenaga kerja menerapkan keselamatan kerja, mengidentifikasi bahaya, mengendalikan risiko, menggunakan APD, mengukur atmosfer, dan memahami prosedur penyelamatan di ruang terbatas sesuai Permenaker Nomor 11 Tahun 2023.',
       url: `${origin}/`,
       image: absolute(ui.meta.defaultImage),
       inLanguage: 'id',
       provider: { '@id': `${origin}/#organization` },
-      educationalCredentialAwarded: 'Sertifikat dan Lisensi Teknisi K3 Ruang Terbatas Kemnaker RI',
+      
       coursePrerequisites: home.requirement.items.slice(0, 5).map((item) => item.replace(/\.$/, '')),
       teaches: home.program.items.map((item) => item.title),
       offers: [
@@ -327,11 +327,11 @@ const homeJsonLd = JSON.stringify({
             </thead>
             <tbody>
               {jadwal.map((row) => (
-                <tr data-end={row.end}>
+                <tr data-start={row.start} data-end={row.end}>
                   <td data-label="No">{row.no}</td>
                   <td data-label="Tanggal"><a href={row.href}>{row.tanggal}</a></td>
                   <td data-label="Metode">{row.metode}</td>
-                  <td data-label="Status"><span class={`status ${row.open ? 'is-open' : 'is-closed'}`}>{row.open ? ui.jadwal.statusOpen : ui.jadwal.statusClosed}</span></td>
+                  <td data-label="Status"><span class={`status ${row.status === 'closed' ? 'is-closed' : row.status === 'ongoing' ? 'is-ongoing' : 'is-open'}`}>{row.status === 'open' ? ui.jadwal.statusOpen : row.status === 'ongoing' ? ui.jadwal.statusOngoing : ui.jadwal.statusClosed}</span></td>
                 </tr>
               ))}
             </tbody>
