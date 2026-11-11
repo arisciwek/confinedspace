@@ -16,7 +16,7 @@ category: Dasar K3 Ruang Terbatas
 tags: [confined space, ruang terbatas, permenaker 11/2023, identifikasi bahaya, izin masuk, K3]
 featuredImage: /images/articles/apa-itu-confined-space.webp
 featuredImageAlt: Apa Itu Confined Space? Pengertian, Ciri-Ciri, Contoh, dan Bahaya Ruang Terbatas
-relatedServices: [110, 111, 112]
+relatedServices: [110]
 relatedArticles: []
 blocks:
   - component: section
