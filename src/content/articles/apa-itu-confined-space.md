@@ -138,6 +138,11 @@ blocks:
         description: Berfokus pada pengujian dan pemantauan atmosfer, pengoperasian alat ukur, interpretasi hasil, serta pelaporan kondisi atmosfer.
       - title: Petugas K3 Penyelamat
         description: Berfokus pada kesiapsiagaan dan pelaksanaan penyelamatan sesuai rencana, metode, personel, dan peralatan yang telah disiapkan.
+  - component: cta
+    id: konsultasi-layanan-confined-space
+    heading: Siapkan Personel dan Sistem Kerja Ruang Terbatas
+    message: Kebutuhan setiap perusahaan dapat berbeda. Konsultasikan peran personel, kebutuhan pengujian atmosfer, pembinaan K3, dan kesiapsiagaan penyelamatan agar program yang dipilih sesuai dengan karakteristik pekerjaan.
+    button: Konsultasi via WhatsApp
   - component: document-list
     id: dokumen-pendukung
     title: Dokumen yang Mendukung Pengendalian Ruang Terbatas
@@ -181,9 +186,5 @@ blocks:
         answer: Jangan melakukan penyelamatan spontan. Aktifkan prosedur darurat dan gunakan personel terlatih serta metode penyelamatan yang telah direncanakan. Penolong yang masuk tanpa pengendalian dapat menjadi korban berikutnya.
       - question: Apa dasar regulasi K3 ruang terbatas di Indonesia?
         answer: Salah satu acuan utama adalah Peraturan Menteri Ketenagakerjaan Republik Indonesia Nomor 11 Tahun 2023 tentang Keselamatan dan Kesehatan Kerja di Ruang Terbatas. Perusahaan perlu merujuk naskah peraturan dan ketentuan lain yang relevan dengan jenis pekerjaannya.
-  - component: cta
-    id: konsultasi-layanan-confined-space
-    heading: Siapkan Personel dan Sistem Kerja Ruang Terbatas
-    message: Kebutuhan setiap perusahaan dapat berbeda. Konsultasikan peran personel, kebutuhan pengujian atmosfer, pembinaan K3, dan kesiapsiagaan penyelamatan agar program yang dipilih sesuai dengan karakteristik pekerjaan.
-    button: Konsultasi via WhatsApp
+
 ---
