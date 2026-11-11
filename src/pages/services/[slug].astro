@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import SiteHeader from '../../components/shared/SiteHeader.astro';
 import SiteFooter from '../../components/shared/SiteFooter.astro';
 import BlockRenderer from '../../components/blocks/BlockRenderer.astro';
@@ -82,7 +82,7 @@ const otherServices = (await getCollection('services'))
   .sort((a, b) => a.data.order - b.data.order)
   .map((s) => ({ href: `/services/${s.data.slug}/`, title: s.data.title, description: s.data.description }));
 ---
-<BaseLayout
+<ServiceLayout
   title={service.data.title}
   description={service.data.description}
   socialImage={service.data.socialImage}
@@ -92,6 +92,10 @@ const otherServices = (await getCollection('services'))
   updatedDate={service.data.updatedDate}
   mainEntityId={faqJsonLd ? `${serviceUrl}#faq` : undefined}
   serviceUrl={serviceUrl}
+  serviceName={service.data.title}
+  serviceDescription={service.data.intro ?? service.data.description}
+  serviceImage={service.data.socialImage}
+  skipProfessionalService={true}
 >
   <script type="application/ld+json" set:html={serviceSchemaJsonLd} slot="head" />
 
@@ -152,4 +156,4 @@ const otherServices = (await getCollection('services'))
     </section>
   </main>
   <SiteFooter serviceTitle={service.data.title} />
-</BaseLayout>
+</ServiceLayout>

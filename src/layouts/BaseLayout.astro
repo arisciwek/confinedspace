@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { ui } from '../config/ui.ts';
 import { site } from '../config/site.ts';
-const { title = ui.meta.defaultTitle, description = ui.meta.defaultDescription, canonical, noindex = false, socialImage = ui.meta.defaultImage, pubDate, updatedDate, mainEntityId, aboutId, serviceUrl } = Astro.props as { title?: string; description?: string; canonical?: string; noindex?: boolean; socialImage?: string; pubDate?: Date; updatedDate?: Date; mainEntityId?: string; aboutId?: string; serviceUrl?: string };
+const { title = ui.meta.defaultTitle, description = ui.meta.defaultDescription, canonical, noindex = false, socialImage = ui.meta.defaultImage, pubDate, updatedDate, mainEntityId, aboutId, serviceUrl, skipProfessionalService = false } = Astro.props as { title?: string; description?: string; canonical?: string; noindex?: boolean; socialImage?: string; pubDate?: Date; updatedDate?: Date; mainEntityId?: string; aboutId?: string; serviceUrl?: string; skipProfessionalService?: boolean };
 // Crawler sosial (Facebook, LinkedIn, WhatsApp, X) tidak merender SVG. Gambar non-raster diganti fallback WebP.
 const isRasterImage = /\.(png|jpe?g|webp|gif)$/i.test(socialImage.split(/[?#]/)[0]);
 const resolvedSocialImage = isRasterImage ? socialImage : ui.meta.defaultImage;
@@ -99,7 +99,7 @@ const siteGraphJsonLd = JSON.stringify({
       inLanguage: ui.locale,
       publisher: { '@id': `${siteOrigin}/#organization` },
     },
-    {
+    ...(skipProfessionalService ? [] : [{
       '@type': 'ProfessionalService',
       '@id': profServiceId,
       name: site.name,
@@ -121,7 +121,7 @@ const siteGraphJsonLd = JSON.stringify({
       },
       areaServed: site.areaServed.map((area) => ({ '@type': 'Country', name: area })),
       parentOrganization: { '@id': `${siteOrigin}/#organization` },
-    },
+    }]),
   ],
 }).replace(/</g, '\\u003c');
 ---
