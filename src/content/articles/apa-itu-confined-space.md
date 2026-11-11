@@ -12,27 +12,34 @@ author: Tim Confined Space Indonesia
 category: Dasar
 tags: [definisi, permenaker 11/2023, contoh, identifikasi]
 relatedArticles: []
-blocks: []
----
-Confined space (ruang terbatas) adalah ruang yang memenuhi tiga kriteria utama:
-
-1. **Terbatasnya akses masuk dan keluar** — tidak dirancang untuk gerakan bebas
-2. **Bukan untuk okupansi terus-menerus** — pekerja hanya masuk sementara untuk tugas tertentu
-3. **Berpotensi bahaya** — kekurangan oksigen, gas beracun, bahan mudah terbakar, atau bahaya fisik
-
-## Contoh Confined Space
-- Tangki, silo, drum, vessel
-- Pipa, saluran, sumur, lubang inspeksi
-- Septic tank, grease trap
-- Duct HVAC, boiler, furnace
-- Ruang bawah tanah, crawl space
-
-## Mengapa Butuh Perhatian Khusus?
-Sesuai **Permenaker Nomor 11 Tahun 2023** tentang K3 di Ruang Terbatas, setiap pekerjaan di confined space wajib:
-- Identifikasi bahaya sebelum masuk
-- Pengukuran atmosfer (oksigen, LEL, H₂S, CO)
-- Sistem Izin Kerja (Permit to Work)
-- Penggunaan APD lengkap
-- Standby person & rencana penyelamatan
-
-> **Catatan:** Ruang yang terlihat "aman" bisa berubah berbahaya karena pekerjaan di dalamnya (las, cat, kimia, dll). Selalu ukur ulang atmosfer.
+blocks:
+  - component: section
+    id: definisi-ruang-terbatas
+    heading: Apa Itu Confined Space?
+    content:
+      - type: p
+        text: Confined space (ruang terbatas) adalah ruang yang memenuhi tiga kriteria utama, yaitu akses masuk dan keluar terbatas, tidak dirancang untuk okupansi terus-menerus, serta memiliki potensi bahaya bagi pekerja.
+      - type: list
+        items:
+          - "Akses masuk dan keluar terbatas — tidak dirancang untuk pergerakan bebas."
+          - "Bukan untuk okupansi terus-menerus — pekerja hanya masuk sementara untuk tugas tertentu."
+          - "Berpotensi bahaya — misalnya kekurangan oksigen, gas beracun, atmosfer mudah terbakar, atau bahaya fisik."
+  - component: section
+    id: contoh-confined-space
+    heading: Contoh Confined Space
+    content:
+      - type: list
+        items:
+          - Tangki, silo, drum, dan vessel.
+          - Pipa, saluran, sumur, dan lubang inspeksi.
+          - Septic tank dan grease trap.
+          - Duct HVAC, boiler, dan furnace.
+          - Ruang bawah tanah dan crawl space.
+  - component: section
+    id: perhatian-khusus
+    heading: Mengapa Confined Space Membutuhkan Perhatian Khusus?
+    content:
+      - type: p
+        text: Permenaker Nomor 11 Tahun 2023 tentang K3 di Ruang Terbatas mengatur pengendalian bahaya sebelum dan selama pekerjaan dilakukan. Penerapannya mencakup identifikasi bahaya, pengujian dan pemantauan atmosfer, izin masuk, isolasi energi, ventilasi, APD, komunikasi, serta kesiapsiagaan penyelamatan.
+      - type: p
+        text: Ruang yang terlihat aman dapat berubah berbahaya akibat aktivitas di dalamnya, seperti pengelasan, pengecatan, atau penggunaan bahan kimia. Pengujian atmosfer dan pemantauan harus dilakukan sesuai prosedur serta kondisi pekerjaan.

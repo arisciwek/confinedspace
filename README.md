@@ -105,12 +105,11 @@ src/
 
 ```bash
 # Full validation (run via npm run build)
+npm run check
+# - Generate Astro types and run TypeScript checks
 npm run build
-# Includes:
-# - TypeScript check (astro sync && tsc --noEmit)
-# - Content validation (unique ID/ULID/slug, date logic, relations)
-# - Static generation (19 pages)
-# - Output verification (headings, images, alt text)
+# - Runs the check script, validates content relations during page generation,
+#   then generates the static site in dist/
 ```
 
 ## Scripts
@@ -118,7 +117,8 @@ npm run build
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Dev server (localhost:4321) |
-| `npm run build` | Production build → `dist/` |
+| `npm run check` | `astro sync` + `tsc --noEmit` |
+| `npm run build` | Type-check + production build → `dist/` |
 | `npm run preview` | Preview `dist/` locally |
 | `npm run astro` | Astro CLI (sync, check, etc) |
 
