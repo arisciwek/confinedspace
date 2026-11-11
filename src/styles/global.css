@@ -162,6 +162,23 @@ b, strong { font-weight: 700; }
 .section-title.center .section-label::after { content: ""; width: 28px; height: 2px; border-radius: 2px; background: var(--gold); }
 .section-title p { font-size: 1.0625rem; line-height: 1.8; }
 
+/* Block artikel terbaru (article-list) */
+.article-list__head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 24px; flex-wrap: wrap;
+    margin-bottom: clamp(40px, 5vw, 64px);
+}
+.article-list__head .section-title { margin-bottom: 0; }
+.article-list__all {
+    font-weight: 700; color: var(--navy); white-space: nowrap; padding-bottom: 6px;
+    transition: color var(--transition);
+}
+.article-list__all:hover { color: var(--gold); }
+.article-list__empty {
+    border: 1px dashed var(--border); border-radius: var(--radius);
+    padding: 32px; text-align: center;
+}
+
 /*==========================
   5b. PAGE HEADER (halaman dalam)
 ==========================*/

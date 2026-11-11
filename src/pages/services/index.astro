@@ -1,9 +1,17 @@
 ---
+import { getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlockRenderer from '../../components/blocks/BlockRenderer.astro';
 import SiteHeader from '../../components/shared/SiteHeader.astro';
 import SiteFooter from '../../components/shared/SiteFooter.astro';
 import ServiceListBlock from '../../components/shared/ServiceListBlock.astro';
 import { ui } from '../../config/ui.ts';
+
+// Hero dan daftar layanan di halaman ini sudah dirakit lewat komponen di bawah,
+// jadi hanya block artikel terbaru (article-list) dari content yang dirender.
+const servicesPage = await getEntry('pages', 'services');
+if (!servicesPage) throw new Error('Missing "services" page content entry.');
+const articleListBlocks = servicesPage.data.blocks.filter((block) => block.component === 'article-list');
 ---
 <BaseLayout title={ui.services.listingTitle} description={ui.services.listingDescription}>
   <SiteHeader />
@@ -28,6 +36,9 @@ import { ui } from '../../config/ui.ts';
         />
       </div>
     </section>
+
+    <!-- ARTIKEL TERBARU #4–6 — disimpan sebelum penutup </main> -->
+    {articleListBlocks.map((block) => <BlockRenderer block={block} />)}
   </main>
   <SiteFooter />
 </BaseLayout>

@@ -24,7 +24,7 @@ blocks:
   - component: "article-list"
     id: "artikel-panduan"
     mode: "listing"
-    offset: 0
+    offset: 3
     limit: 3
     heading: "Artikel dan panduan"
     description: "Panduan keselamatan kerja ruang terbatas, regulasi, pengukuran atmosfer, dan penyelamatan."

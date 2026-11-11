@@ -11,4 +11,12 @@ updatedDate: '2026-11-10T02:40:00Z'
 seoTitle: Sertifikasi Confined Space Kemnaker RI | Teknisi K3 Ruang Terbatas
 socialImage: /images/og-default.webp
 keywords: [sertifikasi confined space, teknisi k3 ruang terbatas, pelatihan k3 kemnaker, Permenaker 11/2023, ruang terbatas]
+blocks:
+  - component: article-list
+    id: artikel-terbaru
+    mode: latest
+    offset: 0
+    limit: 3
+    heading: Artikel Terbaru
+    description: "Wawasan dan panduan praktis keselamatan kerja ruang terbatas sesuai Permenaker 11/2023."
 ---

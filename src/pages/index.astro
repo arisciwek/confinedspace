@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BlockRenderer from '../components/blocks/BlockRenderer.astro';
 import SiteHeader from '../components/shared/SiteHeader.astro';
 import SiteFooter from '../components/shared/SiteFooter.astro';
 import { ui } from '../config/ui.ts';
@@ -431,6 +432,9 @@ const homeJsonLd = JSON.stringify({
         </div>
       </div>
     </section>
+
+    <!-- ARTIKEL TERBARU — disimpan sebelum penutup </main> -->
+    {homeEntry.data.blocks.map((block) => <BlockRenderer block={block} />)}
 
   </main>
   <SiteFooter serviceTitle="Teknisi K3 Ruang Terbatas" />

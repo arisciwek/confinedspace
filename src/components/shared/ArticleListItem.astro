@@ -1,0 +1,45 @@
+---
+/**
+ * ArticleListItem — satu kartu artikel pada grid daftar.
+ * Dipakai halaman /articles/ dan block artikel terbaru (article-list),
+ * agar markup kartu tetap satu sumber.
+ *
+ * Props:
+ * - article: CollectionEntry<'articles'> — artikel dari content collection
+ *
+ * Usage:
+ * <ul class="grid ..."><ArticleListItem article={a} /></ul>
+ */
+import type { CollectionEntry } from 'astro:content';
+import { ui } from '../../config/ui.ts';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const href = `/articles/${article.data.slug}/`;
+---
+<li>
+  <article class="card-cert card-cert--equal" style="padding: 24px; border-top-width: 3px;">
+    {article.data.featuredImage && (
+      <img
+        src={article.data.featuredImage}
+        alt={article.data.featuredImageAlt ?? article.data.title}
+        class="mb-4 aspect-[16/9] w-full rounded-xl object-cover"
+        width="1600"
+        height="900"
+        loading="lazy"
+        decoding="async"
+      />
+    )}
+    <div class="article-card__body">
+      <h3 class="card-cert-title">{article.data.title}</h3>
+      <p style="font-size: .95rem; color: var(--muted);">{article.data.description}</p>
+    </div>
+    <footer style="padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-size: .875rem; color: var(--muted);">{article.data.pubDate.toLocaleDateString(ui.locale, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+      <a href={href} class="btn btn-outline-navy" style="min-height: 40px; padding: 0 20px; font-size: .9rem;">{ui.article.readMoreShort}</a>
+    </footer>
+  </article>
+</li>
