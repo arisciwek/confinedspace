@@ -17,7 +17,7 @@ category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [Petugas K3 Penyelamat Ruang Terbatas, pelatihan rescue confined space, penyelamatan ruang terbatas, confined space rescue, teknik rescue, peralatan rescue, Permenaker 11 Tahun 2023, kompetensi K3]
 featuredImage: /images/articles/petugas-k3-penyelamat-ruang-terbatas.webp
 featuredImageAlt: "Petugas K3 Penyelamat Ruang Terbatas: Tugas, Teknik Rescue, Peralatan, dan Kompetensi"
-relatedServices: [110]
+relatedServices: [112]
 relatedArticles: [2]
 blocks:
   - component: section
@@ -40,12 +40,12 @@ blocks:
     heading: Dokumentasi Simulasi Penyelamatan
     intro: Cuplikan kegiatan pelatihan penyelamatan ruang terbatas sebagai gambaran pelaksanaan simulasi keadaan darurat.
     items:
-      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-3.webp
-        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-3-thumb.webp
-        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi yang mencakup aktivitas praktik di lapangan
+      - src: /images/articles/petugas-k3-penyelamat-ruang-terbatas-3.webp
+        thumb: /images/articles/petugas-k3-penyelamat-ruang-terbatas-3-thumb.webp
+        alt: Pelatihan Petugas K3 Penyelamat Ruang Terbatas adalah program pelatihan kompetensi yang mencakup aktivitas praktik di lapangan
       - src: /images/articles/petugas-k3-penyelamat-ruang-terbatas-1.webp
         thumb: /images/articles/petugas-k3-penyelamat-ruang-terbatas-1-thumb.webp
-        alt: Kegiatan simulasi berlangsung di lokasi berpencahayaan terbatas untuk meniru kondisi ruang terbatas
+        alt: Pelatihan Petugas K3 Penyelamat Ruang Terbatas adalah kegiatan simulasi yang berlangsung di lokasi berpencahayaan terbatas untuk meniru kondisi ruang terbatas
   - component: section
     id: dasar-regulasi-petugas-penyelamat
     heading: Dasar Regulasi Petugas K3 Penyelamat Ruang Terbatas

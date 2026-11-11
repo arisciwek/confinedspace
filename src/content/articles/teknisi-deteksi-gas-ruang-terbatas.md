@@ -17,7 +17,7 @@ category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [Teknisi Deteksi Gas Ruang Terbatas, gas detector, pengukuran gas, pengujian atmosfer, bump test, kalibrasi gas detector, confined space, Permenaker 11 Tahun 2023]
 featuredImage: /images/articles/teknisi-deteksi-gas-ruang-terbatas.webp
 featuredImageAlt: "Teknisi Deteksi Gas Ruang Terbatas: Pengukuran Atmosfer, Gas Detector, dan Kompetensi"
-relatedServices: [110]
+relatedServices: [111]
 relatedArticles: [2, 3, 4]
 blocks:
   - component: section
@@ -40,12 +40,12 @@ blocks:
     heading: Dokumentasi Kegiatan Pemeriksaan
     intro: Cuplikan kegiatan pelatihan pemeriksaan kondisi ruang sebagai gambaran penerapan materi pengukuran atmosfer.
     items:
-      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-4.webp
-        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-4-thumb.webp
-        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi untuk bekerja pada kondisi ruang yang terbatas
+      - src: /images/articles/teknisi-deteksi-gas-ruang-terbatas-4.webp
+        thumb: /images/articles/teknisi-deteksi-gas-ruang-terbatas-4-thumb.webp
+        alt: Pelatihan Teknisi Deteksi Gas Ruang Terbatas adalah program pelatihan kompetensi untuk bekerja pada kondisi ruang yang terbatas
       - src: /images/articles/teknisi-deteksi-gas-ruang-terbatas-1.webp
         thumb: /images/articles/teknisi-deteksi-gas-ruang-terbatas-1-thumb.webp
-        alt: Peserta mengenakan alat pelindung diri selama sesi kegiatan pelatihan di lokasi kerja
+        alt: Pelatihan Teknisi Deteksi Gas Ruang Terbatas adalah kegiatan pelatihan di mana peserta mengenakan alat pelindung diri selama sesi di lokasi kerja
   - component: section
     id: dasar-hukum-teknisi-deteksi-gas
     heading: Dasar Hukum Pengujian Gas di Ruang Terbatas
