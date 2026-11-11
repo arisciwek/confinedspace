@@ -43,3 +43,4 @@ blocks:
         text: Permenaker Nomor 11 Tahun 2023 tentang K3 di Ruang Terbatas mengatur pengendalian bahaya sebelum dan selama pekerjaan dilakukan. Penerapannya mencakup identifikasi bahaya, pengujian dan pemantauan atmosfer, izin masuk, isolasi energi, ventilasi, APD, komunikasi, serta kesiapsiagaan penyelamatan.
       - type: p
         text: Ruang yang terlihat aman dapat berubah berbahaya akibat aktivitas di dalamnya, seperti pengelasan, pengecatan, atau penggunaan bahan kimia. Pengujian atmosfer dan pemantauan harus dilakukan sesuai prosedur serta kondisi pekerjaan.
+---
