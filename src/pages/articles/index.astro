@@ -32,7 +32,7 @@ const articles = (await getCollection('articles'))
           <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {articles.map((article) => (
               <li>
-                <article class="card-cert" style="grid-template-columns: 1fr; padding: 24px; border-top-width: 3px;">
+                <article class="card-cert card-cert--equal" style="padding: 24px; border-top-width: 3px;">
                   {article.data.featuredImage && (
                     <img
                       src={article.data.featuredImage}
@@ -44,11 +44,11 @@ const articles = (await getCollection('articles'))
                       decoding="async"
                     />
                   )}
-                  <div>
+                  <div class="article-card__body">
                     <h3 class="card-cert-title">{article.data.title}</h3>
                     <p style="font-size: .95rem; color: var(--muted);">{article.data.description}</p>
                   </div>
-                  <footer style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+                  <footer style="padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
                     <span style="font-size: .875rem; color: var(--muted);">{article.data.pubDate.toLocaleDateString(ui.locale, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                     <a href={`/articles/${article.data.slug}/`} class="btn btn-outline-navy" style="min-height: 40px; padding: 0 20px; font-size: .9rem;">{ui.article.readMoreShort}</a>
                   </footer>
