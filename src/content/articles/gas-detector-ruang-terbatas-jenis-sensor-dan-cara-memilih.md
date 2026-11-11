@@ -35,6 +35,17 @@ blocks:
     variant: warning
     title: Tidak ada satu gas detector yang mendeteksi semua kontaminan
     text: Monitor empat gas yang umum digunakan biasanya mengukur oksigen, persentase LEL, hidrogen sulfida, dan karbon monoksida. Alat tersebut tidak otomatis mendeteksi VOC, amonia, klorin, pelarut, atau seluruh zat beracun lain. Tentukan sensor berdasarkan hasil identifikasi bahaya dan jangan menganggap pembacaan normal pada empat kanal sebagai bukti bahwa seluruh atmosfer aman.
+  - component: gallery
+    id: galeri-dokumentasi-pemeriksaan-gas-detector
+    heading: Dokumentasi Alat dan Pemeriksaan Gas Detector
+    intro: Cuplikan kegiatan pelatihan pemeriksaan dan penggunaan alat deteksi gas sebagai gambaran penerapan materi pemilihan sensor.
+    items:
+      - src: /images/articles/teknisi-deteksi-gas-ruang-terbatas-5.webp
+        thumb: /images/articles/teknisi-deteksi-gas-ruang-terbatas-5-thumb.webp
+        alt: Pelatihan Teknisi Deteksi Gas Ruang Terbatas adalah program pelatihan kompetensi pengukuran atmosfer dengan sesi praktik alat di lapangan
+      - src: /images/articles/gas-detector-ruang-terbatas-jenis-sensor-dan-cara-memilih-1.webp
+        thumb: /images/articles/gas-detector-ruang-terbatas-jenis-sensor-dan-cara-memilih-1-thumb.webp
+        alt: Peserta memeriksa kondisi alat dan hasil pengukuran sebelum sesi praktik dimulai
   - component: section
     id: jenis-gas-detector-single-multigas
     heading: "Jenis Gas Detector: Single-Gas dan Multigas"
