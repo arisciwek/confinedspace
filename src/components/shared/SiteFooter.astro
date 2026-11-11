@@ -13,7 +13,7 @@ const year = new Date().getFullYear();
 
 // Tagline footer: jika ada serviceTitle, tampilkan "PT Betracom Gemilang Nusa Menyediakan Pelatihan dan Sertifikasi <serviceTitle>"
 const serviceNames = [...new Set([...(serviceTitles ?? []), ...(serviceTitle ? [serviceTitle] : [])])]
-  .map((title) => title.replace(/^Pelatihan\\s+/i, '').trim())
+  .map((title) => title.replace(/^Pelatihan\s+/i, '').trim())
   .filter(Boolean);
 const footerTagline = serviceNames.length
   ? `PT ${site.name.replace(/^PT\\s+/i, '')} Menyediakan Pelatihan dan Sertifikasi ${serviceNames.join(', ')}`
