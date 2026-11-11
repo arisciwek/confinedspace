@@ -78,5 +78,6 @@ const serviceProfJsonLd = JSON.stringify({
   skipProfessionalService={true}
 >
   <script type="application/ld+json" set:html={serviceProfJsonLd} slot="head" />
+  <slot name="head" />
   <slot />
 </BaseLayout>
