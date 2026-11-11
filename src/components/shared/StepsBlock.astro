@@ -1,17 +1,12 @@
 ---
 const { id, heading, items, class: css } = Astro.props;
 ---
-<section id={id} class={`rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8 ${css?.section ?? ''}`}>
-  {heading && <h2 class={`mb-6 text-2xl font-extrabold text-slate-950 ${css?.heading ?? ''}`}>{heading}</h2>}
-  <ol class={`space-y-6 ${css?.list ?? ''}`}>
-    {items.map((item: any, i: number) => (
-      <li class={`flex gap-4 ${css?.item ?? ''}`}>
-        <span class={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white ${css?.badge ?? ''}`}>{i + 1}</span>
-        <div>
-          <p class={`font-semibold text-slate-950 ${css?.title ?? ''}`}>{item.title}</p>
-          <p class={`mt-1 text-sm leading-relaxed text-slate-600 ${css?.text ?? ''}`}>{item.text}</p>
-        </div>
-      </li>
-    ))}
+<section id={id} class={`steps-block ${css?.section ?? ''}`} aria-labelledby={heading ? `${id}-title` : undefined}>
+  {heading && <h2 id={`${id}-title`} class={`steps-block__heading ${css?.heading ?? ''}`}>{heading}</h2>}
+  <ol class={`steps-block__list ${css?.list ?? ''}`}>
+    {items.map((item: { title: string; text: string }, index: number) => <li class={`steps-block__item ${css?.item ?? ''}`}>
+      <span class={`steps-block__number ${css?.badge ?? ''}`} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+      <div class="steps-block__body"><h3 class={`steps-block__title ${css?.title ?? ''}`}>{item.title}</h3><p class={`steps-block__text ${css?.text ?? ''}`}>{item.text}</p></div>
+    </li>)}
   </ol>
 </section>
