@@ -1,11 +1,11 @@
 ---
 id: 4
 ulid: "01HQRT4X5Z9K3M2N7P6Q8S5T4Y"
-title: "Layanan Konsultan SLF dan PBG"
-pubDate: "2026-10-16T00:05:00Z"
-updatedDate: "2026-10-24T16:21:16Z"
-description: "Layanan pendampingan SLF, PBG, dan kebutuhan perizinan bangunan sesuai kondisi proyek."
-socialImage: "/images/social/services.webp"
+title: "Layanan K3 Ruang Terbatas"
+pubDate: "2026-11-11T00:00:00Z"
+updatedDate: "2026-11-11T00:00:00Z"
+description: "Program pelatihan dan pembinaan K3 ruang terbatas untuk Teknisi K3 Ruang Terbatas, Teknisi Deteksi Gas, dan Petugas K3 Penyelamat sesuai Permenaker 11/2023."
+socialImage: "/images/og-default-optimized.webp"
 type: "page"
 slug: "services"
 draft: false
@@ -14,18 +14,18 @@ canonical: "/services/"
 blocks:
   - component: "page-header"
     eyebrow: "Layanan"
-    heading: "Pendampingan perizinan bangunan"
-    intro: "Pahami ruang lingkup pendampingan dan persiapan awal. Kebutuhan final ditentukan berdasarkan kondisi bangunan dan ketentuan yang berlaku."
-    image: "/images/illustrations/service-directory.svg"
-    imageAlt: "Ilustrasi dokumen layanan dan verifikasi"
+    heading: "Program K3 Ruang Terbatas"
+    intro: "Pilih program pelatihan dan pembinaan berdasarkan peran personel yang dibutuhkan di tempat kerja."
+    image: "/images/hero-teknisi-k3-ruang-terbatas-optimized.webp"
+    imageAlt: "Pelatihan K3 Ruang Terbatas di Betracom Training Center"
   - component: "service-list"
     variant: "listing"
     columns: 3
   - component: "article-list"
     id: "artikel-panduan"
     mode: "listing"
-    offset: 3
+    offset: 0
     limit: 3
     heading: "Artikel dan panduan"
-    description: "Lanjutkan membaca panduan SLF dan PBG lainnya, dipilih berdasarkan tanggal publikasi terbaru."
+    description: "Panduan keselamatan kerja ruang terbatas, regulasi, pengukuran atmosfer, dan penyelamatan."
 ---

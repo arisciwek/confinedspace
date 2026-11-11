@@ -1,5 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import BlockRenderer from '../components/blocks/BlockRenderer.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/shared/SiteHeader.astro';
 import SiteFooter from '../components/shared/SiteFooter.astro';
@@ -13,6 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
+const { Content } = await render(page);
 ---
 <BaseLayout
   title={page.data.seoTitle ?? page.data.title}
@@ -34,7 +36,8 @@ const { page } = Astro.props;
       </header>
       <div class="wrap section">
         <div class="prose">
-          <slot />
+          <Content />
+          {page.data.blocks.map((block) => <BlockRenderer block={block} />)}
         </div>
       </div>
     </article>
