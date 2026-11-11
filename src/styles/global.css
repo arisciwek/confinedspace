@@ -1142,3 +1142,32 @@ b, strong { font-weight: 700; }
   .checklist-card__icon { width: 32px; height: 32px; }
   .article-footer-cta__inner { padding-block: 42px; }
 }
+
+
+/* ARTICLE LAYOUT — explicit container alignment.
+   The global universal reset above is unlayered and overrides Tailwind spacing
+   utilities, so layout-critical spacing is defined on these component classes. */
+.article-layout {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: clamp(28px, 3.2vw, 48px) clamp(20px, 3.5vw, 56px);
+}
+.article-sidebar {
+  width: 100%;
+  padding: 20px 18px 24px;
+}
+.article-content {
+  width: 100%;
+  max-width: 1040px;
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .article-layout {
+    padding: 28px clamp(20px, 4vw, 36px);
+  }
+  .article-content { max-width: none; }
+}
+@media (max-width: 640px) {
+  .article-layout { padding: 22px 18px 36px; }
+}
