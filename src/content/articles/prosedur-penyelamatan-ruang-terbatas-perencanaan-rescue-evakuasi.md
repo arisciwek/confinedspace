@@ -7,8 +7,8 @@ slug: prosedur-penyelamatan-ruang-terbatas-perencanaan-rescue-evakuasi
 title: "Prosedur Penyelamatan Ruang Terbatas: Perencanaan Rescue dan Evakuasi Korban"
 description: "Pelajari perencanaan penyelamatan ruang terbatas, pembagian peran tim rescue, penilaian keadaan darurat, non-entry rescue, entry rescue, komunikasi, evakuasi korban, dan latihan tanggap darurat."
 draft: false
-pubDate: '2026-11-12T21:20:00+07:00'
-updatedDate: '2026-11-12T21:20:00+07:00'
+pubDate: '2026-11-12T14:20:00Z'
+updatedDate: '2026-11-12T14:20:00Z'
 author:
   name: Tim Confined Space Indonesia
   type: Organization
@@ -149,7 +149,7 @@ blocks:
     note: Nama jabatan dapat berbeda antarperusahaan. Yang penting, fungsi, kewenangan, dan jalur komunikasi ditetapkan sebelum pekerjaan dimulai.
   - component: section
     id: non-entry-rescue
-    heading: Non-Entry Rescue: Penyelamatan Tanpa Memasuki Ruang
+    heading: "Non-Entry Rescue: Penyelamatan Tanpa Memasuki Ruang"
     content:
       - type: p
         text: Non-entry rescue adalah metode mengeluarkan korban tanpa mengharuskan penolong masuk ke ruang terbatas. Metode ini dapat mengurangi paparan tim penyelamat terhadap bahaya atmosfer atau bahaya fisik di dalam ruang. Contohnya dapat menggunakan sistem retrieval yang telah dipasang sebelum pekerjaan, seperti harness yang sesuai, lifeline, tripod atau davit, dan winch apabila konfigurasi ruang memungkinkan.
@@ -159,7 +159,7 @@ blocks:
         text: Rencana harus memastikan peralatan kompatibel, telah diperiksa, dan dioperasikan oleh personel yang terlatih. Apabila metode tanpa masuk tidak dapat dilakukan dengan aman, tim harus menggunakan alternatif yang telah direncanakan, bukan memaksakan penarikan yang dapat memperburuk kondisi korban.
   - component: section
     id: entry-rescue
-    heading: Entry Rescue: Penyelamatan dengan Memasuki Ruang
+    heading: "Entry Rescue: Penyelamatan dengan Memasuki Ruang"
     content:
       - type: p
         text: Entry rescue dilakukan ketika tim penyelamat harus memasuki ruang untuk mencapai atau mengevakuasi korban. Metode ini memiliki risiko tinggi karena anggota tim dapat terpapar bahaya yang sama dengan korban. Pelaksanaannya membutuhkan personel terlatih, pengawasan, pengendalian atmosfer, perlindungan pernapasan yang sesuai, komunikasi, peralatan, serta rencana cadangan.
@@ -269,5 +269,7 @@ blocks:
     heading: Siapkan Petugas Penyelamat yang Memahami Prosedur Rescue
     message: Kesiapan penyelamatan membutuhkan personel yang memahami penilaian skenario, pemilihan metode ekstraksi, koordinasi tim, komunikasi, dan penggunaan peralatan sesuai rencana. Pelajari program Pelatihan Petugas K3 Penyelamat Ruang Terbatas untuk mendiskusikan kebutuhan personel perusahaan.
     button: Konsultasi Pelatihan Petugas Penyelamat
-    serviceHref: /services/pelatihan-petugas-k3-penyelamat-ruang-terbatas/
+    serviceHref: /services/petugas-k3-penyelamat-ruang-terbatas/
     serviceLabel: Pelatihan Petugas K3 Penyelamat Ruang Terbatas
+
+---
