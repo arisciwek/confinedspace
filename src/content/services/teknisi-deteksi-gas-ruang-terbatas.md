@@ -4,9 +4,13 @@ ulid: 01M72WVTKZGG9TEBRPJMACGNKR
 type: service
 slug: teknisi-deteksi-gas-ruang-terbatas
 title: Pelatihan Teknisi Deteksi Gas Ruang Terbatas
-description: Pembinaan Teknisi Deteksi Gas Ruang Terbatas sesuai Permenaker 11/2023, mencakup pengukuran gas atmosfer berbahaya, pengoperasian gas detector, interpretasi hasil pengukuran, dan rekomendasi keamanan izin masuk ruang terbatas.
+description: Pelatihan Teknisi Deteksi Gas Ruang Terbatas adalah pembinaan K3 untuk mengukur dan menganalisis atmosfer berbahaya sesuai Permenaker No. 11 Tahun 2023.
+intro: |
+  Pelatihan Teknisi Deteksi Gas Ruang Terbatas (Teknisi K3 Deteksi Gas) adalah program pembinaan kompetensi Keselamatan dan Kesehatan Kerja (K3) yang membekali tenaga kerja untuk menguji, mengukur, dan menganalisis kondisi atmosfer di ruang terbatas (confined space). Peran teknisi deteksi gas sangat penting untuk menilai apakah atmosfer kerja aman sebelum dan selama pekerjaan berlangsung, terutama terhadap risiko kekurangan atau kelebihan oksigen, paparan gas beracun seperti hidrogen sulfida (H₂S) dan karbon monoksida (CO), serta gas atau uap yang mudah terbakar. Program ini mengacu pada Peraturan Menteri Ketenagakerjaan Republik Indonesia Nomor 11 Tahun 2023 tentang Keselamatan dan Kesehatan Kerja di Ruang Terbatas.
+
+  Materi pembinaan mencakup peraturan K3 ruang terbatas, sistem izin kerja (Permit to Work), karakteristik bahaya gas, pengenalan dan pengoperasian gas detector multigas, kalibrasi dan pemeriksaan fungsi alat, teknik pengambilan sampel, serta interpretasi dan pelaporan hasil pengukuran. Peserta juga mempelajari pengujian atmosfer sebelum pekerja masuk dan pemantauan selama pekerjaan berlangsung. Durasi dan metode pelaksanaan—termasuk kelas daring, luring, atau blended—mengikuti jadwal penyelenggara dan kebutuhan perusahaan.
 pubDate: '2026-11-10T08:35:00Z'
-updatedDate: '2026-11-10T08:40:00Z'
+updatedDate: '2026-11-11T03:00:00Z'
 serviceGroup: Pelatihan
 order: 20
 draft: false
