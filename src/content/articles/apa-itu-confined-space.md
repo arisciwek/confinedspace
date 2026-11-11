@@ -8,7 +8,10 @@ description: Kenali pengertian confined space atau ruang terbatas, karakteristik
 draft: false
 pubDate: '2026-11-10T05:30:00Z'
 updatedDate: '2026-11-11T14:00:00+07:00'
-author: Tim Confined Space Indonesia
+author:
+  name: Tim Confined Space Indonesia
+  type: Organization
+  url: https://betracomtraining.com/
 category: Dasar K3 Ruang Terbatas
 tags: [confined space, ruang terbatas, permenaker 11/2023, identifikasi bahaya, izin masuk, K3]
 relatedServices: [110, 111, 112]
