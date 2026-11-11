@@ -56,6 +56,19 @@ export async function validateContentRelations(): Promise<void> {
       }
     }
 
+    const relatedServiceIds = article.data.relatedServices ?? [];
+    const uniqueRelatedServiceIds = new Set<number>();
+    for (const serviceId of relatedServiceIds) {
+      if (uniqueRelatedServiceIds.has(serviceId)) {
+        throw new Error(`Article "${article.data.slug}" lists related service ID ${serviceId} more than once.`);
+      }
+      uniqueRelatedServiceIds.add(serviceId);
+      const targetService = services.find((service) => service.data.id === serviceId && !service.data.draft && service.data.status === 'active');
+      if (!targetService) {
+        throw new Error(`Article "${article.data.slug}" references missing, draft, or inactive service ID ${serviceId} in relatedServices.`);
+      }
+    }
+
     const { relatedType, relatedId, relatedArticles = [] } = article.data;
     if ((relatedType === undefined) !== (relatedId === undefined)) {
       throw new Error(`Article "${article.data.slug}" must set both relatedType and relatedId, or neither.`);
