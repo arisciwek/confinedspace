@@ -15,7 +15,7 @@ author:
   url: https://betracomtraining.com/
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [sertifikasi confined space BNSP, Teknisi Ruang Terbatas BNSP, sertifikasi Teknisi Masuk Ruang Terbatas, LSP BNSP, skema sertifikasi, unit kompetensi ruang terbatas, asesmen kompetensi]
-featuredImage: /images/articles/teknisi-k3-ruang-terbatas.webp
+featuredImage: /images/articles/sertifikasi-confined-space-bnsp.webp
 featuredImageAlt: "Sertifikasi Confined Space BNSP: Skema Teknisi, Unit Kompetensi, dan Proses Asesmen"
 relatedServices: [110]
 relatedArticles: [2, 4, 5, 6]
