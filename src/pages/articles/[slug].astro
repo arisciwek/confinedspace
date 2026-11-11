@@ -1,86 +1,41 @@
 ---
-import { getCollection, render } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import SiteHeader from '../../components/shared/SiteHeader.astro';
-import SiteFooter from '../../components/shared/SiteFooter.astro';
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import BlockRenderer from '../../components/blocks/BlockRenderer.astro';
-import { ui } from '../../config/ui.ts';
-import { site } from '../../config/site.ts';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
   return articles
-    .filter((a) => !a.data.draft)
+    .filter((article) => !article.data.draft)
     .map((article) => ({ params: { slug: article.data.slug }, props: { article } }));
 }
 
 const { article } = Astro.props;
-const { Content } = await render(article);
+const blocks = article.data.blocks ?? [];
+const slugify = (value: string) => value
+  .normalize('NFD')
+  .replace(/[\\u0300-\\u036f]/g, '')
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/^-|-$/g, '');
+
+const headings = blocks.flatMap((block) => {
+  const label = 'heading' in block && block.heading
+    ? block.heading
+    : 'title' in block && block.title
+      ? block.title
+      : undefined;
+  if (!label) return [];
+  const id = 'id' in block && block.id ? block.id : slugify(label);
+  return [{ depth: 2, text: label, slug: id }];
+});
 ---
-<BaseLayout
-  title={article.data.seoTitle ?? article.data.title}
-  description={article.data.description}
-  socialImage={article.data.socialImage}
-  canonical={article.data.canonical}
-  noindex={article.data.noindex}
-  pubDate={article.data.pubDate}
-  updatedDate={article.data.updatedDate}
->
-  <SiteHeader />
-  <main id="main-content">
-    <article class="article-hero section" aria-labelledby="article-title">
-      <div class="wrap">
-        <header>
-          <p class="section-label">{article.data.category ?? 'Artikel'}</p>
-          <h1 id="article-title">{article.data.title}</h1>
-          <div class="article-meta" style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 16px; font-size: .9rem; color: var(--muted);">
-            <time datetime={article.data.pubDate.toISOString()}>{article.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-            {article.data.updatedDate && article.data.updatedDate > article.data.pubDate && (
-              <> · Diperbarui: <time datetime={article.data.updatedDate.toISOString()}>{article.data.updatedDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</time></>
-            )}
-            {article.data.author && (
-              <> · Penulis: {typeof article.data.author === 'string' ? article.data.author : article.data.author.name}</>
-            )}
-          </div>
-          {article.data.tags && article.data.tags.length > 0 && (
-            <div class="article-tags" style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
-              {article.data.tags.map((tag) => (
-                <span style="padding: 4px 12px; background: var(--light); border-radius: 50px; font-size: .8rem; color: var(--muted);">{tag}</span>
-              ))}
-            </div>
-          )}
-        </header>
-        {article.data.image && (
-          <figure style="margin-top: 32px;">
-            <img src={article.data.image} alt={article.data.imageAlt ?? article.data.title} loading="eager" decoding="async" style="width: 100%; border-radius: var(--radius-lg);" />
-          </figure>
-        )}
+<ArticleLayout article={article} headings={headings}>
+  <div class="article-blocks" aria-label="Isi artikel">
+    {blocks.map((block) => (
+      <div class:list={['article-blocks__item', `article-blocks__item--${block.component}`]}>
+        <BlockRenderer block={block} />
       </div>
-    </article>
-
-    <div class="wrap section">
-      <div class="prose" style="max-width: 760px; margin: 0 auto;">
-        <Content />
-        {article.data.blocks.map((block) => <BlockRenderer block={block} />)}
-      </div>
-    </div>
-
-    <section class="cta-section section" aria-labelledby="article-cta-title">
-      <div class="container cta-box">
-        <p class="section-label">{ui.ctaBlock.eyebrow}</p>
-        <h2 id="article-cta-title">{ui.ctaBlock.heading}</h2>
-        <p>{ui.ctaBlock.text}</p>
-        <div class="cta-button">
-          <a href={`https://wa.me/${site.whatsapp}`} class="btn btn-gold" target="_blank" rel="noopener noreferrer">
-            <svg aria-hidden="true"><use href="#i-wa"/></svg>
-            {ui.ctaBlock.defaultButton} <span class="sr-only">{ui.a11y.newTabSuffix}</span>
-          </a>
-          <a href="/services/pelatihan-teknisi-k3-ruang-terbatas/" class="btn btn-outline-navy">
-            Pelajari layanan <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <SiteFooter serviceTitle="Teknisi K3 Ruang Terbatas" />
-</BaseLayout>
+    ))}
+  </div>
+</ArticleLayout>
