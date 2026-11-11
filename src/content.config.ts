@@ -310,6 +310,7 @@ const articles = defineCollection({
     tags: z.array(z.string()).default([]),
     relatedType: z.enum(['service', 'page', 'article']).optional(),
     relatedId: z.number().int().positive().optional(),
+    relatedServices: z.array(z.number().int().positive()).default([]),
     relatedArticles: z.array(z.number().int().positive()).default([]),
     howTo: z.object({
       blockId: z.string().min(1),
