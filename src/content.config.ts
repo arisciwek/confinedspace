@@ -350,6 +350,8 @@ const services = defineCollection({
     eyebrow: z.string().default('Layanan'),
     intro: z.string().min(1).optional(),
     imageAlt: z.string().default('Ilustrasi layanan konsultasi'),
+    canonical: z.string().optional(),
+    noindex: z.boolean().default(false),
     howTo: z.object({
       blockId: z.string().min(1),
       name: z.string().min(1).optional(),
