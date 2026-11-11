@@ -35,6 +35,17 @@ blocks:
     variant: warning
     title: Jangan melakukan penyelamatan spontan tanpa perlindungan
     text: Jangan memasuki ruang terbatas untuk menolong korban hanya karena ingin bertindak cepat. Atmosfer berbahaya, kekurangan oksigen, gas beracun, atau kondisi lain dapat membuat penolong kehilangan kesadaran dalam waktu singkat. Penyelamatan harus mengikuti rencana tanggap darurat, dilakukan oleh personel terlatih, dan menggunakan metode serta perlindungan yang sesuai hasil penilaian risiko.
+  - component: gallery
+    id: galeri-dokumentasi-simulasi-rescue
+    heading: Dokumentasi Simulasi Penyelamatan
+    intro: Cuplikan kegiatan pelatihan penyelamatan ruang terbatas sebagai gambaran pelaksanaan simulasi keadaan darurat.
+    items:
+      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-3.webp
+        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-3-thumb.webp
+        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi yang mencakup aktivitas praktik di lapangan
+      - src: /images/articles/petugas-k3-penyelamat-ruang-terbatas-1.webp
+        thumb: /images/articles/petugas-k3-penyelamat-ruang-terbatas-1-thumb.webp
+        alt: Kegiatan simulasi berlangsung di lokasi berpencahayaan terbatas untuk meniru kondisi ruang terbatas
   - component: section
     id: dasar-regulasi-petugas-penyelamat
     heading: Dasar Regulasi Petugas K3 Penyelamat Ruang Terbatas
