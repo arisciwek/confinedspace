@@ -5,6 +5,7 @@ import SiteHeader from '../../components/shared/SiteHeader.astro';
 import SiteFooter from '../../components/shared/SiteFooter.astro';
 import ServiceHero from '../../components/shared/ServiceHero.astro';
 import ServiceListBlock from '../../components/shared/ServiceListBlock.astro';
+import RelatedArticles from '../../components/shared/RelatedArticles.astro';
 import BlockRenderer from '../../components/blocks/BlockRenderer.astro';
 import { ui } from '../../config/ui.ts';
 import { site } from '../../config/site.ts';
@@ -151,6 +152,9 @@ const serviceSchemaJsonLd = JSON.stringify({
         />
       </div>
     </section>
+
+    <!-- ARTIKEL TERKAIT — disimpan sebelum penutup </main> -->
+    <RelatedArticles serviceId={data.id} />
   </main>
   <SiteFooter serviceTitle={data.title} group={data.serviceGroup} />
 </ServiceLayout>

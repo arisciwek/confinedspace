@@ -1,16 +1,35 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { articlesForParent } from '../../utils/related';
-import type { RelatedType } from '../../utils/related';
-import ArticleCard from './ArticleCard.astro';
+/**
+ * RelatedArticles — section "Artikel terkait" untuk halaman /services/<slug>.
+ *
+ * Menampilkan maksimal 3 artikel yang relatedServices-nya memuat id layanan,
+ * sort descending updatedDate. Tidak dirender sama sekali jika layanan
+ * belum punya artikel terkait.
+ *
+ * Usage:
+ * <RelatedArticles serviceId={data.id} />
+ */
+import { getCollection } from 'astro:content';
+import { articlesForService } from '../../utils/related';
+import ArticleListItem from './ArticleListItem.astro';
 import { ui } from '../../config/ui.ts';
-const { articles = [], type, id, excludeId, heading = ui.article.relatedHeadingAlt } = Astro.props as {
-  articles?: CollectionEntry<'articles'>[];
-  type: RelatedType;
-  id: number;
-  excludeId?: number;
-  heading?: string;
-};
-const chosen = articlesForParent(articles, type, id, 3, excludeId);
+
+const { serviceId, heading = ui.article.relatedHeading, limit = 3 } = Astro.props;
+const related = articlesForService(await getCollection('articles'), serviceId, limit);
 ---
-{chosen.length > 0 && <section id="related-articles" class="mx-auto max-w-7xl px-5 py-12"><h2 class="mb-6 text-2xl font-extrabold text-slate-950">{heading}</h2><div class="grid gap-5 md:grid-cols-3">{chosen.map((a: CollectionEntry<'articles'>) => <ArticleCard article={a} />)}</div></section>}
+{related.length > 0 && (
+  <section id="related-articles" class="section article-list">
+    <div class="wrap">
+      <div class="article-list__head">
+        <header class="section-title">
+          <p class="section-label">{ui.article.latestEyebrow}</p>
+          <h2>{heading}</h2>
+        </header>
+        <a class="article-list__all" href="/articles/">{ui.article.allArticlesLink}</a>
+      </div>
+      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {related.map((article) => <ArticleListItem article={article} />)}
+      </ul>
+    </div>
+  </section>
+)}
