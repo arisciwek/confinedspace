@@ -4,11 +4,11 @@ ulid: 01K9Z9A1B2C3D4E5F6G7H8J9K0
 type: article
 schemaType: Article
 slug: petugas-k3-penyelamat-ruang-terbatas
-title: Petugas K3 Penyelamat Ruang Terbatas: Tugas, Teknik Rescue, Peralatan, dan Kompetensi
+title: "Petugas K3 Penyelamat Ruang Terbatas: Tugas, Teknik Rescue, Peralatan, dan Kompetensi"
 description: Pelajari tugas Petugas K3 Penyelamat Ruang Terbatas, skenario keadaan darurat, metode rescue, peralatan penyelamatan, komunikasi, simulasi, serta persyaratan kompetensinya berdasarkan Permenaker 11 Tahun 2023.
 draft: false
-pubDate: '2026-11-12T09:00:00+07:00'
-updatedDate: '2026-11-12T09:00:00+07:00'
+pubDate: '2026-11-12T02:00:00Z'
+updatedDate: '2026-11-12T02:00:00Z'
 author:
   name: Tim Confined Space Indonesia
   type: Organization
@@ -16,8 +16,8 @@ author:
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [Petugas K3 Penyelamat Ruang Terbatas, pelatihan rescue confined space, penyelamatan ruang terbatas, confined space rescue, teknik rescue, peralatan rescue, Permenaker 11 Tahun 2023, kompetensi K3]
 featuredImage: /images/articles/petugas-k3-penyelamat-ruang-terbatas-1.webp
-featuredImageAlt: Petugas K3 Penyelamat Ruang Terbatas dalam latihan kesiapsiagaan dan penyelamatan confined space
-relatedServices: []
+featuredImageAlt: "Petugas K3 Penyelamat Ruang Terbatas: Tugas, Teknik Rescue, Peralatan, dan Kompetensi"
+relatedServices: [110]
 relatedArticles: [2]
 blocks:
   - component: section
