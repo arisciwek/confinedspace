@@ -35,6 +35,17 @@ blocks:
     variant: warning
     title: Jangan menilai atmosfer dari bau atau gejala pekerja
     text: Beberapa gas berbahaya tidak berwarna dan tidak berbau, sementara kemampuan penciuman dapat menurun atau tidak dapat diandalkan pada paparan tertentu. Pengujian harus menggunakan alat atau metode yang sesuai. Jangan memasuki ruang untuk mengambil sampel tanpa pengendalian dan prosedur yang telah ditetapkan.
+  - component: gallery
+    id: galeri-dokumentasi-pengukuran-atmosfer
+    heading: Dokumentasi Pengukuran Atmosfer
+    intro: Cuplikan kegiatan pelatihan pengukuran kondisi atmosfer sebagai gambaran penerapan tahap pengujiannya.
+    items:
+      - src: /images/articles/teknisi-deteksi-gas-ruang-terbatas-6.webp
+        thumb: /images/articles/teknisi-deteksi-gas-ruang-terbatas-6-thumb.webp
+        alt: Pelatihan Teknisi Deteksi Gas Ruang Terbatas adalah program pelatihan kompetensi pengukuran atmosfer dengan sesi praktik pemeriksaan alat
+      - src: /images/articles/pengukuran-gas-ruang-terbatas-cara-menguji-atmosfer-1.webp
+        thumb: /images/articles/pengukuran-gas-ruang-terbatas-cara-menguji-atmosfer-1-thumb.webp
+        alt: Peserta mencatat hasil pengukuran yang ditampilkan alat sebelum kriteria aman ditetapkan
   - component: section
     id: parameter-utama-pengujian-atmosfer
     heading: Parameter Utama dalam Pengujian Atmosfer
