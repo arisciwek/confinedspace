@@ -15,7 +15,7 @@ author:
   url: https://betracomtraining.com/
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [pelatihan K3 ruang terbatas, Kemnaker RI, confined space, teknisi K3 ruang terbatas, teknisi deteksi gas, petugas K3 penyelamat, Permenaker 11 Tahun 2023, sertifikasi K3]
-featuredImage: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-1.webp
+featuredImage: /images/articles/pelatihan-k3-ruang-terbatas-kemnaker-ri.webp
 featuredImageAlt: "Pelatihan K3 Ruang Terbatas Kemnaker RI: Jenis, Syarat, Kompetensi, dan Sertifikasi"
 relatedServices: [110]
 relatedArticles: [1]

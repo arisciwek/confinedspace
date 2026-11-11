@@ -15,7 +15,7 @@ author:
   url: https://betracomtraining.com/
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [Petugas K3 Penyelamat Ruang Terbatas, pelatihan rescue confined space, penyelamatan ruang terbatas, confined space rescue, teknik rescue, peralatan rescue, Permenaker 11 Tahun 2023, kompetensi K3]
-featuredImage: /images/articles/petugas-k3-penyelamat-ruang-terbatas-1.webp
+featuredImage: /images/articles/petugas-k3-penyelamat-ruang-terbatas.webp
 featuredImageAlt: "Petugas K3 Penyelamat Ruang Terbatas: Tugas, Teknik Rescue, Peralatan, dan Kompetensi"
 relatedServices: [110]
 relatedArticles: [2]
