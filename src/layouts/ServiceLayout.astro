@@ -76,6 +76,7 @@ const serviceProfJsonLd = JSON.stringify({
   mainEntityId={mainEntityId}
   aboutId={aboutId}
   serviceUrl={serviceUrl}
+  skipProfessionalService={true}
 >
   <script type="application/ld+json" set:html={serviceProfJsonLd} slot="head" />
   <slot />
