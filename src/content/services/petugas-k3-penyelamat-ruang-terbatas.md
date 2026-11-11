@@ -4,11 +4,11 @@ ulid: 01M72WVTMFJ0H1K3BFWATH8V8V
 type: service
 slug: petugas-k3-penyelamat-ruang-terbatas
 title: Pelatihan Petugas K3 Penyelamat Ruang Terbatas
-description: Pembinaan Petugas K3 Penyelamat Ruang Terbatas untuk kesiapsiagaan darurat, perencanaan rescue, penggunaan peralatan penyelamatan, dan evakuasi korban sesuai Permenaker Nomor 11 Tahun 2023.
+description: Pelatihan Petugas K3 Penyelamat Ruang Terbatas adalah pembinaan kompetensi rescue dan evakuasi darurat sesuai Permenaker No. 11 Tahun 2023.
 intro: |
-  Pelatihan Petugas K3 Penyelamat Ruang Terbatas membekali personel yang terlibat dalam kesiapsiagaan dan penanganan keadaan darurat di ruang terbatas. Peserta mempelajari cara menilai situasi, memahami risiko penyelamatan, menyiapkan sistem rescue, serta berkoordinasi dalam proses evakuasi pekerja.
+  Pelatihan Petugas K3 Penyelamat Ruang Terbatas adalah program pembinaan kompetensi Keselamatan dan Kesehatan Kerja (K3) yang mempersiapkan personel untuk menjalankan fungsi kesiapsiagaan dan penyelamatan ketika terjadi keadaan darurat di ruang terbatas (confined space). Petugas ini berperan dalam menilai situasi darurat, menentukan strategi penyelamatan yang aman, berkoordinasi dengan tim tanggap darurat, serta membantu mengevakuasi pekerja atau korban dari ruang terbatas. Peran dan kualifikasi Petugas K3 Penyelamat Ruang Terbatas diatur dalam Peraturan Menteri Ketenagakerjaan Republik Indonesia Nomor 11 Tahun 2023 tentang Keselamatan dan Kesehatan Kerja di Ruang Terbatas.
 
-  Pembinaan mengacu pada Peraturan Menteri Ketenagakerjaan Republik Indonesia Nomor 11 Tahun 2023 tentang Keselamatan dan Kesehatan Kerja di Ruang Terbatas. Materi praktik dan skenario disesuaikan dengan silabus, fasilitas, serta karakteristik risiko yang dibahas dalam program.
+  Materi pembinaan mencakup prinsip tanggap darurat, penilaian kondisi lokasi, komunikasi dan koordinasi tim rescue, serta penggunaan peralatan penyelamatan seperti tripod, winch, harness, dan lifeline. Peserta juga mempelajari penggunaan peralatan pernapasan SCBA dan escape set, pertolongan pertama dasar, serta praktik simulasi evakuasi korban. Evaluasi dan dokumen bukti kompetensi mengikuti ketentuan yang berlaku, termasuk status SKKNI dan mekanisme penerbitan dokumen oleh instansi berwenang.
 pubDate: '2026-11-10T08:45:00Z'
 updatedDate: '2026-11-11T12:00:00+07:00'
 serviceGroup: Pelatihan
