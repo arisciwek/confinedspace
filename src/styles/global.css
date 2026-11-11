@@ -154,7 +154,8 @@ b, strong { font-weight: 700; }
 .about .section-label,
 .benefit-section .section-label,
 .cta-section .section-label,
-.article-hero .section-label { color: var(--gold); }
+.article-hero .section-label,
+.service-hero .section-label { color: var(--gold); }
 
 .section-title { max-width: 760px; margin-bottom: clamp(40px, 5vw, 64px); }
 .section-title.center { text-align: center; margin-inline: auto; }
@@ -166,6 +167,18 @@ b, strong { font-weight: 700; }
 ==========================*/
 .page-header h1 { max-width: 900px; margin-bottom: 18px; }
 .page-header p { font-size: 1.0625rem; line-height: 1.8; max-width: 760px; }
+
+/*==========================
+  5c. SERVICE / ARTICLE HERO — padding lebih ringan
+==========================*/
+.service-hero,
+.article-hero {
+  padding-block: clamp(48px, 6vw, 80px); /* lebih tipis dari .section (72-120px) */
+}
+.service-hero header,
+.article-hero header {
+  max-width: 760px;
+}
 
 /*==========================
   6. BUTTONS
