@@ -135,9 +135,9 @@ blocks:
     intro: Metode tidak dapat dipilih hanya berdasarkan ketersediaan alat. Pertimbangkan konfigurasi ruang, posisi korban, potensi cedera, bahaya atmosfer, jalur evakuasi, dan kemampuan tim.
     headers: [Metode, Gambaran umum, Pertimbangan utama]
     rows:
-      - [Non-entry rescue, Evakuasi korban dari luar ruang tanpa petugas penyelamat memasuki ruang, Dapat digunakan bila akses, sistem penarikan, dan kondisi korban memungkinkan tanpa menambah risiko.]
-      - [Entry rescue, Petugas penyelamat memasuki ruang untuk menjangkau dan mengevakuasi korban, Membutuhkan tim khusus, pengendalian atmosfer, perlindungan pernapasan yang sesuai, komunikasi, pengawasan, dan rencana cadangan.]
-      - [Rescue dengan bantuan eksternal, Menggunakan dukungan tim tanggap darurat atau layanan penyelamatan eksternal, Perlu koordinasi, akses lokasi, informasi bahaya, dan mekanisme serah terima korban.]
+      - ["Non-entry rescue", "Evakuasi korban dari luar ruang tanpa petugas penyelamat memasuki ruang", "Dapat digunakan bila akses, sistem penarikan, dan kondisi korban memungkinkan tanpa menambah risiko."]
+      - ["Entry rescue", "Petugas penyelamat memasuki ruang untuk menjangkau dan mengevakuasi korban", "Membutuhkan tim khusus, pengendalian atmosfer, perlindungan pernapasan yang sesuai, komunikasi, pengawasan, dan rencana cadangan."]
+      - ["Rescue dengan bantuan eksternal", "Menggunakan dukungan tim tanggap darurat atau layanan penyelamatan eksternal", "Perlu koordinasi, akses lokasi, informasi bahaya, dan mekanisme serah terima korban."]
     note: Non-entry rescue harus diprioritaskan apabila layak dan aman. Entry rescue bukan tindakan spontan; pelaksanaannya membutuhkan kompetensi serta sumber daya yang sesuai dengan skenario dan rencana penyelamatan.
   - component: section
     id: teknik-penyelamatan

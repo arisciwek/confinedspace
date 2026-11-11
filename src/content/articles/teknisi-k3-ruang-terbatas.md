@@ -4,7 +4,7 @@ ulid: 01K9Z9B2C3D4E5F6G7H8J9K0MN
 type: article
 schemaType: Article
 slug: teknisi-k3-ruang-terbatas
-title: Teknisi K3 Ruang Terbatas Kemnaker Tugas Wewenang Kompetensi dan Pelatihan
+title: "Teknisi K3 Ruang Terbatas Kemnaker: Tugas, Wewenang, Kompetensi, dan Pelatihan"
 description: Kenali tugas dan wewenang Teknisi K3 Ruang Terbatas menurut Permenaker 11 Tahun 2023, mulai dari identifikasi bahaya, pekerjaan teknis, pemeriksaan peralatan, hingga persyaratan kompetensi dan lisensi K3.
 draft: false
 pubDate: '2026-11-12T14:00:00Z'
@@ -16,7 +16,7 @@ author:
 category: Pelatihan dan Sertifikasi K3 Ruang Terbatas
 tags: [Teknisi K3 Ruang Terbatas, pelatihan Teknisi K3, sertifikasi K3, Kemnaker RI, confined space, Permenaker 11 Tahun 2023, keselamatan kerja ruang terbatas]
 featuredImage: /images/articles/teknisi-k3-ruang-terbatas.webp
-featuredImageAlt: Teknisi K3 Ruang Terbatas Kemnaker Tugas Wewenang Kompetensi dan Pelatihan
+featuredImageAlt: "Teknisi K3 Ruang Terbatas Kemnaker: Tugas, Wewenang, Kompetensi, dan Pelatihan"
 relatedServices: [110]
 relatedArticles: [2, 3]
 blocks:

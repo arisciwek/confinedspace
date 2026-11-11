@@ -432,9 +432,9 @@ blocks:
     title: Bedakan Dokumen Pelatihan, Kompetensi, dan Lisensi
     headers: [Dokumen, Fungsi, Hal yang perlu dipastikan]
     rows:
-      - [Sertifikat pelatihan, Bukti mengikuti atau menyelesaikan program pembinaan dari penyelenggara, Nama program, penyelenggara, materi, dan status kelulusan.]
-      - [Sertifikat kompetensi atau dokumen pembinaan sesuai ketentuan, Bukti pemenuhan kompetensi melalui jalur yang berlaku, Skema, lembaga atau instansi penerbit, ruang lingkup, dan dasar penerbitan.]
-      - [Lisensi K3, Lisensi personel K3 sesuai ketentuan Permenaker, Jenis personel, identitas pemegang, masa berlaku, dan status lisensi.]
+      - ["Sertifikat pelatihan", "Bukti mengikuti atau menyelesaikan program pembinaan dari penyelenggara", "Nama program, penyelenggara, materi, dan status kelulusan."]
+      - ["Sertifikat kompetensi atau dokumen pembinaan sesuai ketentuan", "Bukti pemenuhan kompetensi melalui jalur yang berlaku", "Skema, lembaga atau instansi penerbit, ruang lingkup, dan dasar penerbitan."]
+      - ["Lisensi K3", "Lisensi personel K3 sesuai ketentuan Permenaker", "Jenis personel, identitas pemegang, masa berlaku, dan status lisensi."]
     note: Sertifikat pelatihan tidak otomatis menggantikan sertifikat kompetensi atau lisensi K3. Pastikan penyelenggara menjelaskan jalur resmi yang berlaku untuk Teknisi Deteksi Gas.
   - component: cta
     id: konsultasi-pelatihan-teknisi-deteksi-gas
