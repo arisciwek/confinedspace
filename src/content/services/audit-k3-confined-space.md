@@ -27,4 +27,4 @@ Audit K3 Confined Space adalah langkah pertama untuk memastikan kepatuhan perusa
 - Laporan audit dengan temuan & rekomendasi perbaikan
 - Daftar confined space terdaftar (inventory)
 - Rencana tindak lanjut prioritas tinggi/sedang/rendah
-- Basis untuk pengajuan SLF/PBG jika diperlukan
+- Dasar penyusunan program kerja K3 ruang terbatas dan prioritas perbaikan pengendalian risiko.
