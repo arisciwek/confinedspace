@@ -76,6 +76,7 @@ const siteGraphJsonLd = JSON.stringify({
       description: site.description,
       email: site.email,
       logo: { '@type': 'ImageObject', url: new URL(site.logo, siteOrigin).toString() },
+      image: new URL(site.logo, siteOrigin).toString(),
       telephone: `+${site.phone}`,
       address: {
         '@type': 'PostalAddress',
