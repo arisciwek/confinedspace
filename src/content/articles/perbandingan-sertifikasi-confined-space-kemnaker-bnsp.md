@@ -35,6 +35,17 @@ blocks:
     variant: warning
     title: Sertifikat BNSP tidak otomatis menggantikan lisensi K3 Kemnaker
     text: Sertifikat kompetensi dari LSP berlisensi BNSP dan lisensi K3 menurut ketentuan Kemnaker memiliki dasar serta mekanisme berbeda. Jangan menyimpulkan bahwa salah satunya otomatis memenuhi seluruh persyaratan yang ditetapkan jalur lainnya. Cocokkan dokumen dengan fungsi pekerjaan dan ketentuan yang benar-benar berlaku.
+  - component: gallery
+    id: galeri-dokumentasi-jalur-sertifikasi
+    heading: Dokumentasi Pelatihan dan Sertifikasi
+    intro: Cuplikan kegiatan pelatihan sebagai gambaran proses belajar yang mendasari penerbitan bukti kompetensi.
+    items:
+      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-8.webp
+        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-8-thumb.webp
+        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi untuk kegiatan kerja di ruang terbatas
+      - src: /images/articles/perbandingan-sertifikasi-confined-space-kemnaker-bnsp-1.webp
+        thumb: /images/articles/perbandingan-sertifikasi-confined-space-kemnaker-bnsp-1-thumb.webp
+        alt: Kegiatan pelatihan di area terbuka yang diikuti peserta bersama instruktur
   - component: section
     id: dasar-hukum-jalur-kemnaker
     heading: "Jalur Kemnaker: Pemenuhan Ketentuan Personel K3 Ruang Terbatas"
