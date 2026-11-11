@@ -35,6 +35,17 @@ blocks:
     variant: info
     title: Pengukuran atmosfer adalah fungsi khusus
     text: Teknisi Deteksi Gas tidak sama dengan Teknisi K3 Ruang Terbatas yang menjalankan fungsi teknis pada instalasi dan peralatan, serta bukan Petugas K3 Penyelamat yang menjalankan fungsi penyelamatan. Teknisi Deteksi Gas bertanggung jawab pada pengukuran atmosfer berbahaya, pencatatan hasil, dan rekomendasi berdasarkan data pengukuran.
+  - component: gallery
+    id: galeri-dokumentasi-pemeriksaan-atmosfer
+    heading: Dokumentasi Kegiatan Pemeriksaan
+    intro: Cuplikan kegiatan pelatihan pemeriksaan kondisi ruang sebagai gambaran penerapan materi pengukuran atmosfer.
+    items:
+      - src: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-4.webp
+        thumb: /images/articles/pelatihan-teknisi-k3-ruang-terbatas-4-thumb.webp
+        alt: Pelatihan Teknisi K3 Ruang Terbatas (Confined Space) adalah program pelatihan kompetensi untuk bekerja pada kondisi ruang yang terbatas
+      - src: /images/articles/teknisi-deteksi-gas-ruang-terbatas-1.webp
+        thumb: /images/articles/teknisi-deteksi-gas-ruang-terbatas-1-thumb.webp
+        alt: Peserta mengenakan alat pelindung diri selama sesi kegiatan pelatihan di lokasi kerja
   - component: section
     id: dasar-hukum-teknisi-deteksi-gas
     heading: Dasar Hukum Pengujian Gas di Ruang Terbatas
